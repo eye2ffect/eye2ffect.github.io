@@ -10,7 +10,7 @@ let render_projects = (slug) => {
 
     let projects_obj = [
         {
-            image: 'assets/images/unity-game.jpg',
+            image: 'assets/images/collage.jpg',
             link: 'https://github.com/eye2ffect/3D-Platformer',
             title: '3D 플랫포머 게임',
             demo: false,
@@ -19,25 +19,25 @@ let render_projects = (slug) => {
             categories: ['featured', 'Personal project']
         },
         {
-            image: 'assets/images/graphics-engine.jpg',
+            image: 'assets/images/mobile-landscape.jpg',
             link: 'https://github.com/eye2ffect/OpenGL-Engine',
-            title: 'OpenGL 렌더링 엔진',
+            title: '오픈지엘 렌더링 엔진',
             demo: false,
             technologies: ['C++', 'OpenGL', 'GLSL'],
             description: "C++과 OpenGL을 사용하여 제작한 실시간 렌더링 엔진입니다. 셰이더 프로그래밍과 3D 그래픽스 파이프라인을 구현했습니다.",
             categories: ['featured', 'Personal project']
         },
         {
-            image: 'assets/images/team-game.jpg',
+            image: 'assets/images/mentors.jpg',
             link: 'https://github.com/eye2ffect/Team-RPG-Project',
-            title: '팀 프로젝트 RPG 게임',
+            title: '팀 프로젝트 알피지 게임',
             demo: false,
             technologies: ['Unity', 'C#', 'SQLite'],
             description: "팀원들과 함께 제작한 RPG 게임입니다. 캐릭터 시스템, 인벤토리, 퀘스트 시스템을 담당했습니다.",
             categories: ['featured', 'Team Project']
         },
         {
-            image: 'assets/images/shader-study.jpg',
+            image: 'assets/images/soot-spirits.png',
             link: 'https://github.com/eye2ffect/Shader-Studies',
             title: '셰이더 프로그래밍 연습',
             demo: false,
@@ -46,16 +46,16 @@ let render_projects = (slug) => {
             categories: ['Personal project']
         },
         {
-            image: 'assets/images/ai-game.jpg',
+            image: 'assets/images/koalamate.png',
             link: 'https://github.com/eye2ffect/AI-Behavior-Tree',
-            title: 'AI 행동 트리 시스템',
+            title: '에이아이 행동 트리 시스템',
             demo: false,
             technologies: ['C++', 'Unity', 'Behavior Tree'],
             description: "게임 AI를 위한 행동 트리 시스템을 구현했습니다. NPC의 복잡한 행동 패턴을 제어할 수 있습니다.",
             categories: ['Personal project']
         },
         {
-            image: 'assets/images/physics-engine.jpg',
+            image: 'assets/images/data-destroyer.png',
             link: 'https://github.com/eye2ffect/Physics-Engine',
             title: '물리 엔진 구현',
             demo: false,
@@ -64,13 +64,40 @@ let render_projects = (slug) => {
             categories: ['Personal project']
         },
         {
-            image: 'assets/images/vr-game.jpg',
+            image: 'assets/images/raspberry-pi-monitor.png',
             link: 'https://github.com/eye2ffect/VR-Experience',
-            title: 'VR 게임 프로토타입',
+            title: '브이알 게임 프로토타입',
             demo: false,
             technologies: ['Unity', 'SteamVR', 'C#'],
             description: "VR 헤드셋을 위한 인터랙티브 게임 프로토타입입니다. 손 추적과 물리 상호작용을 구현했습니다.",
             categories: ['Team Project']
+        },
+        {
+            image: 'assets/images/python-chat.png',
+            link: 'https://github.com/eye2ffect/Network-Game',
+            title: '네트워크 멀티플레이어 게임',
+            demo: false,
+            technologies: ['C++', 'Socket Programming', 'Networking'],
+            description: "실시간 멀티플레이어 게임을 위한 네트워크 시스템을 구현했습니다. 클라이언트-서버 아키텍처를 사용했습니다.",
+            categories: ['Personal project']
+        },
+        {
+            image: 'assets/images/elementary.png',
+            link: 'https://github.com/eye2ffect/Game-Editor',
+            title: '게임 에디터 툴',
+            demo: false,
+            technologies: ['C++', 'Qt', 'OpenGL'],
+            description: "게임 개발을 위한 레벨 에디터 도구입니다. 드래그 앤 드롭 방식으로 게임 오브젝트를 배치할 수 있습니다.",
+            categories: ['Personal project']
+        },
+        {
+            image: 'assets/images/old-lcd.jpg',
+            link: 'https://github.com/eye2ffect/Retro-Game',
+            title: '복고풍 아케이드 게임',
+            demo: false,
+            technologies: ['C', 'Assembly', 'Pixel Art'],
+            description: "8비트 스타일의 복고풍 아케이드 게임입니다. 클래식한 게임플레이와 픽셀 아트 스타일을 구현했습니다.",
+            categories: ['Personal project']
         }
     ];
 
