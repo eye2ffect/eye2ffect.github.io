@@ -12,10 +12,36 @@ function general_utils() {
     $('.profile-pic-link').smoothScroll();
 
     $('.skillbar').each(function(){
-		$(this).find('.skillbar-bar').animate({
-			width: $(this).attr('data-percent')
-		}, 1000);
-	});
+        $(this).find('.skillbar-bar').animate({
+            width: $(this).attr('data-percent')
+        }, 1500);
+    });
+    
+    // 스킬바가 화면에 보일 때 애니메이션 시작하도록 개선
+    function animateSkillBars() {
+        $('.skillbar').each(function(){
+            var skillBar = $(this);
+            var percent = skillBar.attr('data-percent');
+            
+            skillBar.find('.skillbar-bar').animate({
+                width: percent
+            }, 1500);
+        });
+    }
+    
+    // 스킬 섹션이 화면에 보일 때 애니메이션 실행
+    $(window).scroll(function() {
+        var skillsSection = $('#skills');
+        var skillsSectionTop = skillsSection.offset().top;
+        var skillsSectionHeight = skillsSection.height();
+        var windowTop = $(window).scrollTop();
+        var windowHeight = $(window).height();
+        
+        if (windowTop + windowHeight > skillsSectionTop + 100 && !skillsSection.hasClass('animated')) {
+            skillsSection.addClass('animated');
+            animateSkillBars();
+        }
+    });
 }
 
 function blog_posts() {
