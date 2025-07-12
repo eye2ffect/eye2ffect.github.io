@@ -11,37 +11,29 @@ function general_utils() {
     $('.extra-link a').smoothScroll();
     $('.profile-pic-link').smoothScroll();
 
-    $('.skillbar').each(function(){
-        $(this).find('.skillbar-bar').animate({
-            width: $(this).attr('data-percent')
-        }, 1500);
-    });
-    
-    // 스킬바가 화면에 보일 때 애니메이션 시작하도록 개선
+    // 스킬바 애니메이션 개선 - 버벅임 해결
     function animateSkillBars() {
         $('.skillbar').each(function(){
             var skillBar = $(this);
             var percent = skillBar.attr('data-percent');
             
+            // 이미 애니메이션이 실행되었다면 스킵
+            if (skillBar.hasClass('animated')) return;
+            
+            skillBar.addClass('animated');
             skillBar.find('.skillbar-bar').animate({
                 width: percent
-            }, 1500);
+            }, {
+                duration: 1200,
+                easing: 'easeOutCubic'
+            });
         });
     }
     
-    // 스킬 섹션이 화면에 보일 때 애니메이션 실행
-    $(window).scroll(function() {
-        var skillsSection = $('#skills');
-        var skillsSectionTop = skillsSection.offset().top;
-        var skillsSectionHeight = skillsSection.height();
-        var windowTop = $(window).scrollTop();
-        var windowHeight = $(window).height();
-        
-        if (windowTop + windowHeight > skillsSectionTop + 100 && !skillsSection.hasClass('animated')) {
-            skillsSection.addClass('animated');
-            animateSkillBars();
-        }
-    });
+    // 페이지 로드시 즉시 실행
+    animateSkillBars();
+    
+    // 스크롤 이벤트는 제거하고 페이지 로드시만 실행하도록 변경
 }
 
 function blog_posts() {
