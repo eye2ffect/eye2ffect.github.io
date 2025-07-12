@@ -152,9 +152,10 @@ img {
 .projects-wrapper {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 50% 50%;
-      grid-template-columns: 50% 50%;
-  grid-gap: 10px;
+  -ms-grid-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 20px;
+  padding: 20px 0;
 }
 
 .full-width {
@@ -179,6 +180,13 @@ img {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+.section.education,
+.section.projects {
+  min-height: auto;
+  align-items: flex-start;
+  padding: 40px 0;
 }
 
 .section.skills > div {

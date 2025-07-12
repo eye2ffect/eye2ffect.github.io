@@ -11,29 +11,12 @@ function general_utils() {
     $('.extra-link a').smoothScroll();
     $('.profile-pic-link').smoothScroll();
 
-    // 스킬바 애니메이션 개선 - 버벅임 해결
-    function animateSkillBars() {
-        $('.skillbar').each(function(){
-            var skillBar = $(this);
-            var percent = skillBar.attr('data-percent');
-            
-            // 이미 애니메이션이 실행되었다면 스킵
-            if (skillBar.hasClass('animated')) return;
-            
-            skillBar.addClass('animated');
-            skillBar.find('.skillbar-bar').animate({
-                width: percent
-            }, {
-                duration: 1200,
-                easing: 'easeOutCubic'
-            });
-        });
-    }
-    
-    // 페이지 로드시 즉시 실행
-    animateSkillBars();
-    
-    // 스크롤 이벤트는 제거하고 페이지 로드시만 실행하도록 변경
+    // 스킬바 애니메이션 - 부드럽고 간단하게
+    $('.skillbar').each(function(){
+        $(this).find('.skillbar-bar').animate({
+            width: $(this).attr('data-percent')
+        }, 800, 'swing');
+    });
 }
 
 function blog_posts() {
