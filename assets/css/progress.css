@@ -3,7 +3,7 @@
 	display:block;
 	margin-bottom:15px;
 	width:100%;
-	background:#eee;
+	background:#ddd;
 	height:28px;
 	border-radius:3px;
 	-moz-border-radius:3px;
@@ -75,8 +75,8 @@
 	font-size: 1rem;
 	height:28px;
 	line-height:28px;
-	color:#ffffff;
+	color:#333;
 	font-weight: bold;
-	text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
-	z-index: 5;
+	text-shadow: none;
+	z-index: 15;
 }
