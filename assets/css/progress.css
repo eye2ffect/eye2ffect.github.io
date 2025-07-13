@@ -38,6 +38,7 @@
 	border-top-left-radius:3px;
   border-bottom-left-radius:3px;
   font-size: 1.1rem;
+  z-index: 10;
 }
 
 .skillbar-title span {
@@ -52,6 +53,8 @@
 	-moz-border-radius-bottomleft:3px;
 	border-top-left-radius:3px;
 	border-bottom-left-radius:3px;
+	position: relative;
+	z-index: 11;
 }
 
 .skillbar-bar {
