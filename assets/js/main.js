@@ -12,22 +12,29 @@ function general_utils() {
     $('.profile-pic-link').smoothScroll();
 
     // 스크롤 이벤트로 스킬바 애니메이션 제어
-    $(window).scroll(function() {
+    function checkSkillbars() {
         $('.skillbar').each(function(){
-            var skillSection = $(this).closest('#skills');
-            var sectionTop = skillSection.offset().top;
-            var sectionHeight = skillSection.outerHeight();
-            var scrollPosition = $(window).scrollTop() + $(window).height();
-            
-            // 스킬 섹션이 화면에 보일 때만 애니메이션 실행
-            if (scrollPosition > sectionTop + 100 && !$(this).hasClass('animated')) {
-                $(this).addClass('animated');
-                $(this).find('.skillbar-bar').animate({
-                    width: $(this).attr('data-percent')
-                }, 800, 'swing');
+            if (!$(this).hasClass('animated')) {
+                var skillsSection = $('#skills');
+                var sectionTop = skillsSection.offset().top;
+                var scrollPosition = $(window).scrollTop() + $(window).height();
+                
+                // Skills 섹션이 화면에 보일 때 애니메이션 실행
+                if (scrollPosition > sectionTop + 100) {
+                    $(this).addClass('animated');
+                    $(this).find('.skillbar-bar').animate({
+                        width: $(this).attr('data-percent')
+                    }, 1200, 'swing');
+                }
             }
         });
-    });
+    }
+    
+    // 페이지 로드 시 한 번 체크
+    checkSkillbars();
+    
+    // 스크롤 시 체크
+    $(window).scroll(checkSkillbars);
 }
 
 function blog_posts() {
