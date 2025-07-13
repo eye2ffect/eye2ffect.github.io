@@ -11,11 +11,22 @@ function general_utils() {
     $('.extra-link a').smoothScroll();
     $('.profile-pic-link').smoothScroll();
 
-    // 스킬바 애니메이션 - 부드럽고 간단하게
-    $('.skillbar').each(function(){
-        $(this).find('.skillbar-bar').animate({
-            width: $(this).attr('data-percent')
-        }, 800, 'swing');
+    // 스크롤 이벤트로 스킬바 애니메이션 제어
+    $(window).scroll(function() {
+        $('.skillbar').each(function(){
+            var skillSection = $(this).closest('#skills');
+            var sectionTop = skillSection.offset().top;
+            var sectionHeight = skillSection.outerHeight();
+            var scrollPosition = $(window).scrollTop() + $(window).height();
+            
+            // 스킬 섹션이 화면에 보일 때만 애니메이션 실행
+            if (scrollPosition > sectionTop + 100 && !$(this).hasClass('animated')) {
+                $(this).addClass('animated');
+                $(this).find('.skillbar-bar').animate({
+                    width: $(this).attr('data-percent')
+                }, 800, 'swing');
+            }
+        });
     });
 }
 

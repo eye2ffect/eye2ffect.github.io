@@ -29,8 +29,8 @@
   width:120px;
 	font-weight:bold;
 	font-size:13px;
-	color:#ffffff;
-	background:#6adcfa;
+	color:#333;
+	background:transparent;
 	-webkit-border-top-left-radius:3px;
 	-webkit-border-bottom-left-radius:4px;
 	-moz-border-radius-topleft:3px;
@@ -43,7 +43,7 @@
 
 .skillbar-title span {
 	display:block;
-	background:rgba(0, 0, 0, 0.3);
+	background:transparent;
 	padding:0 20px;
 	height:28px;
 	line-height:28px;
