@@ -81,30 +81,51 @@ let render_projects = (slug) => {
         return project_obj.categories.includes(slug);
     });
 
-    let projects_html = projects.map(project_obj => {
-        return `
-        <div class="project-card">
-            <div class="project-image">
-                <img src="${project_obj.image}" alt="${project_obj.title}">
+    // Fade out animation
+    projects_area.fadeOut(200, function() {
+        let projects_html = projects.map(project_obj => {
+            return `
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="${project_obj.image}" alt="${project_obj.title}">
+                </div>
+                <div class="project-content">
+                    <div class="project-title">
+                        <span>${project_obj.title}</span>
+                        ${project_obj.demo ? `<a href="${project_obj.demo}" target="_blank" class="project-link">Live Demo</a>` : ''}
+                    </div>
+                    <p class="paragraph-text-normal">${project_obj.description}</p>
+                    <div class="project-technologies">
+                        ${project_obj.technologies.map(tech => `<span class="project-technology">${tech}</span>`).join('')}
+                    </div>
+                    <div class="project-links">
+                        <a href="${project_obj.link}" target="_blank" class="project-link">GitHub</a>
+                    </div>
+                </div>
             </div>
-            <div class="project-content">
-                <div class="project-title">
-                    <span>${project_obj.title}</span>
-                    ${project_obj.demo ? `<a href="${project_obj.demo}" target="_blank">Live Demo</a>` : ''}
-                </div>
-                <p class="paragraph-text-normal">${project_obj.description}</p>
-                <div class="project-technologies">
-                    ${project_obj.technologies.map(tech => `<span class="project-technology">${tech}</span>`).join('')}
-                </div>
-                <div class="project-links">
-                    <a href="${project_obj.link}" target="_blank">GitHub</a>
-                </div>
-            </div>
-        </div>
-        `;
-    }).join('');
+            `;
+        }).join('');
 
-    projects_area.html(projects_html);
+        projects_area.html(projects_html);
+        
+        // Fade in animation
+        projects_area.fadeIn(300, function() {
+            // Re-observe new project cards for animation
+            if (typeof initScrollAnimations === 'function') {
+                document.querySelectorAll('.project-card').forEach((item, index) => {
+                    item.style.opacity = '0';
+                    item.style.transform = 'translateY(30px)';
+                    item.style.transition = `opacity 0.5s ease ${index * 0.08}s, transform 0.5s ease ${index * 0.08}s`;
+                    
+                    // Trigger animation
+                    setTimeout(() => {
+                        item.style.opacity = '1';
+                        item.style.transform = 'translateY(0)';
+                    }, 50);
+                });
+            }
+        });
+    });
 }
 
 let selected = (slug) => {

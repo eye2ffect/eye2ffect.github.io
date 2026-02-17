@@ -2,6 +2,7 @@
 $(document).ready(function() {
     general_utils();
     blog_posts();
+    initScrollAnimations();
 })
 
 
@@ -35,6 +36,48 @@ function general_utils() {
     
     // 스크롤 시 체크
     $(window).scroll(checkSkillbars);
+    
+    // Sticky nav with scroll effect
+    $(window).scroll(function() {
+        if ($(window).scrollTop() > 50) {
+            $('#nav').addClass('scrolled');
+        } else {
+            $('#nav').removeClass('scrolled');
+        }
+    });
+}
+
+function initScrollAnimations() {
+    // Intersection Observer for fade-in animations
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, observerOptions);
+    
+    // Observe experience items for staggered animation
+    document.querySelectorAll('.experience-item').forEach((item, index) => {
+        item.style.opacity = '0';
+        item.style.transform = 'translateY(30px)';
+        item.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+        observer.observe(item);
+    });
+    
+    // Observe project cards
+    document.querySelectorAll('.project-card').forEach((item, index) => {
+        item.style.opacity = '0';
+        item.style.transform = 'translateY(30px)';
+        item.style.transition = `opacity 0.5s ease ${index * 0.08}s, transform 0.5s ease ${index * 0.08}s`;
+        observer.observe(item);
+    });
 }
 
 function blog_posts() {
@@ -42,24 +85,24 @@ function blog_posts() {
     // keeping it static, can be fetched from a blog dynamically as well
     let posts = [
         {
-            url: 'https://www.nagekar.com/2017/02/trip-to-bramhatal-uttarakhand.html',
-            title: 'Trek To Bramhatal (Uttarakhand)',
+            url: 'https://muksal2000.tistory.com/',
+            title: '최근 게임 개발 관련 포스트',
         },
         {
-            url: 'https://www.nagekar.com/2017/08/privacy.html',
-            title: 'Privacy - How I Converted',
+            url: 'https://muksal2000.tistory.com/',
+            title: 'Unity 셰이더 프로그래밍',
         },
         {
-            url: 'https://www.nagekar.com/2018/01/jagriti-yatra.html',
-            title: 'Jagriti Yatra 2017',
+            url: 'https://muksal2000.tistory.com/',
+            title: 'C++ 게임 엔진 개발',
         },
         {
-            url: 'https://www.nagekar.com/2017/08/private-cloud-part-2.html',
-            title: 'Private Cloud Part 2 | Encrypted Storage With NextCloud',
+            url: 'https://muksal2000.tistory.com/',
+            title: 'OpenGL 그래픽스 프로그래밍',
         },
         {
-            url: 'https://www.nagekar.com/2018/07/eli5-how-https-works.html',
-            title: 'ELI5 - How HTTPS Works',
+            url: 'https://muksal2000.tistory.com/',
+            title: '게임 AI 구현 방법',
         },
     ];
 
@@ -71,7 +114,7 @@ function blog_posts() {
         
         if(post.tags) {
             tags = post.tags.map(tag => {
-                return `<a href="https://www.nagekar.com/tags#${tag}">${tag}</a>`
+                return `<a href="https://muksal2000.tistory.com/tags#${tag}">${tag}</a>`
             })
         }
 
@@ -95,11 +138,11 @@ function blog_posts() {
 
     // for the more posts link
     let post_template = `
-    <div class="blog-post more-blogs" onclick="blog_link_click('https://www.nagekar.com');">
+    <div class="blog-post more-blogs" onclick="blog_link_click('https://muksal2000.tistory.com');">
 
         <div class="blog-link">
 
-            <h3><a href="https://www.nagekar.com">Visit the blog for more posts</a></h3>            
+            <h3><a href="https://muksal2000.tistory.com">블로그에서 더 많은 포스트 보기</a></h3>            
 
         </div>
 
