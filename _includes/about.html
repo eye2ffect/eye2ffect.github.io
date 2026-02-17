@@ -32,9 +32,36 @@
                 </div>
             </div>
             <div class="about-photo-wrap">
+                <!-- Decorative corner accents -->
+                <div class="photo-corner photo-corner-tl"></div>
+                <div class="photo-corner photo-corner-tr"></div>
+                <div class="photo-corner photo-corner-bl"></div>
+                <div class="photo-corner photo-corner-br"></div>
+                <!-- Animated orbit ring -->
+                <div class="photo-orbit-ring"></div>
+                <div class="photo-orbit-ring photo-orbit-ring-2"></div>
+                <!-- Floating dots -->
+                <div class="photo-dot photo-dot-1"></div>
+                <div class="photo-dot photo-dot-2"></div>
+                <div class="photo-dot photo-dot-3"></div>
+                <!-- Status badge -->
+                <div class="photo-status-badge">
+                    <span class="status-dot"></span> GAME DEV
+                </div>
                 <div class="about-photo-frame">
                     <img src="{{ site.profile_picture }}" alt="Oh Yubhin" />
+                    <div class="photo-scanline"></div>
                 </div>
+                <!-- Hex pattern background -->
+                <svg class="photo-hex-bg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <pattern id="hex" width="28" height="49" patternUnits="userSpaceOnUse" patternTransform="scale(0.6)">
+                            <path d="M14 0 L28 8 L28 24 L14 32 L0 24 L0 8 Z" fill="none" stroke="rgba(92,200,232,0.08)" stroke-width="0.5"/>
+                            <path d="M14 17 L28 25 L28 41 L14 49 L0 41 L0 25 Z" fill="none" stroke="rgba(92,200,232,0.08)" stroke-width="0.5"/>
+                        </pattern>
+                    </defs>
+                    <rect width="200" height="200" fill="url(#hex)" />
+                </svg>
             </div>
         </div>
     </section>

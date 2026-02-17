@@ -111,7 +111,7 @@ function render_projects(slug) {
           '<div class="project-title">' + p.title + '</div>' +
           '<p class="paragraph-text-normal">' + p.description + '</p>' +
           '<div class="project-technologies" style="margin-bottom:0;">' +
-            p.technologies.map(function (t) { return '<span class="project-technology">' + t + '</span>'; }).join('') +
+            p.technologies.map(function (t) { return '<span class="project-technology" onclick="event.stopPropagation();">' + t + '</span>'; }).join('') +
           '</div>' +
           '<div class="project-links">' +
             '<a href="' + p.link + '" target="_blank" class="project-link" onclick="event.stopPropagation()"><i class="fab fa-github"></i> Code</a>' +
