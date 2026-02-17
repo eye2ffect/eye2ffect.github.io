@@ -8,6 +8,7 @@ $(document).ready(function () {
 
 var projects_data = [
   {
+    image: 'assets/images/unity-game.svg',
     link: 'https://github.com/eye2ffect/3D-Platformer',
     title: '3D 플랫포머 게임',
     demo: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
@@ -17,6 +18,7 @@ var projects_data = [
     icon: 'fa-cube'
   },
   {
+    image: 'assets/images/graphics-engine.svg',
     link: 'https://github.com/eye2ffect/OpenGL-Engine',
     title: 'OpenGL 렌더링 엔진',
     demo: false,
@@ -26,6 +28,7 @@ var projects_data = [
     icon: 'fa-tv'
   },
   {
+    image: 'assets/images/team-game.svg',
     link: 'https://github.com/eye2ffect/Team-RPG-Project',
     title: '팀 프로젝트 RPG',
     demo: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
@@ -35,6 +38,7 @@ var projects_data = [
     icon: 'fa-users'
   },
   {
+    image: 'assets/images/shader-study.svg',
     link: 'https://github.com/eye2ffect/Shader-Studies',
     title: '셰이더 프로그래밍',
     demo: false,
@@ -44,6 +48,7 @@ var projects_data = [
     icon: 'fa-paint-brush'
   },
   {
+    image: 'assets/images/ai-game.svg',
     link: 'https://github.com/eye2ffect/AI-Behavior-Tree',
     title: 'AI 행동 트리 시스템',
     demo: false,
@@ -53,6 +58,7 @@ var projects_data = [
     icon: 'fa-brain'
   },
   {
+    image: 'assets/images/physics-engine.svg',
     link: 'https://github.com/eye2ffect/Physics-Engine',
     title: '물리 엔진 구현',
     demo: false,
@@ -62,6 +68,7 @@ var projects_data = [
     icon: 'fa-atom'
   },
   {
+    image: 'assets/images/vr-game.svg',
     link: 'https://github.com/eye2ffect/VR-Experience',
     title: 'VR 체험 프로토타입',
     demo: 'https://www.youtube.com/embed/dQw4w9WgXcQ',

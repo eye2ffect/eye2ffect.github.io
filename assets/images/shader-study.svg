@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="400" viewBox="0 0 800 400">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0d1117"/>
+      <stop offset="100%" style="stop-color:#161b22"/>
+    </linearGradient>
+    <linearGradient id="rainbow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#f06888"/>
+      <stop offset="20%" style="stop-color:#fcd34d"/>
+      <stop offset="40%" style="stop-color:#34d399"/>
+      <stop offset="60%" style="stop-color:#5cc8e8"/>
+      <stop offset="80%" style="stop-color:#9b6dff"/>
+      <stop offset="100%" style="stop-color:#f06888"/>
+    </linearGradient>
+    <radialGradient id="glow1" cx="30%" cy="50%" r="40%">
+      <stop offset="0%" style="stop-color:#9b6dff;stop-opacity:0.12"/>
+      <stop offset="100%" style="stop-color:#9b6dff;stop-opacity:0"/>
+    </radialGradient>
+    <radialGradient id="glow2" cx="70%" cy="50%" r="40%">
+      <stop offset="0%" style="stop-color:#5cc8e8;stop-opacity:0.1"/>
+      <stop offset="100%" style="stop-color:#5cc8e8;stop-opacity:0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="400" fill="url(#bg)"/>
+  <rect width="800" height="400" fill="url(#glow1)"/>
+  <rect width="800" height="400" fill="url(#glow2)"/>
+  <!-- Shader visual - Fresnel sphere -->
+  <g transform="translate(200, 200)">
+    <circle cx="0" cy="0" r="100" fill="none" stroke="url(#rainbow)" stroke-width="2" opacity="0.6"/>
+    <circle cx="0" cy="0" r="80" fill="none" stroke="#5cc8e8" stroke-width="1" opacity="0.3"/>
+    <circle cx="0" cy="0" r="60" fill="none" stroke="#9b6dff" stroke-width="1" opacity="0.2"/>
+    <!-- Fresnel glow edge -->
+    <circle cx="0" cy="0" r="100" fill="none" stroke="#5cc8e8" stroke-width="6" opacity="0.15"/>
+    <circle cx="0" cy="0" r="98" fill="none" stroke="#9b6dff" stroke-width="3" opacity="0.2"/>
+    <!-- Surface normals -->
+    <g stroke="#34d399" stroke-width="1" opacity="0.4">
+      <line x1="85" y1="-50" x2="110" y2="-65"/>
+      <line x1="100" y1="0" x2="130" y2="0"/>
+      <line x1="85" y1="50" x2="110" y2="65"/>
+      <line x1="0" y1="-100" x2="0" y2="-125"/>
+      <line x1="-85" y1="-50" x2="-110" y2="-65"/>
+      <line x1="50" y1="-85" x2="65" y2="-110"/>
+      <line x1="-50" y1="85" x2="-65" y2="110"/>
+    </g>
+    <!-- Specular highlight -->
+    <ellipse cx="-30" cy="-35" rx="25" ry="15" fill="#ededf5" opacity="0.06" transform="rotate(-30)"/>
+  </g>
+  <!-- Shader node graph -->
+  <g transform="translate(420, 60)">
+    <!-- Node 1: UV -->
+    <rect x="0" y="0" width="120" height="55" rx="8" fill="#1e1e32" stroke="#fcd34d" stroke-opacity="0.4" stroke-width="1"/>
+    <text x="60" y="18" text-anchor="middle" font-family="monospace" font-size="10" font-weight="700" fill="#fcd34d" opacity="0.8">UV Coords</text>
+    <circle cx="120" cy="30" r="5" fill="#fcd34d" opacity="0.6"/>
+    <circle cx="120" cy="45" r="5" fill="#34d399" opacity="0.6"/>
+    <!-- Node 2: Noise -->
+    <rect x="170" y="30" width="120" height="55" rx="8" fill="#1e1e32" stroke="#34d399" stroke-opacity="0.4" stroke-width="1"/>
+    <text x="230" y="48" text-anchor="middle" font-family="monospace" font-size="10" font-weight="700" fill="#34d399" opacity="0.8">Noise</text>
+    <circle cx="170" cy="55" r="5" fill="#fcd34d" opacity="0.6"/>
+    <circle cx="290" cy="55" r="5" fill="#5cc8e8" opacity="0.6"/>
+    <!-- Connection line 1 -->
+    <line x1="125" y1="30" x2="165" y2="55" stroke="#fcd34d" stroke-width="1.5" opacity="0.3"/>
+    <!-- Node 3: Color Mix -->
+    <rect x="170" y="120" width="120" height="55" rx="8" fill="#1e1e32" stroke="#9b6dff" stroke-opacity="0.4" stroke-width="1"/>
+    <text x="230" y="138" text-anchor="middle" font-family="monospace" font-size="10" font-weight="700" fill="#9b6dff" opacity="0.8">Color Mix</text>
+    <circle cx="170" cy="145" r="5" fill="#5cc8e8" opacity="0.6"/>
+    <circle cx="290" cy="145" r="5" fill="#f06888" opacity="0.6"/>
+    <!-- Connection line 2 -->
+    <line x1="295" y1="55" x2="310" y2="55" stroke="#5cc8e8" stroke-width="1.5" opacity="0.3"/>
+    <!-- Node 4: Output -->
+    <rect x="340" y="75" width="120" height="55" rx="8" fill="#1e1e32" stroke="#f06888" stroke-opacity="0.4" stroke-width="1"/>
+    <text x="400" y="93" text-anchor="middle" font-family="monospace" font-size="10" font-weight="700" fill="#f06888" opacity="0.8">Material Out</text>
+    <circle cx="340" cy="100" r="5" fill="#5cc8e8" opacity="0.6"/>
+    <!-- Connection lines -->
+    <line x1="310" y1="55" x2="335" y2="100" stroke="#5cc8e8" stroke-width="1.5" opacity="0.3"/>
+    <line x1="295" y1="145" x2="335" y2="100" stroke="#f06888" stroke-width="1.5" opacity="0.3"/>
+  </g>
+  <!-- HLSL code -->
+  <g transform="translate(450, 230)" opacity="0.3">
+    <text font-family="monospace" font-size="11">
+      <tspan x="0" dy="0" fill="#9b6dff">float4 frag(v2f i) : SV_Target {</tspan>
+      <tspan x="12" dy="16" fill="#5cc8e8">float fresnel = pow(1.0 -</tspan>
+      <tspan x="24" dy="16" fill="#5cc8e8">saturate(dot(i.normal,</tspan>
+      <tspan x="24" dy="16" fill="#5cc8e8">i.viewDir)), _Power);</tspan>
+      <tspan x="12" dy="16" fill="#34d399">return lerp(_BaseColor,</tspan>
+      <tspan x="24" dy="16" fill="#34d399">_RimColor, fresnel);</tspan>
+      <tspan x="0" dy="16" fill="#9b6dff">}</tspan>
+    </text>
+  </g>
+  <!-- Title -->
+  <text x="400" y="380" text-anchor="middle" font-family="'Segoe UI', system-ui, sans-serif" font-size="18" font-weight="600" fill="#9b6dff" opacity="0.5" letter-spacing="0.15em">SHADER PROGRAMMING</text>
+</svg>

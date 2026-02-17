@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="400" viewBox="0 0 800 400">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f1520"/>
+      <stop offset="100%" style="stop-color:#151828"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="400" fill="url(#bg)"/>
+  <!-- Behavior Tree Visualization -->
+  <!-- Root node -->
+  <g transform="translate(400, 50)">
+    <rect x="-55" y="-18" width="110" height="36" rx="8" fill="#1e1e32" stroke="#fcd34d" stroke-opacity="0.5" stroke-width="1.5"/>
+    <text x="0" y="5" text-anchor="middle" font-family="monospace" font-size="13" font-weight="700" fill="#fcd34d">Root</text>
+  </g>
+  <!-- Lines from Root to Selector -->
+  <line x1="400" y1="68" x2="400" y2="95" stroke="#454560" stroke-width="1.5"/>
+  <!-- Selector node -->
+  <g transform="translate(400, 115)">
+    <rect x="-60" y="-18" width="120" height="36" rx="8" fill="#1e1e32" stroke="#f06888" stroke-opacity="0.5" stroke-width="1.5"/>
+    <text x="0" y="5" text-anchor="middle" font-family="monospace" font-size="12" font-weight="600" fill="#f06888">? Selector</text>
+  </g>
+  <!-- Lines from Selector -->
+  <line x1="400" y1="133" x2="200" y2="175" stroke="#454560" stroke-width="1.5"/>
+  <line x1="400" y1="133" x2="400" y2="175" stroke="#454560" stroke-width="1.5"/>
+  <line x1="400" y1="133" x2="600" y2="175" stroke="#454560" stroke-width="1.5"/>
+  <!-- Sequence 1: Combat -->
+  <g transform="translate(200, 195)">
+    <rect x="-55" y="-18" width="110" height="36" rx="8" fill="#1e1e32" stroke="#5cc8e8" stroke-opacity="0.5" stroke-width="1.5"/>
+    <text x="0" y="5" text-anchor="middle" font-family="monospace" font-size="11" font-weight="600" fill="#5cc8e8">→ Combat</text>
+  </g>
+  <!-- Sequence 2: Patrol -->
+  <g transform="translate(400, 195)">
+    <rect x="-50" y="-18" width="100" height="36" rx="8" fill="#1e1e32" stroke="#34d399" stroke-opacity="0.5" stroke-width="1.5"/>
+    <text x="0" y="5" text-anchor="middle" font-family="monospace" font-size="11" font-weight="600" fill="#34d399">→ Patrol</text>
+  </g>
+  <!-- Sequence 3: Idle -->
+  <g transform="translate(600, 195)">
+    <rect x="-40" y="-18" width="80" height="36" rx="8" fill="#1e1e32" stroke="#9b6dff" stroke-opacity="0.5" stroke-width="1.5"/>
+    <text x="0" y="5" text-anchor="middle" font-family="monospace" font-size="11" font-weight="600" fill="#9b6dff">→ Idle</text>
+  </g>
+  <!-- Combat children -->
+  <line x1="200" y1="213" x2="130" y2="255" stroke="#454560" stroke-width="1"/>
+  <line x1="200" y1="213" x2="200" y2="255" stroke="#454560" stroke-width="1"/>
+  <line x1="200" y1="213" x2="270" y2="255" stroke="#454560" stroke-width="1"/>
+  <g transform="translate(130, 275)">
+    <rect x="-42" y="-18" width="84" height="34" rx="6" fill="#252542" stroke="#5cc8e8" stroke-opacity="0.25" stroke-width="1"/>
+    <text x="0" y="3" text-anchor="middle" font-family="monospace" font-size="10" fill="#5cc8e8" opacity="0.8">Detect</text>
+  </g>
+  <g transform="translate(200, 275)">
+    <rect x="-42" y="-18" width="84" height="34" rx="6" fill="#252542" stroke="#f06888" stroke-opacity="0.25" stroke-width="1"/>
+    <text x="0" y="3" text-anchor="middle" font-family="monospace" font-size="10" fill="#f06888" opacity="0.8">Chase</text>
+  </g>
+  <g transform="translate(270, 275)">
+    <rect x="-42" y="-18" width="84" height="34" rx="6" fill="#252542" stroke="#fcd34d" stroke-opacity="0.25" stroke-width="1"/>
+    <text x="0" y="3" text-anchor="middle" font-family="monospace" font-size="10" fill="#fcd34d" opacity="0.8">Attack</text>
+  </g>
+  <!-- Patrol children -->
+  <line x1="400" y1="213" x2="370" y2="255" stroke="#454560" stroke-width="1"/>
+  <line x1="400" y1="213" x2="430" y2="255" stroke="#454560" stroke-width="1"/>
+  <g transform="translate(370, 275)">
+    <rect x="-42" y="-18" width="84" height="34" rx="6" fill="#252542" stroke="#34d399" stroke-opacity="0.25" stroke-width="1"/>
+    <text x="0" y="3" text-anchor="middle" font-family="monospace" font-size="10" fill="#34d399" opacity="0.8">Waypoint</text>
+  </g>
+  <g transform="translate(430, 275)">
+    <rect x="-42" y="-18" width="84" height="34" rx="6" fill="#252542" stroke="#34d399" stroke-opacity="0.25" stroke-width="1"/>
+    <text x="0" y="3" text-anchor="middle" font-family="monospace" font-size="10" fill="#34d399" opacity="0.8">Move</text>
+  </g>
+  <!-- Idle children -->
+  <line x1="600" y1="213" x2="570" y2="255" stroke="#454560" stroke-width="1"/>
+  <line x1="600" y1="213" x2="630" y2="255" stroke="#454560" stroke-width="1"/>
+  <g transform="translate(570, 275)">
+    <rect x="-42" y="-18" width="84" height="34" rx="6" fill="#252542" stroke="#9b6dff" stroke-opacity="0.25" stroke-width="1"/>
+    <text x="0" y="3" text-anchor="middle" font-family="monospace" font-size="10" fill="#9b6dff" opacity="0.8">Wait</text>
+  </g>
+  <g transform="translate(630, 275)">
+    <rect x="-42" y="-18" width="84" height="34" rx="6" fill="#252542" stroke="#9b6dff" stroke-opacity="0.25" stroke-width="1"/>
+    <text x="0" y="3" text-anchor="middle" font-family="monospace" font-size="10" fill="#9b6dff" opacity="0.8">LookAround</text>
+  </g>
+  <!-- Active execution path highlight -->
+  <line x1="400" y1="68" x2="400" y2="95" stroke="#fcd34d" stroke-width="2" opacity="0.4"/>
+  <line x1="400" y1="133" x2="200" y2="175" stroke="#5cc8e8" stroke-width="2" opacity="0.3"/>
+  <line x1="200" y1="213" x2="200" y2="255" stroke="#f06888" stroke-width="2" opacity="0.3"/>
+  <!-- Status indicators -->
+  <circle cx="232" cy="270" r="4" fill="#34d399" opacity="0.8"/>
+  <circle cx="130" cy="270" r="4" fill="#34d399" opacity="0.8"/>
+  <circle cx="200" cy="270" r="4" fill="#fcd34d" opacity="0.8"/>
+  <!-- Title -->
+  <text x="400" y="370" text-anchor="middle" font-family="'Segoe UI', system-ui, sans-serif" font-size="18" font-weight="600" fill="#5cc8e8" opacity="0.5" letter-spacing="0.15em">AI BEHAVIOR TREE</text>
+</svg>
