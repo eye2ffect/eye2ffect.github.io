@@ -1,178 +1,56 @@
-/* Dark Theme Card Styles */
-.wrapper {
-  max-width: 400px;
-  padding-left: 1em;
-  padding-right: 1em;
-}
-
-.border-tlr-radius { 
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px; 
-}
-
-.text-center { 
-  text-align: center; 
-}
-
-.radius { 
-  border-radius: 8px; 
-}
-
-.padding-tb { 
-  padding-top: var(--space-3);
-  padding-bottom: var(--space-3);
-}
-
-.shadowDepth0 { 
-  box-shadow: 0 2px 8px rgba(0,0,0, 0.3); 
-}
-
-.shadowDepth1 {
-  box-shadow: 
-    0 2px 8px rgba(0,0,0, 0.3),
-    0 4px 12px rgba(0,0,0, 0.4);      
-}
-
-/* Card Styles */
-.card {
-  background-color: var(--bg-card);
-  margin-bottom: var(--space-3);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-  border-radius: 12px;
-  border: 1px solid var(--border-subtle);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.card:hover {
-  box-shadow: 0 8px 30px rgba(99, 102, 241, 0.3), var(--glow);
-  border-color: var(--accent-primary);
-}
-
-.card__padding {
-  padding: var(--space-3);
-  padding-top: var(--space-2);
-}
- 
-.card__image {
-  min-height: 100px;
-  background-color: var(--bg-secondary);
-  width: 100%;
-  max-height: 200px;
-  overflow: hidden;
-  border-bottom: 1px solid var(--border-subtle);
-  border-radius: 12px 12px 0 0;
-}
-
-.card__content {
-  position: relative;
-}
-
-/* card meta */
-.card__meta time {
-  font-size: var(--text-body);
-  color: var(--text-secondary);
-  margin-left: var(--space-1);
-  float: right;
-}
-
-/* card article */
-.card__article a {
-  text-decoration: none;
-  color: var(--text-primary);
-  transition: color 0.3s ease;
-}
-
-.card__article a:hover {
-  color: var(--accent-primary);
-}
-
-/* blog cards */
+/* Blog & Card Styles v3 */
 .blog-post {
   width: 100%;
-  border-radius: 12px;
+  border-radius: var(--card-radius, 16px);
   display: grid;
-  grid-template-columns: auto 50px;
-  background-color: var(--bg-card);
-  margin-bottom: var(--space-3);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-  border: 1px solid var(--border-subtle);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  grid-template-columns: 1fr 50px;
+  background: var(--bg-card);
+  margin-bottom: var(--space-2);
+  border: 1px solid var(--border);
+  transition: all 0.3s var(--ease-out);
   overflow: hidden;
 }
-
 .blog-post:hover {
-  box-shadow: 0 8px 30px rgba(99, 102, 241, 0.3);
-  border-color: var(--accent-primary);
+  border-color: var(--border-hover);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3), 0 0 16px rgba(0,212,255,0.04);
 }
-      
 .blog-link {
-  padding-left: var(--space-2);
-  padding-right: var(--space-2);
-  grid-column-start: 1;
-  grid-column-end: 2;
-  border-right: 1px solid var(--border-subtle);
+  padding: var(--space-2) var(--space-3);
+  grid-column: 1 / 2;
+  border-right: 1px solid var(--border);
 }
-
 .blog-link a {
   text-decoration: none;
   color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: var(--text-small);
+  transition: color 0.3s;
 }
-
-.blog-link:hover {
-  opacity: 0.8;
-  cursor: pointer;
-}
+.blog-link a:hover { color: var(--cyan); }
+.blog-link:hover { cursor: pointer; }
+.blog-link h3 { font-weight: 500; }
 
 .blog-goto-link {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  grid-column-start: 2;
-  grid-column-end: 3;
-  transition: background 0.3s ease;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; grid-column: 2 / 3;
+  transition: background 0.3s;
 }
-
-.blog-goto-link:hover {
-  background: rgba(99, 102, 241, 0.1);
-}
-
-.blog-goto-link i {
-  font-size: 1.5rem;
-  color: var(--accent-primary);
-  transition: transform 0.3s ease;
-}
-
-.blog-goto-link:hover i {
-  transform: translateX(4px);
-  color: var(--accent-secondary);
-}
-
-.more-blogs {
-  background: var(--accent-gradient);
-  color: white;
-  border-color: var(--accent-primary);
-}
-
-.more-blogs a {
-  color: white;
-}
-
-.more-blogs:hover {
-  box-shadow: 0 8px 30px rgba(99, 102, 241, 0.5);
-}
+.blog-goto-link:hover { background: rgba(0,212,255,0.05); }
+.blog-goto-link i { font-size: 1.2rem; color: var(--cyan); }
 
 .blog-arrow {
-  width: 16px;
-  height: 58px;
+  width: 14px; height: 50px;
   filter: brightness(0) invert(1);
+  opacity: 0.4;
+  transition: opacity 0.3s;
 }
+.blog-post:hover .blog-arrow { opacity: 0.8; }
 
-#project-image {
-  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+.more-blogs {
+  background: var(--gradient-main);
+  border-color: var(--cyan);
 }
-
-#project-image:focus,
-#project-image:hover {
-  transform: scale(1.08);
+.more-blogs a { color: white !important; }
+.more-blogs:hover {
+  box-shadow: 0 8px 28px var(--glow-cyan);
 }
