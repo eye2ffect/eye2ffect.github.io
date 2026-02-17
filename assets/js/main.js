@@ -9,6 +9,8 @@ $(document).ready(function() {
 function general_utils() {
     // smooth scrolling for nav links
     $('.head-menu-wrap a').smoothScroll();
+    $('.sticky-nav-links a').smoothScroll();
+    $('.sticky-nav-brand').smoothScroll();
     $('.extra-link a').smoothScroll();
     $('.profile-pic-link').smoothScroll();
 
@@ -37,12 +39,13 @@ function general_utils() {
     // 스크롤 시 체크
     $(window).scroll(checkSkillbars);
     
-    // Sticky nav with scroll effect
+    // Show/hide sticky nav based on scroll position
     $(window).scroll(function() {
-        if ($(window).scrollTop() > 50) {
-            $('#nav').addClass('scrolled');
+        var heroBottom = $('#hero').offset().top + $('#hero').outerHeight();
+        if ($(window).scrollTop() > heroBottom - 100) {
+            $('#sticky-nav').addClass('visible');
         } else {
-            $('#nav').removeClass('scrolled');
+            $('#sticky-nav').removeClass('visible');
         }
     });
 }

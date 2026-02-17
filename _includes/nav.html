@@ -1,5 +1,17 @@
 
-<section class="head" id="nav">
+<nav class="sticky-nav" id="sticky-nav">
+    <div class="sticky-nav-inner">
+        <a class="sticky-nav-brand" href="#hero">{{ site.title }}</a>
+        <div class="sticky-nav-links">
+            <a class="nav-links" href="#about">ABOUT</a>
+            <a class="nav-links" href="#skills">SKILLS</a>
+            <a class="nav-links" href="#education">EXPERIENCE</a>
+            <a class="nav-links" href="#projects">PROJECTS</a>
+        </div>
+    </div>
+</nav>
+
+<section class="head" id="hero">
     <div class="head-inner-wrap">
         <div class="profile-pic-div animated">
             <a href="#about" class="profile-pic-link"><img src="{{ site.profile_picture }}" class="profile-pic"/></a>
