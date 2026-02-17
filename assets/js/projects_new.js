@@ -8,7 +8,6 @@ $(document).ready(function () {
 
 var projects_data = [
   {
-    image: 'assets/images/unity-game.jpg',
     link: 'https://github.com/eye2ffect/3D-Platformer',
     title: '3D 플랫포머 게임',
     demo: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
@@ -18,7 +17,6 @@ var projects_data = [
     icon: 'fa-cube'
   },
   {
-    image: 'assets/images/graphics-engine.jpg',
     link: 'https://github.com/eye2ffect/OpenGL-Engine',
     title: 'OpenGL 렌더링 엔진',
     demo: false,
@@ -28,7 +26,6 @@ var projects_data = [
     icon: 'fa-tv'
   },
   {
-    image: 'assets/images/team-game.jpg',
     link: 'https://github.com/eye2ffect/Team-RPG-Project',
     title: '팀 프로젝트 RPG',
     demo: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
@@ -38,7 +35,6 @@ var projects_data = [
     icon: 'fa-users'
   },
   {
-    image: 'assets/images/shader-study.jpg',
     link: 'https://github.com/eye2ffect/Shader-Studies',
     title: '셰이더 프로그래밍',
     demo: false,
@@ -48,7 +44,6 @@ var projects_data = [
     icon: 'fa-paint-brush'
   },
   {
-    image: 'assets/images/ai-game.jpg',
     link: 'https://github.com/eye2ffect/AI-Behavior-Tree',
     title: 'AI 행동 트리 시스템',
     demo: false,
@@ -58,7 +53,6 @@ var projects_data = [
     icon: 'fa-brain'
   },
   {
-    image: 'assets/images/physics-engine.jpg',
     link: 'https://github.com/eye2ffect/Physics-Engine',
     title: '물리 엔진 구현',
     demo: false,
@@ -68,7 +62,6 @@ var projects_data = [
     icon: 'fa-atom'
   },
   {
-    image: 'assets/images/vr-game.jpg',
     link: 'https://github.com/eye2ffect/VR-Experience',
     title: 'VR 체험 프로토타입',
     demo: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
@@ -96,9 +89,14 @@ function render_projects(slug) {
         ? '<a href="javascript:void(0)" class="project-link demo-link" onclick="event.stopPropagation(); openVideoModal(\'' + p.title.replace(/'/g, "\\'") + '\', \'' + p.demo + '\')"><i class="fas fa-play"></i> Demo</a>'
         : '';
 
-      // Image with onerror fallback to placeholder
-      var imageHtml = '<img src="' + p.image + '" alt="' + p.title + '" loading="lazy" onerror="this.style.display=\'none\'; this.nextElementSibling.style.display=\'flex\';">' +
-        '<div class="project-image-placeholder" style="display:none;"><i class="fas ' + (p.icon || 'fa-code') + '"></i><span>' + p.title + '</span></div>';
+      // Image or icon placeholder
+      var imageHtml;
+      if (p.image) {
+        imageHtml = '<img src="' + p.image + '" alt="' + p.title + '" loading="lazy" onerror="this.style.display=\'none\'; this.nextElementSibling.style.display=\'flex\';">' +
+          '<div class="project-image-placeholder" style="display:none;"><i class="fas ' + (p.icon || 'fa-code') + '"></i><span>' + p.title + '</span></div>';
+      } else {
+        imageHtml = '<div class="project-image-placeholder" style="display:flex;"><i class="fas ' + (p.icon || 'fa-code') + '"></i><span>' + p.title + '</span></div>';
+      }
 
       return '<div class="project-card" onclick="window.open(\'' + p.link + '\', \'_blank\')">' +
         '<div class="project-image">' + imageHtml + '</div>' +
