@@ -90,7 +90,7 @@ function render_projects(slug) {
     return p.categories.indexOf(slug) !== -1;
   });
 
-  area.fadeOut(200, function () {
+  area.fadeOut(150, function () {
     var html = filtered.map(function (p) {
       var demoBtn = p.demo
         ? '<a href="javascript:void(0)" class="project-link demo-link" onclick="event.stopPropagation(); openVideoModal(\'' + p.title.replace(/'/g, "\\'") + '\', \'' + p.demo + '\')"><i class="fas fa-play"></i> Demo</a>'
@@ -123,15 +123,15 @@ function render_projects(slug) {
 
     area.html(html);
 
-    area.fadeIn(300, function () {
+    area.fadeIn(250, function () {
       document.querySelectorAll('.project-card').forEach(function (card, idx) {
         card.style.opacity = '0';
-        card.style.transform = 'translateY(24px)';
-        card.style.transition = 'opacity 0.5s cubic-bezier(0.16,1,0.3,1) ' + (idx * 0.1) + 's, transform 0.5s cubic-bezier(0.16,1,0.3,1) ' + (idx * 0.1) + 's';
+        card.style.transform = 'translateY(16px)';
+        card.style.transition = 'opacity 0.35s ease-out ' + (idx * 0.05) + 's, transform 0.35s ease-out ' + (idx * 0.05) + 's';
         setTimeout(function () {
           card.style.opacity = '1';
           card.style.transform = 'translateY(0)';
-        }, 60);
+        }, 30);
       });
     });
   });
