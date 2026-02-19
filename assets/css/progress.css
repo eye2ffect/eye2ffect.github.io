@@ -1,4 +1,118 @@
-/* Skills Progress Bars v3 */
+/* Skills Card Layout v3 */
+.skill-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: var(--space-3);
+  margin-top: var(--space-3);
+}
+
+.skill-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: var(--space-4) var(--space-3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  transition: all 0.4s var(--ease-out);
+  position: relative;
+  overflow: hidden;
+}
+
+.skill-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--gradient-main);
+  opacity: 0;
+  transition: opacity 0.3s var(--ease-out);
+}
+
+.skill-card:hover {
+  border-color: var(--border-hover);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3), 0 0 20px var(--glow-cyan);
+}
+
+.skill-card:hover::before {
+  opacity: 1;
+}
+
+.skill-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(92, 200, 232, 0.1) 0%, rgba(155, 109, 255, 0.1) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s var(--ease-out);
+}
+
+.skill-icon i {
+  font-size: 1.6rem;
+  background: var(--gradient-main);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.skill-card:hover .skill-icon {
+  transform: scale(1.1);
+  box-shadow: 0 0 24px var(--glow-cyan);
+}
+
+.skill-name {
+  font-family: var(--font-mono);
+  font-size: var(--text-small);
+  font-weight: 600;
+  color: var(--text-primary);
+  text-align: center;
+}
+
+.skill-level {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.level-badge {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--cyan);
+  background: rgba(92, 200, 232, 0.1);
+  padding: 3px 10px;
+  border-radius: 12px;
+  letter-spacing: 0.05em;
+}
+
+.level-dots {
+  display: flex;
+  gap: 4px;
+}
+
+.level-dots .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  transition: all 0.3s var(--ease-out);
+}
+
+.level-dots .dot.active {
+  background: var(--gradient-main);
+  border-color: var(--cyan);
+  box-shadow: 0 0 8px var(--glow-cyan);
+}
+
+/* Legacy Progress Bars (keep for backward compatibility) */
 .skillbar {
   position: relative; display: block;
   margin-bottom: var(--space-2);
@@ -37,4 +151,39 @@
   font-family: var(--font-mono);
   font-size: var(--text-small); font-weight: 600;
   color: var(--text-secondary); z-index: 15;
+}
+
+/* Mobile responsive for skill cards */
+@media screen and (max-width: 480px) {
+  .skill-cards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-2);
+  }
+  
+  .skill-card {
+    padding: var(--space-3) var(--space-2);
+  }
+  
+  .skill-icon {
+    width: 48px;
+    height: 48px;
+  }
+  
+  .skill-icon i {
+    font-size: 1.3rem;
+  }
+  
+  .skill-name {
+    font-size: 0.85rem;
+  }
+  
+  .level-badge {
+    font-size: 0.7rem;
+    padding: 2px 8px;
+  }
+  
+  .level-dots .dot {
+    width: 6px;
+    height: 6px;
+  }
 }

@@ -950,13 +950,33 @@ body::before {
   .stats-row { gap: var(--space-2); }
   .stat-item { padding: var(--space-3); }
   .stat-number { font-size: var(--text-h2); }
-  .sticky-nav-links .nav-links { font-size: var(--text-xs); padding: 6px 10px; }
-  .sticky-nav-links { gap: 2px; }
+  
+  /* Mobile Navigation Fix */
+  .sticky-nav-inner {
+    padding: 0.6rem var(--space-2);
+  }
+  .sticky-nav-links {
+    gap: 2px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    max-width: calc(100vw - 80px);
+  }
+  .sticky-nav-links::-webkit-scrollbar { display: none; }
+  .sticky-nav-links .nav-links {
+    font-size: 0.7rem;
+    padding: 6px 8px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .sticky-nav-brand {
+    font-size: 0.85rem;
+  }
+  
   .project-content { padding: var(--space-3); }
-
   .hero-social { display: none; }
   .hero-scroll { display: none; }
-
   .extra-links { flex-direction: column; gap: var(--space-2); }
   .contact-link-item { width: 100%; flex-direction: row; min-width: auto; padding: var(--space-3); }
 }
@@ -965,11 +985,61 @@ body::before {
    Responsive — Mobile
    ================================================================ */
 @media screen and (max-width: 480px) {
-  .hero-name { font-size: clamp(2.2rem, 12vw, 3.5rem); }
-  .hero-typing-wrap { font-size: var(--text-body); }
-  .hero-inner { padding: var(--space-8) 0; }
-  .hero-actions { flex-direction: column; }
-  .hero-btn { width: 100%; justify-content: center; font-size: var(--text-body); padding: 14px 24px; }
+  /* Hero Section Mobile Optimization */
+  .hero {
+    padding: 0 var(--space-3);
+  }
+  .hero-inner {
+    padding: var(--space-6) 0;
+    text-align: center;
+  }
+  .hero-label {
+    justify-content: center;
+  }
+  .hero-label::before {
+    display: none;
+  }
+  .hero-name {
+    font-size: clamp(2rem, 10vw, 3rem);
+    text-align: center;
+  }
+  .hero-typing-wrap {
+    font-size: var(--text-small);
+    text-align: center;
+    min-height: 1.5em;
+  }
+  .hero-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+  .hero-btn {
+    width: 100%;
+    max-width: 280px;
+    justify-content: center;
+    font-size: var(--text-small);
+    padding: 12px 20px;
+  }
+  
+  /* Mobile Navigation */
+  .sticky-nav-inner {
+    padding: 0.5rem var(--space-2);
+    flex-wrap: nowrap;
+  }
+  .sticky-nav-brand {
+    font-size: 0.8rem;
+    flex-shrink: 0;
+  }
+  .sticky-nav-links {
+    gap: 1px;
+    max-width: calc(100vw - 60px);
+  }
+  .sticky-nav-links .nav-links {
+    font-size: 0.6rem;
+    padding: 5px 6px;
+    letter-spacing: 0.02em;
+  }
+  
+  /* Other Mobile Fixes */
   .about-photo-frame { width: 100px; height: 100px; }
   .profile-card-inner { padding: var(--space-4); }
   .projects-wrapper { grid-template-columns: 1fr; gap: var(--space-3); }
@@ -978,14 +1048,46 @@ body::before {
   .stats-row { grid-template-columns: repeat(3, 1fr); gap: var(--space-2); }
   .stat-number { font-size: 1.5rem; }
   .stat-label { font-size: var(--text-xs); }
-  .section-heading { font-size: 1.6rem; margin-bottom: var(--space-6); }
+  .section-heading { font-size: 1.5rem; margin-bottom: var(--space-5); flex-wrap: wrap; }
+  .section-heading::after { display: none; }
   .video-modal { width: 96%; }
-  .section { padding: var(--space-8) var(--space-3); }
-  .paragraph-text { font-size: 1rem; }
-  .paragraph-text-normal { font-size: 1rem; }
+  .section { padding: var(--space-6) var(--space-3); }
+  .paragraph-text { font-size: 0.95rem; }
+  .paragraph-text-normal { font-size: 0.95rem; }
   .contact-link-item { padding: var(--space-3) var(--space-4); }
+  
+  .skills-subsection {
+    font-size: var(--text-h3);
+    text-align: center;
+  }
+  .what-i-do {
+    text-align: center;
+  }
 }
 
 @media screen and (max-height: 500px) {
   .hero { min-height: 500px; }
+}
+
+/* Extra small mobile (360px and below) */
+@media screen and (max-width: 360px) {
+  .hero-name {
+    font-size: 1.8rem;
+  }
+  .hero-typing-wrap {
+    font-size: 0.85rem;
+  }
+  .sticky-nav-links .nav-links {
+    font-size: 0.55rem;
+    padding: 4px 5px;
+  }
+  .sticky-nav-brand {
+    font-size: 0.75rem;
+  }
+  .section-heading {
+    font-size: 1.3rem;
+  }
+  .stat-number {
+    font-size: 1.2rem;
+  }
 }
