@@ -1,4 +1,4 @@
-/* ================================================================
+ㅇㅈㅁㅁㅁㅁㅁㅁㅁㅁㅁ========================================================
    OH YUBHIN — Game Developer Portfolio
    Design System v3.0 — Cyberpunk / Gaming Aesthetic
    ================================================================ */
@@ -1045,9 +1045,14 @@ body::before {
   .projects-wrapper { grid-template-columns: 1fr; gap: var(--space-3); }
   .project-content { padding: var(--space-3); }
   .project-title { font-size: var(--text-h3); }
-  .stats-row { grid-template-columns: repeat(3, 1fr); gap: var(--space-2); }
-  .stat-number { font-size: 1.5rem; }
-  .stat-label { font-size: var(--text-xs); }
+  .stats-row { grid-template-columns: repeat(3, 1fr); gap: var(--space-1); }
+  .stat-item { padding: var(--space-2) var(--space-1); }
+  .stat-number { font-size: 1.3rem; }
+  .stat-label { 
+    font-size: 0.6rem; 
+    letter-spacing: 0.02em;
+    word-break: keep-all;
+  }
   .section-heading { font-size: 1.5rem; margin-bottom: var(--space-5); flex-wrap: wrap; }
   .section-heading::after { display: none; }
   .video-modal { width: 96%; }
@@ -1086,6 +1091,16 @@ body::before {
   }
   .section-heading {
     font-size: 1.3rem;
+  }
+  .stat-number {
+    font-size: 1.1rem;
+  }
+  .stat-label {
+    font-size: 0.55rem;
+    letter-spacing: 0;
+  }
+  .stat-item {
+    padding: var(--space-2) 2px;
   }
   .stat-number {
     font-size: 1.2rem;
