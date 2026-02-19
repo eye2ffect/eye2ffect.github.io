@@ -3,20 +3,10 @@
    ================================================================ */
 
 $(document).ready(function () {
-  render_projects('featured');
+  render_projects('all');
 });
 
 var projects_data = [
-  {
-    image: 'assets/images/unity-game.svg',
-    link: 'https://github.com/eye2ffect/3D-Platformer',
-    title: '3D 플랫포머 게임',
-    demo: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
-    technologies: ['Unity', 'C#', 'Blender'],
-    description: 'Unity 엔진 기반 3D 플랫포머. 플레이어 컨트롤, 물리 시스템, 레벨 디자인 구현.',
-    categories: ['featured', 'Personal project'],
-    icon: 'fa-cube'
-  },
   {
     image: 'assets/images/graphics-engine.svg',
     link: 'https://github.com/eye2ffect/OpenGL-Engine',
@@ -28,6 +18,26 @@ var projects_data = [
     icon: 'fa-tv'
   },
   {
+    image: 'assets/images/unity-game.svg',
+    link: 'https://github.com/eye2ffect/3D-Platformer',
+    title: '3D 플랫포머 게임',
+    demo: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+    technologies: ['Unity', 'C#', 'Blender'],
+    description: 'Unity 엔진 기반 3D 플랫포머. 플레이어 컨트롤, 물리 시스템, 레벨 디자인 구현.',
+    categories: ['featured', 'Personal project'],
+    icon: 'fa-cube'
+  },
+  {
+    image: 'assets/images/vr-game.svg',
+    link: 'https://github.com/eye2ffect/VR-Experience',
+    title: 'VR 체험 프로토타입',
+    demo: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+    technologies: ['Unity', 'SteamVR', 'C#'],
+    description: 'VR 인터랙티브 체험. 손 추적과 물리 상호작용 구현.',
+    categories: ['featured', 'Team Project'],
+    icon: 'fa-vr-cardboard'
+  },
+  {
     image: 'assets/images/team-game.svg',
     link: 'https://github.com/eye2ffect/Team-RPG-Project',
     title: '팀 프로젝트 RPG',
@@ -36,6 +46,16 @@ var projects_data = [
     description: '팀 기반 RPG 게임. 캐릭터 시스템, 인벤토리, 퀘스트 시스템 담당.',
     categories: ['featured', 'Team Project'],
     icon: 'fa-users'
+  },
+  {
+    image: 'assets/images/physics-engine.svg',
+    link: 'https://github.com/eye2ffect/Physics-Engine',
+    title: '물리 엔진 구현',
+    demo: false,
+    technologies: ['C++', 'Math', 'Physics'],
+    description: '강체 역학 기반 3D 물리 엔진. 충돌 검출과 응답 시스템.',
+    categories: ['Personal project'],
+    icon: 'fa-atom'
   },
   {
     image: 'assets/images/shader-study.svg',
@@ -56,26 +76,6 @@ var projects_data = [
     description: '게임 AI 행동 트리 시스템 구현. NPC의 복잡한 행동 패턴 제어.',
     categories: ['Personal project'],
     icon: 'fa-brain'
-  },
-  {
-    image: 'assets/images/physics-engine.svg',
-    link: 'https://github.com/eye2ffect/Physics-Engine',
-    title: '물리 엔진 구현',
-    demo: false,
-    technologies: ['C++', 'Math', 'Physics'],
-    description: '강체 역학 기반 3D 물리 엔진. 충돌 검출과 응답 시스템.',
-    categories: ['Personal project'],
-    icon: 'fa-atom'
-  },
-  {
-    image: 'assets/images/vr-game.svg',
-    link: 'https://github.com/eye2ffect/VR-Experience',
-    title: 'VR 체험 프로토타입',
-    demo: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
-    technologies: ['Unity', 'SteamVR', 'C#'],
-    description: 'VR 인터랙티브 체험. 손 추적과 물리 상호작용 구현.',
-    categories: ['Team Project'],
-    icon: 'fa-vr-cardboard'
   }
 ];
 
