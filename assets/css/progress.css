@@ -1,4 +1,4 @@
-/* Skills Section v5 - Role-Focused Design */
+/* Skills Section v6 - Visually Rich Design */
 
 /* Layout */
 .skills-layout {
@@ -9,6 +9,14 @@
 
 .skills-intro {
   max-width: 680px;
+  padding: var(--space-4);
+  background: linear-gradient(135deg, rgba(92, 200, 232, 0.05) 0%, rgba(155, 109, 255, 0.05) 100%);
+  border-left: 3px solid var(--cyan);
+  border-radius: 0 12px 12px 0;
+}
+
+.skills-intro p {
+  margin: 0;
 }
 
 .skills-intro strong {
@@ -24,7 +32,7 @@
 }
 
 .stack-item {
-  background: var(--bg-card);
+  background: linear-gradient(145deg, var(--bg-card) 0%, var(--bg-surface) 100%);
   border: 1px solid var(--border);
   border-radius: var(--card-radius);
   padding: var(--space-5);
@@ -36,6 +44,7 @@
   overflow: hidden;
 }
 
+/* 상단 그라데이션 라인 - 항상 표시 */
 .stack-item::before {
   content: '';
   position: absolute;
@@ -44,46 +53,69 @@
   right: 0;
   height: 3px;
   background: var(--gradient-main);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.4s var(--ease-out);
+}
+
+/* 글로우 효과 */
+.stack-item::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at center, rgba(92, 200, 232, 0.08) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity 0.4s var(--ease-out);
+  pointer-events: none;
 }
 
 .stack-item:hover {
   border-color: var(--border-hover);
-  transform: translateY(-4px);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25), 0 0 30px var(--glow-cyan);
+  transform: translateY(-6px);
+  box-shadow: 
+    0 20px 50px rgba(0, 0, 0, 0.3),
+    0 0 40px var(--glow-cyan),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
-.stack-item:hover::before {
-  transform: scaleX(1);
+.stack-item:hover::after {
+  opacity: 1;
 }
 
 .stack-icon {
-  width: 56px;
-  height: 56px;
-  border-radius: 14px;
-  background: linear-gradient(135deg, rgba(92, 200, 232, 0.12) 0%, rgba(155, 109, 255, 0.12) 100%);
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(92, 200, 232, 0.15) 0%, rgba(155, 109, 255, 0.15) 100%);
+  border: 1px solid rgba(92, 200, 232, 0.2);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
   transition: all 0.4s var(--ease-out);
+  position: relative;
+  z-index: 1;
 }
 
 .stack-icon i {
-  font-size: 1.5rem;
-  color: var(--cyan);
+  font-size: 1.8rem;
+  background: var(--gradient-main);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .stack-item:hover .stack-icon {
-  transform: scale(1.08);
-  box-shadow: 0 0 24px var(--glow-cyan);
+  transform: scale(1.1) rotate(-3deg);
+  box-shadow: 0 0 30px var(--glow-cyan);
+  border-color: var(--cyan);
 }
 
 .stack-info {
   flex: 1;
   min-width: 0;
+  position: relative;
+  z-index: 1;
 }
 
 .stack-name {
@@ -91,15 +123,15 @@
   font-size: var(--text-h3);
   font-weight: 700;
   color: var(--text-primary);
-  margin-bottom: 6px;
+  margin-bottom: 8px;
   letter-spacing: -0.01em;
 }
 
 .stack-desc {
   font-family: var(--font-body);
   font-size: var(--text-small);
-  color: var(--text-muted);
-  line-height: 1.5;
+  color: var(--text-secondary);
+  line-height: 1.6;
   margin: 0;
 }
 
@@ -108,51 +140,68 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-3);
-  padding-top: var(--space-4);
-  border-top: 1px solid var(--border);
+  padding: var(--space-4);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--card-radius);
 }
 
 .extra-label {
   font-family: var(--font-mono);
   font-size: var(--text-xs);
-  color: var(--text-dim);
+  color: var(--text-muted);
   text-transform: uppercase;
   letter-spacing: 0.12em;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.extra-label::before {
+  content: '';
+  width: 20px;
+  height: 2px;
+  background: var(--gradient-main);
+  border-radius: 1px;
 }
 
 .extra-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 12px;
 }
 
 .extra-tag {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 8px 16px;
-  background: var(--bg-surface);
+  gap: 10px;
+  padding: 10px 18px;
+  background: linear-gradient(135deg, var(--bg-surface) 0%, rgba(92, 200, 232, 0.03) 100%);
   border: 1px solid var(--border);
-  border-radius: 6px;
+  border-radius: 8px;
   font-family: var(--font-mono);
   font-size: var(--text-small);
+  font-weight: 500;
   color: var(--text-secondary);
   transition: all 0.3s var(--ease-out);
 }
 
 .extra-tag i {
-  font-size: 0.95rem;
+  font-size: 1rem;
   color: var(--text-muted);
-  transition: color 0.3s;
+  transition: all 0.3s var(--ease-out);
 }
 
 .extra-tag:hover {
   border-color: var(--border-hover);
   color: var(--text-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
 }
 
 .extra-tag:hover i {
   color: var(--cyan);
+  transform: scale(1.1);
 }
 
 /* Responsive */
@@ -165,9 +214,18 @@
   .stack-item {
     padding: var(--space-4);
   }
+  
+  .skills-intro {
+    padding: var(--space-3);
+  }
 }
 
 @media screen and (max-width: 480px) {
+  .skills-intro {
+    border-left-width: 2px;
+    padding: var(--space-3);
+  }
+  
   .stack-item {
     flex-direction: column;
     align-items: center;
@@ -177,12 +235,12 @@
   }
   
   .stack-icon {
-    width: 52px;
-    height: 52px;
+    width: 56px;
+    height: 56px;
   }
   
   .stack-icon i {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
   }
   
   .stack-name {
@@ -190,7 +248,11 @@
   }
   
   .stack-desc {
-    font-size: 0.85rem;
+    font-size: 0.9rem;
+  }
+  
+  .extra-stack {
+    padding: var(--space-3);
   }
   
   .extra-tags {
@@ -198,7 +260,7 @@
   }
   
   .extra-tag {
-    padding: 6px 12px;
+    padding: 8px 14px;
     font-size: 0.85rem;
   }
 }
