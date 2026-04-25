@@ -393,7 +393,9 @@ body::before {
 }
 
 .about-grid-simple {
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr 220px;
+  gap: var(--space-5);
+  align-items: center;
 }
 
 .about-focus {
@@ -402,6 +404,38 @@ body::before {
   color: var(--text-muted);
   margin-top: var(--space-3);
   letter-spacing: 0.04em;
+}
+
+.about-simple-profile {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--bg-card);
+  padding: var(--space-3);
+  text-align: center;
+}
+
+.about-simple-photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto var(--space-2);
+  border: 1px solid var(--border);
+}
+
+.about-simple-name {
+  font-family: var(--font-display);
+  font-size: var(--text-h3);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.about-simple-role {
+  font-family: var(--font-mono);
+  font-size: var(--text-xxs);
+  color: var(--text-muted);
+  letter-spacing: 0.03em;
 }
 
 /* ================================================================
