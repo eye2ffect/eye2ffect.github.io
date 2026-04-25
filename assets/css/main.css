@@ -393,31 +393,45 @@ body::before {
 }
 
 .about-grid-simple {
-  grid-template-columns: 1fr 220px;
-  gap: var(--space-5);
-  align-items: center;
+  grid-template-columns: minmax(0, 1fr) 250px;
+  gap: var(--space-6);
+  align-items: start;
 }
 
-.about-focus {
-  font-family: var(--font-mono);
-  font-size: var(--text-xs);
-  color: var(--text-muted);
+.about-focus-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
   margin-top: var(--space-3);
-  letter-spacing: 0.04em;
+}
+
+.about-focus-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 12px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  background: var(--bg-card);
 }
 
 .about-simple-profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   border: 1px solid var(--border);
   border-radius: 14px;
   background: var(--bg-card);
-  padding: var(--space-3);
+  padding: var(--space-4);
   text-align: center;
 }
 
 .about-simple-photo {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
+  width: 150px;
+  height: 190px;
+  border-radius: 10px;
   object-fit: cover;
   margin: 0 auto var(--space-2);
   border: 1px solid var(--border);
@@ -832,12 +846,22 @@ body::before {
    Responsive — Tablet
    ================================================================ */
 @media screen and (max-width: 900px) {
-  .about-grid { grid-template-columns: 1fr; gap: var(--space-6); }
-  .profile-card { order: -1; max-width: 320px; margin: 0 auto; position: static; }
-  .about-photo-frame { width: 120px; height: 120px; }
+  .about-grid { gap: var(--space-5); }
 }
 
 @media screen and (max-width: 768px) {
+  .about-grid,
+  .about-grid-simple {
+    grid-template-columns: 1fr;
+  }
+  .about-simple-profile {
+    max-width: 240px;
+    margin: 0 auto;
+  }
+  .about-simple-photo {
+    width: 130px;
+    height: 165px;
+  }
   .skills-grid { grid-template-columns: 1fr; gap: var(--space-4); }
   .projects-wrapper { grid-template-columns: 1fr; }
   .stats-row { gap: var(--space-2); }
@@ -933,8 +957,13 @@ body::before {
   }
   
   /* Other Mobile Fixes */
-  .about-photo-frame { width: 100px; height: 100px; }
-  .profile-card-inner { padding: var(--space-4); }
+  .about-focus-list {
+    gap: 8px;
+  }
+  .about-focus-chip {
+    font-size: 0.7rem;
+    padding: 5px 10px;
+  }
   .projects-wrapper { grid-template-columns: 1fr; gap: var(--space-3); }
   .project-content { padding: var(--space-3); }
   .project-title { font-size: var(--text-h3); }
