@@ -4,8 +4,6 @@
 
 $(document).ready(function () {
   initTypingEffect();
-  initParticles();
-  initAmbientGlow();
   initSmoothScroll();
   initStickyNav();
   initSkillbars();
