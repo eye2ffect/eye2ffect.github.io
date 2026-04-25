@@ -109,43 +109,6 @@ body::before {
 }
 
 /* ================================================================
-   Loading Screen
-   ================================================================ */
-.loading-screen {
-  position: fixed; inset: 0; z-index: 99999;
-  background: var(--bg-primary);
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
-  transition: opacity 0.8s var(--ease-out), visibility 0.8s;
-}
-.loading-screen.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
-.loading-logo {
-  font-family: var(--font-display);
-  font-size: 1.4rem; font-weight: 700;
-  color: var(--cyan); letter-spacing: 0.05em;
-}
-.loading-bar-container {
-  width: 180px; height: 2px;
-  background: var(--bg-card);
-  border-radius: 2px; overflow: hidden;
-  margin-top: var(--space-3);
-}
-.loading-bar {
-  height: 100%; width: 0%;
-  background: var(--gradient-main);
-  border-radius: 2px;
-  transition: width 0.2s linear;
-  box-shadow: 0 0 16px var(--glow-cyan);
-}
-.loading-text {
-  font-family: var(--font-mono);
-  font-size: var(--text-xxs);
-  color: var(--text-muted);
-  margin-top: var(--space-2);
-  letter-spacing: 0.25em;
-}
-
-/* ================================================================
    Particle Canvas
    ================================================================ */
 #particle-canvas {

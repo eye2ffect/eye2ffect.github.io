@@ -3,7 +3,6 @@
    ================================================================ */
 
 $(document).ready(function () {
-  initLoadingScreen();
   initTypingEffect();
   initParticles();
   initAmbientGlow();
@@ -11,41 +10,7 @@ $(document).ready(function () {
   initStickyNav();
   initSkillbars();
   initScrollReveal();
-  initCountUp();
 });
-
-/* ================================================================
-   Loading Screen — sequential progress
-   ================================================================ */
-function initLoadingScreen() {
-  var progress = 0;
-  var bar = document.getElementById('loading-bar');
-  if (!bar) return;
-
-  var steps = [
-    { target: 30, speed: 60 },
-    { target: 65, speed: 40 },
-    { target: 90, speed: 80 },
-    { target: 100, speed: 30 }
-  ];
-  var step = 0;
-
-  var interval = setInterval(function () {
-    if (step >= steps.length) {
-      clearInterval(interval);
-      setTimeout(function () {
-        document.getElementById('loading-screen').classList.add('hidden');
-      }, 400);
-      return;
-    }
-    progress += Math.random() * 3 + 1;
-    if (progress >= steps[step].target) {
-      progress = steps[step].target;
-      step++;
-    }
-    bar.style.width = progress + '%';
-  }, 50);
-}
 
 /* ================================================================
    Typing Effect — cycles through phrases
@@ -94,8 +59,7 @@ function initTypingEffect() {
     setTimeout(tick, delay);
   }
 
-  // Start after loading screen
-  setTimeout(tick, 1200);
+  setTimeout(tick, 300);
 }
 
 /* ================================================================
@@ -295,33 +259,3 @@ function initScrollReveal() {
   });
 }
 
-/* ================================================================
-   Count Up — stat numbers
-   ================================================================ */
-function initCountUp() {
-  if (!('IntersectionObserver' in window)) return;
-
-  var observer = new IntersectionObserver(function (entries) {
-    entries.forEach(function (entry) {
-      if (entry.isIntersecting) {
-        var el = entry.target;
-        var target = parseInt(el.getAttribute('data-count'), 10);
-        var current = 0;
-        var step = target / 60; // ~1 second at 60fps
-        var timer = setInterval(function () {
-          current += step;
-          if (current >= target) {
-            current = target;
-            clearInterval(timer);
-          }
-          el.textContent = Math.floor(current) + '+';
-        }, 16);
-        observer.unobserve(el);
-      }
-    });
-  }, { threshold: 0.5 });
-
-  document.querySelectorAll('.stat-number').forEach(function (el) {
-    observer.observe(el);
-  });
-}

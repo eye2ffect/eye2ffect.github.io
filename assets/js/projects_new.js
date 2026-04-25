@@ -9,73 +9,23 @@ $(document).ready(function () {
 var projects_data = [
   {
     image: 'assets/images/graphics-engine.svg',
-    link: 'https://github.com/eye2ffect/OpenGL-Engine',
-    title: 'OpenGL 렌더링 엔진',
+    link: 'https://github.com/eye2ffect',
+    title: 'CUDA 기반 레이트레이싱 렌더러',
     demo: false,
-    technologies: ['C++', 'OpenGL', 'GLSL'],
-    description: 'C++과 OpenGL을 사용한 실시간 렌더링 엔진. 셰이더 프로그래밍과 그래픽스 파이프라인.',
+    technologies: ['C++', 'CUDA', 'Ray Tracing'],
+    description: 'CUDA 병렬 처리와 메모리 접근 최적화(코얼레싱/버퍼 구조 개선)를 통해 연산 병목을 줄인 레이트레이싱 프로젝트. 렌더링 결과 이미지와 구현 과정을 GitHub에 정리했습니다.',
     categories: ['featured', 'Personal project'],
     icon: 'fa-tv'
   },
   {
-    image: 'assets/images/unity-game.svg',
-    link: 'https://github.com/eye2ffect/3D-Platformer',
-    title: '3D 플랫포머 게임',
-    demo: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
-    technologies: ['Unity', 'C#', 'Blender'],
-    description: 'Unity 엔진 기반 3D 플랫포머. 플레이어 컨트롤, 물리 시스템, 레벨 디자인 구현.',
-    categories: ['featured', 'Personal project'],
-    icon: 'fa-cube'
-  },
-  {
     image: 'assets/images/vr-game.svg',
-    link: 'https://github.com/eye2ffect/VR-Experience',
-    title: 'VR 체험 프로토타입',
-    demo: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
-    technologies: ['Unity', 'SteamVR', 'C#'],
-    description: 'VR 인터랙티브 체험. 손 추적과 물리 상호작용 구현.',
+    link: 'https://github.com/eye2ffect',
+    title: 'VR·Unity·GPT AI 학교 화재 대피훈련',
+    demo: false,
+    technologies: ['Unity', 'VR', 'GPT AI'],
+    description: '가상 화재 상황을 재현한 VR 훈련 환경에서 GPT AI와 상호작용하며 대피 판단과 절차를 학습하는 교육 프로젝트.',
     categories: ['featured', 'Team Project'],
     icon: 'fa-vr-cardboard'
-  },
-  {
-    image: 'assets/images/team-game.svg',
-    link: 'https://github.com/eye2ffect/Team-RPG-Project',
-    title: '팀 프로젝트 RPG',
-    demo: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
-    technologies: ['Unity', 'C#', 'SQLite'],
-    description: '팀 기반 RPG 게임. 캐릭터 시스템, 인벤토리, 퀘스트 시스템 담당.',
-    categories: ['featured', 'Team Project'],
-    icon: 'fa-users'
-  },
-  {
-    image: 'assets/images/physics-engine.svg',
-    link: 'https://github.com/eye2ffect/Physics-Engine',
-    title: '물리 엔진 구현',
-    demo: false,
-    technologies: ['C++', 'Math', 'Physics'],
-    description: '강체 역학 기반 3D 물리 엔진. 충돌 검출과 응답 시스템.',
-    categories: ['Personal project'],
-    icon: 'fa-atom'
-  },
-  {
-    image: 'assets/images/shader-study.svg',
-    link: 'https://github.com/eye2ffect/Shader-Studies',
-    title: '셰이더 프로그래밍',
-    demo: false,
-    technologies: ['HLSL', 'Unity', 'ShaderGraph'],
-    description: '다양한 시각 효과를 구현하며 셰이더 프로그래밍을 학습한 프로젝트.',
-    categories: ['Personal project'],
-    icon: 'fa-paint-brush'
-  },
-  {
-    image: 'assets/images/ai-game.svg',
-    link: 'https://github.com/eye2ffect/AI-Behavior-Tree',
-    title: 'AI 행동 트리 시스템',
-    demo: false,
-    technologies: ['C++', 'Unity', 'Behavior Tree'],
-    description: '게임 AI 행동 트리 시스템 구현. NPC의 복잡한 행동 패턴 제어.',
-    categories: ['Personal project'],
-    icon: 'fa-brain'
   }
 ];
 
