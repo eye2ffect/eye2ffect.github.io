@@ -397,9 +397,9 @@ body::before {
    ================================================================ */
 .about-grid {
   display: grid;
-  grid-template-columns: 1fr 280px;
-  gap: var(--space-8);
-  align-items: start;
+  grid-template-columns: 1fr 300px;
+  gap: var(--space-6);
+  align-items: center;
 }
 .about-text { max-width: 560px; }
 
