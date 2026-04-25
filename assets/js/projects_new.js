@@ -13,7 +13,7 @@ var projects_data = [
     title: 'CUDA 기반 레이트레이싱 렌더러',
     demo: false,
     technologies: ['C++', 'CUDA', 'Ray Tracing'],
-    description: 'CUDA 병렬 처리와 메모리 접근 최적화(코얼레싱/버퍼 구조 개선)를 통해 연산 병목을 줄인 레이트레이싱 프로젝트. 렌더링 결과 이미지와 구현 과정을 GitHub에 정리했습니다.',
+    description: 'CUDA 병렬 처리와 메모리 최적화로 렌더링 성능을 모니터링하고, 낹금 낭화된 GitHub 뚬포지토리로 결과를 공유했습니다.',
     categories: ['featured', 'Personal project'],
     icon: 'fa-tv'
   },
@@ -23,7 +23,7 @@ var projects_data = [
     title: 'VR·Unity·GPT AI 학교 화재 대피훈련',
     demo: false,
     technologies: ['Unity', 'VR', 'GPT AI'],
-    description: '가상 화재 상황을 재현한 VR 훈련 환경에서 GPT AI와 상호작용하며 대피 판단과 절차를 학습하는 교육 프로젝트.',
+    description: 'VR 환경에서 화재 상황을 안전하게 체험하고 GPT AI와 상호작용하며 대피 절차를 학습하는 교육 프로젝트입니다.',
     categories: ['featured', 'Team Project'],
     icon: 'fa-vr-cardboard'
   }
