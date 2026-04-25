@@ -8,8 +8,8 @@ $(document).ready(function () {
 
 var projects_data = [
   {
-    image: 'assets/images/graphics-engine.svg',
-    link: 'https://github.com/eye2ffect',
+    image: 'assets/images/ray.webp',
+    link: 'https://github.com/eye2ffect/raytracing-in-one-weekend-cuda',
     title: 'CUDA 기반 레이트레이싱 렌더러',
     demo: false,
     technologies: ['C++', 'CUDA', 'Ray Tracing'],
@@ -18,10 +18,10 @@ var projects_data = [
     icon: 'fa-tv'
   },
   {
-    image: 'assets/images/vr-game.svg',
-    link: 'https://github.com/eye2ffect',
+    image: 'assets/images/image.png',
+    link: 'https://github.com/eye2ffect/Unity-VR-Fire-Evacuation',
     title: 'VR·Unity·GPT AI 학교 화재 대피훈련',
-    demo: false,
+    demo: 'https://www.youtube.com/embed/MZpwtlP9eL4',
     technologies: ['Unity', 'VR', 'GPT AI'],
     description: 'VR 환경에서 화재 상황을 안전하게 체험하고 GPT AI와 상호작용하며 대피 절차를 학습하는 교육 프로젝트입니다.',
     categories: ['featured', 'Team Project'],
