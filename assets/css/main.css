@@ -663,6 +663,103 @@ body::before {
 }
 
 /* ================================================================
+   About Popup
+   ================================================================ */
+.about-popup-overlay {
+  position: fixed; inset: 0; z-index: 11000;
+  background: rgba(0, 0, 0, 0.82);
+  backdrop-filter: blur(10px);
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; visibility: hidden;
+  transition: opacity 0.28s var(--ease-out), visibility 0.28s var(--ease-out);
+}
+.about-popup-overlay.active { opacity: 1; visibility: visible; }
+
+.about-popup {
+  width: min(1100px, 94vw);
+  max-height: 90vh;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: #111217;
+  box-shadow: 0 20px 80px rgba(0, 0, 0, 0.45);
+  transform: translateY(18px) scale(0.98);
+  transition: transform 0.35s var(--ease-out);
+}
+.about-popup-overlay.active .about-popup { transform: translateY(0) scale(1); }
+
+.about-popup-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.01);
+}
+.about-popup-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.45rem;
+  color: var(--text-primary);
+}
+.about-popup-close {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  font-size: 1.25rem;
+  width: 36px; height: 36px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.about-popup-close:hover {
+  border-color: var(--border-hover);
+  color: var(--text-primary);
+}
+
+.about-popup-body {
+  max-height: calc(90vh - 72px);
+  overflow: auto;
+  padding: 1.2rem;
+}
+
+.about-popup-section {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 280px;
+  gap: 1.1rem;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  border-radius: 14px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.about-popup-copy h3 {
+  margin: 0 0 0.75rem;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+}
+
+.about-popup-copy p {
+  margin: 0 0 0.72rem;
+  font-size: 0.97rem;
+  color: var(--text-secondary);
+  line-height: 1.78;
+}
+
+.about-popup-image-wrap,
+.about-popup-image-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.about-popup-image {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  object-fit: cover;
+  background: #0b0d10;
+}
+
+/* ================================================================
    Contact / Extra
    ================================================================ */
 .extra { margin-bottom: 0; }
@@ -821,6 +918,13 @@ body::before {
   .hero-scroll { display: none; }
   .extra-links { flex-direction: column; gap: var(--space-2); }
   .contact-link-item { width: 100%; flex-direction: row; min-width: auto; padding: var(--space-3); }
+
+  .about-popup {
+    width: 96vw;
+    max-height: 92vh;
+  }
+  .about-popup-body { padding: 0.8rem; }
+  .about-popup-section { grid-template-columns: 1fr; }
 }
 
 /* ================================================================
