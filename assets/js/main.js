@@ -1,12 +1,11 @@
 /* ================================================================
-   OH YUBHIN — Portfolio JS v3
+  OH YOU BIN — Portfolio JS v3
    ================================================================ */
 
 $(document).ready(function () {
   initTypingEffect();
   initSmoothScroll();
   initStickyNav();
-  initSkillbars();
   initScrollReveal();
 });
 
@@ -204,29 +203,6 @@ function initStickyNav() {
       $('#sticky-nav').removeClass('visible');
     }
   });
-}
-
-/* ================================================================
-   Skill Bars — animate on scroll
-   ================================================================ */
-function initSkillbars() {
-  function check() {
-    var section = $('#skills');
-    if (!section.length) return;
-    var trigger = section.offset().top - $(window).height() + 200;
-
-    $('.skillbar').each(function () {
-      if (!$(this).hasClass('animated') && $(window).scrollTop() > trigger) {
-        $(this).addClass('animated');
-        $(this).find('.skillbar-bar').animate(
-          { width: $(this).attr('data-percent') },
-          1400, 'swing'
-        );
-      }
-    });
-  }
-  check();
-  $(window).scroll(check);
 }
 
 /* ================================================================

@@ -13,7 +13,7 @@ var projects_data = [
     title: 'CUDA 기반 레이트레이싱 렌더러',
     demo: false,
     technologies: ['C++', 'CUDA', 'Ray Tracing'],
-    description: 'CUDA 병렬 처리와 메모리 최적화로 렌더링 성능을 모니터링하고, 낹금 낭화된 GitHub 뚬포지토리로 결과를 공유했습니다.',
+    description: 'CUDA 병렬 처리와 메모리 최적화를 통해 렌더링 성능을 개선하고, 결과를 GitHub 레포지토리로 공유했습니다.',
     categories: ['featured', 'Personal project'],
     icon: 'fa-tv'
   },
