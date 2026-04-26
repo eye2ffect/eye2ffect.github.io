@@ -676,8 +676,8 @@ body::before {
 .about-popup-overlay.active { opacity: 1; visibility: visible; }
 
 .about-popup {
-  width: min(1100px, 94vw);
-  max-height: 90vh;
+  width: min(1280px, 97vw);
+  max-height: 94vh;
   overflow: hidden;
   border: 1px solid var(--border);
   border-radius: 16px;
@@ -715,10 +715,12 @@ body::before {
 }
 
 .about-popup-body {
-  max-height: calc(90vh - 72px);
-  overflow: auto;
-  padding: 1.2rem;
+  max-height: calc(94vh - 72px);
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 1.35rem;
   cursor: grab;
+  scrollbar-gutter: stable;
 }
 .about-popup-body.dragging {
   cursor: grabbing;
@@ -727,7 +729,7 @@ body::before {
 
 .about-popup-section {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 280px;
+  grid-template-columns: minmax(0, 1fr) 320px;
   gap: 1.1rem;
   border: 1px solid var(--border);
   background: var(--bg-card);
@@ -739,14 +741,29 @@ body::before {
 .about-popup-copy h3 {
   margin: 0 0 0.75rem;
   font-family: var(--font-display);
-  font-size: 1.35rem;
+  font-size: 1.55rem;
 }
 
 .about-popup-copy p {
   margin: 0 0 0.72rem;
-  font-size: 1.08rem;
+  font-size: 1.18rem;
   color: var(--text-secondary);
-  line-height: 1.95;
+  line-height: 2.05;
+}
+
+.about-popup-body::-webkit-scrollbar {
+  width: 12px;
+}
+.about-popup-body::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.04);
+}
+.about-popup-body::-webkit-scrollbar-thumb {
+  background: rgba(74, 158, 255, 0.55);
+  border-radius: 999px;
+  border: 2px solid rgba(0, 0, 0, 0.25);
+}
+.about-popup-body::-webkit-scrollbar-thumb:hover {
+  background: rgba(74, 158, 255, 0.85);
 }
 
 .about-popup-image-wrap,

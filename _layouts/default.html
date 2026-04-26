@@ -21,8 +21,8 @@
         }
         .about-popup-overlay.active { opacity: 1; visibility: visible; }
         .about-popup {
-            width: min(1100px, 94vw);
-            max-height: 90vh;
+            width: min(1280px, 97vw);
+            max-height: 94vh;
             overflow: hidden;
             border: 1px solid rgba(255,255,255,.12);
             border-radius: 16px;
@@ -36,18 +36,36 @@
             border-bottom: 1px solid rgba(255,255,255,.12);
         }
         .about-popup-body {
-            max-height: calc(90vh - 72px);
-            overflow: auto;
-            padding: 1.2rem;
+            max-height: calc(94vh - 72px);
+            overflow-y: auto;
+            overflow-x: hidden;
+            padding: 1.35rem;
+            scrollbar-gutter: stable;
         }
         .about-popup-section {
             display: grid;
-            grid-template-columns: minmax(0,1fr) 280px;
+            grid-template-columns: minmax(0,1fr) 320px;
             gap: 1rem;
             border: 1px solid rgba(255,255,255,.12);
             border-radius: 14px;
             padding: 1rem;
             margin-bottom: 1rem;
+        }
+        .about-popup-copy h3 {
+            font-size: 1.55rem;
+            margin: 0 0 .7rem;
+        }
+        .about-popup-copy p {
+            font-size: 1.18rem;
+            line-height: 2.05;
+            margin: 0 0 .72rem;
+        }
+        .about-popup-body::-webkit-scrollbar { width: 12px; }
+        .about-popup-body::-webkit-scrollbar-track { background: rgba(255,255,255,.04); }
+        .about-popup-body::-webkit-scrollbar-thumb {
+            background: rgba(74,158,255,.55);
+            border-radius: 999px;
+            border: 2px solid rgba(0,0,0,.25);
         }
         .about-popup-image-wrap, .about-popup-image-stack {
             display: flex;
