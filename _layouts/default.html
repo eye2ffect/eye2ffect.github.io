@@ -5,6 +5,66 @@
     {% include head.html %}
 </head>  
 <body>
+    <style>
+        .about-popup-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 11000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.82);
+            backdrop-filter: blur(10px);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity .25s ease, visibility .25s ease;
+        }
+        .about-popup-overlay.active { opacity: 1; visibility: visible; }
+        .about-popup {
+            width: min(1100px, 94vw);
+            max-height: 90vh;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,.12);
+            border-radius: 16px;
+            background: #111217;
+        }
+        .about-popup-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 1.25rem;
+            border-bottom: 1px solid rgba(255,255,255,.12);
+        }
+        .about-popup-body {
+            max-height: calc(90vh - 72px);
+            overflow: auto;
+            padding: 1.2rem;
+        }
+        .about-popup-section {
+            display: grid;
+            grid-template-columns: minmax(0,1fr) 280px;
+            gap: 1rem;
+            border: 1px solid rgba(255,255,255,.12);
+            border-radius: 14px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+        .about-popup-image-wrap, .about-popup-image-stack {
+            display: flex;
+            flex-direction: column;
+            gap: .75rem;
+        }
+        .about-popup-image {
+            width: 100%;
+            border-radius: 10px;
+            border: 1px solid rgba(255,255,255,.12);
+            object-fit: cover;
+        }
+        @media (max-width: 768px) {
+            .about-popup-section { grid-template-columns: 1fr; }
+        }
+    </style>
+
     {% include nav.html %}
 
     {% include extra.html %}

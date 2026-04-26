@@ -244,13 +244,27 @@ function initAboutPopup() {
   var closeBtn = document.getElementById('about-popup-close');
   var popupBody = popup.querySelector('.about-popup-body');
 
+  // Fallback visibility control to avoid broken rendering when CSS cache is stale.
+  popup.style.display = 'none';
+  popup.setAttribute('aria-hidden', 'true');
+
   function openAboutPopup() {
-    popup.classList.add('active');
+    popup.style.display = 'flex';
+    popup.setAttribute('aria-hidden', 'false');
+    requestAnimationFrame(function () {
+      popup.classList.add('active');
+    });
     document.body.style.overflow = 'hidden';
   }
 
   function closeAboutPopup() {
     popup.classList.remove('active');
+    popup.setAttribute('aria-hidden', 'true');
+    setTimeout(function () {
+      if (!popup.classList.contains('active')) {
+        popup.style.display = 'none';
+      }
+    }, 240);
     document.body.style.overflow = '';
   }
 
