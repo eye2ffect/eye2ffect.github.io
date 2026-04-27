@@ -36,11 +36,14 @@
             border-bottom: 1px solid rgba(255,255,255,.12);
         }
         .about-popup-body {
+            height: min(72vh, calc(100vh - 160px));
             max-height: calc(94vh - 72px);
-            overflow-y: auto;
+            overflow-y: scroll;
             overflow-x: hidden;
             padding: 1.35rem;
             scrollbar-gutter: stable;
+            overscroll-behavior: contain;
+            -webkit-overflow-scrolling: touch;
         }
         .about-popup-section {
             display: grid;
@@ -115,7 +118,7 @@
                 <h2 id="about-popup-title" class="about-popup-title">More About Me</h2>
                 <button class="about-popup-close" id="about-popup-close" aria-label="Close About Popup">&times;</button>
             </div>
-            <div class="about-popup-body">
+            <div class="about-popup-body" tabindex="0" aria-label="About me details scroll area">
                 <section class="about-popup-section">
                     <div class="about-popup-copy">
                         <h3>About Me</h3>

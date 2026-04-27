@@ -715,12 +715,15 @@ body::before {
 }
 
 .about-popup-body {
+  height: min(72vh, calc(100vh - 160px));
   max-height: calc(94vh - 72px);
-  overflow-y: auto;
+  overflow-y: scroll;
   overflow-x: hidden;
   padding: 1.35rem;
   cursor: grab;
   scrollbar-gutter: stable;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
 }
 .about-popup-body.dragging {
   cursor: grabbing;
