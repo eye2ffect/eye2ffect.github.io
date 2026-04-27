@@ -2,6 +2,7 @@ title: OH YOU BIN
 description: Game Developer
 site_title: 'OH YOU BIN - Game Developer'
 web_beacon_domain: eye2ffect.github.io
+deploy_marker: 'popup-v2-20260427'
 
 # Build settings
 markdown: kramdown
