@@ -75,6 +75,36 @@
             line-height: 2.05;
             margin: 0 0 .72rem;
         }
+        .about-popup-article {
+            max-width: 920px;
+            margin: 0 auto;
+            border: 1px solid rgba(255,255,255,.12);
+            border-radius: 14px;
+            background: rgba(255,255,255,.01);
+            padding: 1.25rem 1.3rem;
+        }
+        .about-popup-article h3 {
+            margin: 0 0 1rem;
+            font-size: 1.65rem;
+        }
+        .about-popup-article p {
+            margin: 0 0 .95rem;
+            font-size: 1.14rem;
+            line-height: 2.05;
+            color: rgba(255,255,255,.86);
+            word-break: keep-all;
+        }
+        .about-popup-article .about-popup-image {
+            width: min(360px, 100%);
+            margin: 0 auto 1rem;
+        }
+        .about-popup-inline-image {
+            width: min(680px, 100%);
+            margin: .7rem auto 1rem;
+            border-radius: 10px;
+            border: 1px solid rgba(255,255,255,.12);
+            display: block;
+        }
         .about-popup-copy ul {
             margin: .3rem 0 .9rem 1.2rem;
             line-height: 1.9;
@@ -142,56 +172,19 @@
                 <button class="about-popup-close" id="about-popup-close" aria-label="Close About Popup">&times;</button>
             </div>
             <div class="about-popup-body" tabindex="0" aria-label="About me details scroll area">
-                <section class="about-popup-section">
-                    <div class="about-popup-copy">
-                        <h3>자기소개</h3>
-                        <p>저는 분석 안에 설계 도전합니다. 새로운 문제에 대해 깊이 생각하기보다는 먼저 행동으로 옮기는 것을 선호합니다. 모든 일에서 즐거움과 효율성을 모두 찾으려고 노력합니다.</p>
-                        <p>다양한 프로젝트를 진행하면서 "어떤 게임이 더 재미있을까?" 또는 "게임플레이를 더 재미있게 만들기 위해 어떤 규칙을 추가할 수 있을까?" 같은 질문을 자주 고민합니다. 저는 게임 개발에서 오는 도전을 즐깁니다.</p>
-                        <p>게임 개발과 완성도에 대한 열정과 관심을 유지하면서 새로운 방법을 끊임없이 모색합니다. 또한 외부 압력에도 흔들리지 않는 균형 잡힌 자세를 잃지 않으려 노력합니다.</p>
-                        <p>프로젝트가 순조롭게 진행되지 않을 때도 "지금 당장 무엇을 해야 할까"를 빠르게 정리하고 집중합니다. 생각이 많고 감정이 복잡할 때에도 중요한 것만 분리해 문제 해결 흐름을 끝까지 이어가는 편입니다.</p>
-                    </div>
-                    <div class="about-popup-image-wrap">
-                        <img src="assets/images/pp.jpg" alt="OH YOU BIN portrait" class="about-popup-image">
-                    </div>
-                </section>
-
-                <section class="about-popup-section about-popup-section-alt">
-                    <div class="about-popup-copy">
-                        <h3>협업과 커뮤니케이션</h3>
-                        <p>저는 행동이 말보다 더 큰 힘을 발휘한다고 믿습니다. 3D 포트폴리오 팀 프로젝트를 시작하기 전에 팀원들 간의 의사소통이 원활하지 않아 팀 협업이 올바른 선택인지 고민했지만, 팀워크를 통해 더 많은 콘텐츠와 더 좋은 품질의 포트폴리오를 만들 수 있을 것이라고 믿었습니다.</p>
-                        <p>"어떻게 하면 원활하게 진행할 수 있을까"를 고민한 끝에 절차와 역할 분담 규칙을 정했습니다. 예를 들어 특정 기술이나 콘텐츠를 구현하고 싶은 사람이 있으면 먼저 주어진 임무를 완수한 뒤 다음 단계를 맡도록 운영했습니다.</p>
-                        <p>또한 각자의 장점을 낼 수 있는 방향으로 역할을 조정했고, 작업 단위와 일정 기준을 명확히 나눠 팀 전체 완성도를 높였습니다.</p>
-                    </div>
-                    <div class="about-popup-image-stack">
-                        <img src="assets/images/mentors.jpg" alt="Team communication" class="about-popup-image">
-                        <img src="assets/images/collage.jpg" alt="Project collaboration" class="about-popup-image">
-                    </div>
-                </section>
-
-                <section class="about-popup-section about-popup-section-wide">
-                    <div class="about-popup-copy">
-                        <h3>Problem-Solving Ability</h3>
-                        <p>게임을 만들다 보면 다양한 문제에 부딪히게 됩니다. 그럴 때 저와 저희 팀은 문제 해결에만 집중합니다.</p>
-                        <p>해결책을 찾으면 바로 게임에 적용합니다. 자동 테스트 게임을 만들 때, 패스 밑이 겹쳐 캐릭터가 밀려나는 현상을 막기 위해 아이디어를 빠르게 검증했고, 반복 실험으로 안정적인 흐름을 만들었습니다.</p>
-                        <p>세상에는 같은 길만 따라가서는 해결되지 않는 문제가 많다고 생각합니다. 그래서 저는 필요할 때 기존 방식과 다른 접근을 시도하고, 현재 문제의 본질에 집중해 풀 수 있는 방법을 끝까지 찾습니다.</p>
-                        <p>이런 방식은 팀 프로젝트에서도 동일하게 적용됩니다. 같은 문제를 함께 검토하고 하나씩 해결하는 과정에서 항상 마감 기한을 지키면서도 프로젝트 완성도를 유지해 왔습니다.</p>
-                    </div>
-                </section>
-
-                <section class="about-popup-section-two-col">
-                    <div class="about-popup-copy">
-                        <h3>Resource Management Ability</h3>
-                        <p>제 삶의 철학은 특정 방식이나 기존 가치에 얽매이지 않고 끊임없이 새로운 방법을 모색하는 것입니다. 게임을 만들다 보면 여러 가지 어려운 상황을 마주하게 되는데, 이때 필요한 것은 선택과 집중이라고 생각합니다.</p>
-                        <p>그래서 프로젝트 진행 중에는 늘 "지금 내가 해야 할 일은 무엇인가"를 먼저 정합니다. 생각이 많고 감정이 복잡할 때에도 중요한 작업만 남겨 하나씩 처리하면 프로젝트 흐름을 다시 잡을 수 있습니다.</p>
-                        <p>업무의 완벽함을 모든 것에 추구하기보다, 당면한 우선순위를 집중적으로 해결하는 것이 결과를 만든다고 믿습니다.</p>
-                    </div>
-                    <div class="about-popup-copy">
-                        <h3>마무리</h3>
-                        <p>저는 게임 개발에서 오는 도전을 즐깁니다. 개발과 완성도에 대한 열정과 관심을 유지하면서 새로운 방법을 꾸준히 모색하고 있습니다.</p>
-                        <p>또한 외부 압력에도 흔들리지 않는 균형감과 집중력을 유지하려고 노력합니다. 감정이 흔들릴 때에도 중요한 문제를 우선 해결하고, 팀이 같은 목표를 향해 갈 수 있도록 끝까지 책임을 다하겠습니다.</p>
-                        <p class="about-popup-note">필요하시면 추가 상세 경험과 프로젝트 문서도 공유드릴 수 있습니다.</p>
-                    </div>
-                </section>
+                <article class="about-popup-article">
+                    <h3>About Me</h3>
+                    <img src="assets/images/pp.jpg" alt="OH YOU BIN portrait" class="about-popup-image">
+                    <p>저는 분석과 실행을 동시에 가져가는 개발자입니다. 새로운 문제를 만났을 때 오래 머뭇거리기보다 작은 단위로 빠르게 실행하고, 결과를 보며 개선 방향을 잡는 방식을 선호합니다. 모든 일에서 즐거움과 효율을 함께 찾으려고 하며, 구현 과정에서 왜 이 선택이 필요한지 스스로 설명할 수 있는 상태를 중요하게 생각합니다.</p>
+                    <p>프로젝트를 진행할 때는 항상 "어떤 경험이 더 재미있는가", "어떤 규칙이 사용자 몰입을 높이는가"를 반복해서 질문합니다. 기능이 돌아가기만 하는 상태에 만족하지 않고, 실제 사용자가 체감하는 품질까지 고려해 다듬는 편입니다. 그래서 구현 이후에도 흐름을 다시 점검하고, 불필요한 요소를 줄이며 완성도를 끌어올리는 과정을 꾸준히 반복합니다.</p>
+                    <p>저는 협업에서도 같은 기준을 적용합니다. 역할을 시작하기 전에 소통 규칙과 작업 단위를 명확히 정하고, 각자의 강점이 가장 잘 드러나는 방향으로 업무를 배치합니다. 의견이 충돌할 때는 문제를 지적하기보다 실행 가능한 대안을 제시해 팀이 다시 목표에 집중할 수 있도록 돕습니다. 이 방식은 프로젝트 속도와 품질을 동시에 높이는 데 실제로 효과가 있었습니다.</p>
+                    <img src="assets/images/mentors.jpg" alt="Team communication" class="about-popup-inline-image">
+                    <p>문제 해결 과정에서는 선택과 집중을 중요하게 봅니다. 일이 복잡해질수록 지금 당장 해결해야 할 핵심 과제를 먼저 분리하고, 우선순위가 높은 작업을 끝까지 밀어붙입니다. 완벽한 해답을 한 번에 찾기보다, 검증 가능한 가설을 빠르게 시도하고 데이터를 통해 개선하는 방식이 결국 가장 안정적인 결과를 만든다고 믿습니다.</p>
+                    <p>자원 관리 측면에서도 동일합니다. 제한된 시간과 인력 안에서 결과를 내야 할 때, 모든 것을 동시에 잘하려고 하기보다 프로젝트 목적에 직접 연결되는 항목에 집중합니다. 이렇게 중요한 항목부터 확실히 마무리하면 일정 리스크를 줄일 수 있고, 팀 전체의 작업 신뢰도도 함께 올라갑니다. 저는 이러한 방식으로 마감과 완성도를 동시에 맞추는 데 강점을 가지고 있습니다.</p>
+                    <img src="assets/images/collage.jpg" alt="Project collaboration" class="about-popup-inline-image">
+                    <p>결국 제가 지향하는 개발은 기술 그 자체보다 "사람이 실제로 더 나은 경험을 하게 만드는 기술"입니다. 저는 게임 개발에서 오는 도전을 즐기고, 어려운 상황에서도 균형을 잃지 않으며 끝까지 결과를 만들어내는 사람이고자 합니다. 앞으로도 실행력, 협업력, 문제 해결력을 꾸준히 강화해 팀과 사용자 모두에게 신뢰를 주는 개발자가 되겠습니다.</p>
+                    <p class="about-popup-note">필요하시면 프로젝트별 상세 회고와 구현 문서도 공유드릴 수 있습니다.</p>
+                </article>
             </div>
         </div>
     </div>
