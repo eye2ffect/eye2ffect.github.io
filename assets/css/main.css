@@ -741,6 +741,10 @@ body::before {
   margin-bottom: 1rem;
 }
 
+.about-popup-section-full {
+  grid-template-columns: 1fr;
+}
+
 .about-popup-copy h3 {
   margin: 0 0 0.75rem;
   font-family: var(--font-display);
@@ -752,6 +756,22 @@ body::before {
   font-size: 1.18rem;
   color: var(--text-secondary);
   line-height: 2.05;
+}
+
+.about-popup-copy ul {
+  margin: 0.3rem 0 0.9rem 1.2rem;
+  color: var(--text-secondary);
+  line-height: 1.9;
+}
+
+.about-popup-copy li {
+  margin-bottom: 0.35rem;
+}
+
+.about-popup-note {
+  font-size: 1.03rem !important;
+  color: var(--text-muted) !important;
+  margin-top: 0.4rem !important;
 }
 
 .about-popup-body::-webkit-scrollbar {
