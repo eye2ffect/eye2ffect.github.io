@@ -66,10 +66,10 @@ var projects_data = [
 	{
 		image: reseahch.image,
 		link: 'https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE12000767',
-		title: 'Research Paper (DBpia)',
+		title: 'Smart Factory Security Research',
 		demo: false,
 		technologies: ['Research', 'Security', 'Paper'],
-		description: 'DBpia에 등록된 논문 링크입니다.',
+		description: '스마트팩토리 테스트베드 보안 동향 분석 및 단계별 대응 로드맵 연구 논문입니다.',
 		categories: ['Personal project'],
 		icon: 'fa-file-alt',
 		linkLabel: 'DBpia',
