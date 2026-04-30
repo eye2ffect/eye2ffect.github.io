@@ -1,16 +1,25 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="OH YOU BIN game developer favicon">
-  <rect width="64" height="64" rx="14" fill="#06060c"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="eye2ffect favicon">
+  <rect width="64" height="64" rx="14" fill="#0f0f12"/>
+  <rect x="2" y="2" width="60" height="60" rx="13" fill="none" stroke="#ffffff" opacity="0.10" stroke-width="2"/>
 
-  <!-- Gamepad outline -->
-  <path d="M20 26h24c6.1 0 11 4.9 11 11v2c0 6.1-4.9 11-11 11-3.6 0-6.9-1.8-8.9-4.8L32 41l-3.1 4.2c-2 3-5.3 4.8-8.9 4.8-6.1 0-11-4.9-11-11v-2c0-6.1 4.9-11 11-11Z"
-        fill="none" stroke="#ffffff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Blocky </> mark (readable at 16px) -->
+  <g fill="#f5f5f7" opacity="0.97">
+    <!-- < -->
+    <rect x="18" y="22" width="5" height="6" rx="2"/>
+    <rect x="21" y="28" width="5" height="6" rx="2"/>
+    <rect x="18" y="34" width="5" height="6" rx="2"/>
 
-  <!-- D-pad -->
-  <path d="M20.5 35.5h7.5" stroke="#ffffff" stroke-width="3.2" stroke-linecap="round"/>
-  <path d="M24.25 31.75v7.5" stroke="#ffffff" stroke-width="3.2" stroke-linecap="round"/>
+    <!-- / -->
+    <rect x="30" y="22" width="5" height="6" rx="2"/>
+    <rect x="33" y="28" width="5" height="6" rx="2"/>
+    <rect x="36" y="34" width="5" height="6" rx="2"/>
 
-  <!-- Buttons -->
-  <circle cx="42.5" cy="33" r="1.9" fill="#ffffff"/>
-  <circle cx="46.8" cy="35.5" r="1.9" fill="#ffffff"/>
-  <circle cx="44.3" cy="39.8" r="1.9" fill="#ffffff"/>
+    <!-- > -->
+    <rect x="46" y="22" width="5" height="6" rx="2"/>
+    <rect x="43" y="28" width="5" height="6" rx="2"/>
+    <rect x="46" y="34" width="5" height="6" rx="2"/>
+  </g>
+
+  <!-- Accent dot (cursor) -->
+  <circle cx="50.5" cy="44.5" r="3" fill="#4a9eff"/>
 </svg>
