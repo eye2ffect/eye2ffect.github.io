@@ -12,8 +12,8 @@ var projects_data = [
     link: 'https://github.com/eye2ffect/OMock',
     title: 'OMock 오목',
     demo: false,
-    technologies: ['JavaScript', 'Game Logic', 'HTML/CSS'],
-    description: '개인으로 구현한 오목 프로젝트입니다. 게임 규칙과 승패 판정을 직접 구성해 플레이할 수 있게 만들었습니다.',
+    technologies: ['Java', 'Swing', 'Minimax', 'AI'],
+    description: '사용자와 대결할 수 있는 Java Swing 기반 오목 AI 구현 프로젝트입니다. Minimax 알고리즘을 핵심 로직으로 적용해 보드 상태를 평가하고, 상대의 공격을 방어하거나 자신의 5목을 완성하는 최적의 수를 선택합니다.',
     categories: ['Personal project'],
     icon: 'fa-chess-board'
   },
