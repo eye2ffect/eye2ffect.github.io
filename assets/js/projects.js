@@ -1,106 +1,155 @@
+/* ================================================================
+	 Projects v3 — with image fallback & demo modal
+	 ================================================================ */
+
 $(document).ready(function () {
 	render_projects('all');
 });
 
-var projects_obj = [
+var projects_data = [
 	{
-		image: 'assets/images/collage.jpg',
-		link: 'https://github.com/eye2ffect/3D-Platformer',
-		title: '3D Platformer Game',
+		image: 'assets/images/Omuk.png',
+		link: 'https://github.com/eye2ffect/OMock',
+		title: 'OMock 오목',
 		demo: false,
-		technologies: ['Unity', 'C#', 'Blender'],
-		description: 'Unity 엔진을 사용하여 제작한 3D 플랫포머 게임입니다. 플레이어 컨트롤, 물리 시스템, 레벨 디자인을 구현했습니다.',
-		categories: ['featured', 'Personal project']
+		technologies: ['Java', 'Swing', 'Minimax', 'AI'],
+		description: '사용자와 대결할 수 있는 Java Swing 기반 오목 AI 구현 프로젝트입니다. Minimax 알고리즘을 핵심 로직으로 적용해 보드 상태를 평가하고, 상대의 공격을 방어하거나 자신의 5목을 완성하는 최적의 수를 선택합니다.',
+		categories: ['Personal project'],
+		icon: 'fa-chess-board'
 	},
 	{
 		image: 'assets/images/soket.png',
 		link: 'https://github.com/eye2ffect/Talk/tree/main',
 		title: 'C# 1:1 TCP Chatting Program',
-		demo: false,
+		demo: 'https://github.com/user-attachments/assets/f20ed9f4-cfb8-4f2d-b915-7fc964291bd2',
 		technologies: ['C#', '.NET WinForms', 'System.Net.Sockets', 'Multi-Threading'],
-		description: 'TCP 소켓 통신과 멀티스레딩 환경에서 UI 동기화를 학습한 개인 프로젝트입니다.',
-		categories: ['Personal project']
+		 description: 'TCP 소켓 통신과 멀티스레딩 환경에서 UI 동기화를 학습한 개인 프로젝트입니다.',
+		categories: ['Personal project'],
+		icon: 'fa-comments'
 	},
 	{
-		image: 'assets/images/mobile-landscape.jpg',
-		link: 'https://github.com/eye2ffect/OpenGL-Engine',
-		title: 'OpenGL Rendering Engine',
+		image: 'assets/images/Pill_solution.png',
+		link: 'https://github.com/eye2ffect/PROJECT-pill_solution-Fronet',
+		title: 'Pill Solution',
 		demo: false,
-		technologies: ['C++', 'OpenGL', 'GLSL'],
-		description: 'C++과 OpenGL을 사용하여 제작한 실시간 렌더링 엔진입니다. 셰이더 프로그래밍과 3D 그래픽스 파이프라인을 구현했습니다.',
-		categories: ['featured', 'Personal project']
+		technologies: ['React', 'Bootstrap'],
+		description: 'React와 Bootstrap으로 만든 팀 프로젝트입니다.',
+		categories: ['Team Project'],
+		icon: 'fa-pills'
 	},
 	{
-		image: 'assets/images/mentors.jpg',
-		link: 'https://github.com/eye2ffect/Team-RPG-Project',
-		title: 'Team RPG Project',
+		image: 'assets/images/ray.webp',
+		link: 'https://github.com/eye2ffect/raytracing-in-one-weekend-cuda',
+		title: 'CUDA 기반 레이트레이싱 렌더러',
 		demo: false,
-		technologies: ['Unity', 'C#', 'SQLite'],
-		description: '팀원들과 함께 제작한 RPG 게임입니다. 캐릭터 시스템, 인벤토리, 퀘스트 시스템을 담당했습니다.',
-		categories: ['featured', 'Team Project']
+		technologies: ['C++', 'CUDA', 'Ray Tracing'],
+		description: 'CUDA 병렬 처리와 메모리 최적화를 통해 렌더링 성능을 개선하고, 결과를 GitHub 레포지토리로 공유했습니다.',
+		categories: ['featured', 'Personal project'],
+		icon: 'fa-tv'
 	},
 	{
-		image: 'assets/images/soot-spirits.png',
-		link: 'https://github.com/eye2ffect/Shader-Studies',
-		title: 'Shader Programming Studies',
-		demo: false,
-		technologies: ['HLSL', 'Unity', 'Shadergraph'],
-		description: '다양한 시각 효과를 구현하며 셰이더 프로그래밍을 학습한 프로젝트입니다.',
-		categories: ['Personal project']
-	},
-	{
-		image: 'assets/images/koalamate.png',
-		link: 'https://github.com/eye2ffect/AI-Behavior-Tree',
-		title: 'AI Behavior Tree System',
-		demo: false,
-		technologies: ['C++', 'AI', 'Game AI'],
-		description: '게임 AI를 위한 행동 트리 시스템을 구현한 프로젝트입니다.',
-		categories: ['Personal project']
+		image: 'assets/images/image.png',
+		link: 'https://github.com/eye2ffect/Unity-VR-Fire-Evacuation',
+		title: 'VR·Unity·GPT AI 학교 화재 대피훈련',
+		demo: 'https://www.youtube.com/embed/MZpwtlP9eL4',
+		technologies: ['Unity', 'VR', 'GPT AI'],
+		description: 'VR 환경에서 화재 상황을 안전하게 체험하고 GPT AI와 상호작용하며 대피 절차를 학습하는 교육 프로젝트입니다.',
+		categories: ['featured', 'Team Project'],
+		icon: 'fa-vr-cardboard'
 	}
 ];
 
 function render_projects(slug) {
-	var projects_area = $('.projects-wrapper');
+	var area = $('.projects-wrapper');
 
 	$('.white-button').removeClass('white-button-hover');
 	$('#' + slug).addClass('white-button-hover');
 
-	var projects = projects_obj.filter(function (project_obj) {
-		if (slug === 'all') {
-			return true;
-		}
-
-		return project_obj.categories.includes(slug);
+	var filtered = projects_data.filter(function (p) {
+		if (slug === 'all') return true;
+		return p.categories.indexOf(slug) !== -1;
 	});
 
-	projects_area.fadeOut(200, function () {
-		var projects_html = projects.map(function (project_obj) {
-			return '<div class="project-card">' +
-				'<div class="project-image">' +
-					'<img src="' + project_obj.image + '" alt="' + project_obj.title + '">' +
-				'</div>' +
+	area.fadeOut(150, function () {
+		var html = filtered.map(function (p) {
+			var demoBtn = p.demo
+				? '<a href="javascript:void(0)" class="project-link demo-link" onclick="event.stopPropagation(); openVideoModal(\'' + p.title.replace(/'/g, "\\'") + '\', \'' + p.demo + '\')"><i class="fas fa-play"></i> Demo</a>'
+				: '';
+
+			// Image or icon placeholder
+			var imageHtml;
+			if (p.image) {
+				imageHtml = '<img src="' + p.image + '" alt="' + p.title + '" loading="lazy" onerror="this.style.display=\'none\'; this.nextElementSibling.style.display=\'flex\';">' +
+					'<div class="project-image-placeholder" style="display:none;"><i class="fas ' + (p.icon || 'fa-code') + '"></i><span>' + p.title + '</span></div>';
+			} else {
+				imageHtml = '<div class="project-image-placeholder" style="display:flex;"><i class="fas ' + (p.icon || 'fa-code') + '"></i><span>' + p.title + '</span></div>';
+			}
+
+			return '<div class="project-card" onclick="window.open(\'' + p.link + '\', \'_blank\')">' +
+				'<div class="project-image">' + imageHtml + '</div>' +
 				'<div class="project-content">' +
-					'<div class="project-title">' +
-						'<span>' + project_obj.title + '</span>' +
-						(project_obj.demo ? '<a href="' + project_obj.demo + '" target="_blank" class="project-link">Live Demo</a>' : '') +
-					'</div>' +
-					'<p class="paragraph-text-normal">' + project_obj.description + '</p>' +
-					'<div class="project-technologies">' +
-						project_obj.technologies.map(function (tech) {
-							return '<span class="project-technology">' + tech + '</span>';
-						}).join('') +
+					'<div class="project-title">' + p.title + '</div>' +
+					'<p class="paragraph-text-normal">' + p.description + '</p>' +
+					'<div class="project-technologies" style="margin-bottom:0;">' +
+						p.technologies.map(function (t) { return '<span class="project-technology" onclick="event.stopPropagation();">' + t + '</span>'; }).join('') +
 					'</div>' +
 					'<div class="project-links">' +
-						'<a href="' + project_obj.link + '" target="_blank" class="project-link">GitHub</a>' +
+						'<a href="' + p.link + '" target="_blank" class="project-link" onclick="event.stopPropagation()"><i class="fab fa-github"></i> Code</a>' +
+						demoBtn +
 					'</div>' +
 				'</div>' +
 			'</div>';
 		}).join('');
 
-		projects_area.html(projects_html);
-		projects_area.fadeIn(300);
+		area.html(html);
+
+		area.fadeIn(250, function () {
+			document.querySelectorAll('.project-card').forEach(function (card, idx) {
+				card.style.opacity = '0';
+				card.style.transform = 'translateY(16px)';
+				card.style.transition = 'opacity 0.35s ease-out ' + (idx * 0.05) + 's, transform 0.35s ease-out ' + (idx * 0.05) + 's';
+				setTimeout(function () {
+					card.style.opacity = '1';
+					card.style.transform = 'translateY(0)';
+				}, 30);
+			});
+		});
 	});
 }
+
+// Video Modal
+function openVideoModal(title, url) {
+	var body = document.getElementById('video-modal-body');
+	var isMp4 = /\.mp4($|\?)/i.test(url) || url.indexOf('github.com/user-attachments/assets/') !== -1;
+
+	document.getElementById('video-modal-title').textContent = title + ' — Demo';
+
+	if (isMp4) {
+		body.innerHTML =
+			'<video controls autoplay style="width:100%; border:0; border-radius:8px;">' +
+			'<source src="' + url + '" type="video/mp4">' +
+			'</video>';
+	} else {
+		body.innerHTML =
+			'<iframe src="' + url + '" allowfullscreen allow="autoplay"></iframe>';
+	}
+
+	document.getElementById('video-modal').classList.add('active');
+	document.body.style.overflow = 'hidden';
+}
+
+function closeVideoModal() {
+	document.getElementById('video-modal').classList.remove('active');
+	document.getElementById('video-modal-body').innerHTML = '';
+	document.body.style.overflow = '';
+}
+
+document.addEventListener('click', function (e) {
+	if (e.target.id === 'video-modal') closeVideoModal();
+});
+document.addEventListener('keydown', function (e) {
+	if (e.key === 'Escape') closeVideoModal();
+});
 
 function selected(slug) {
 	render_projects(slug);
