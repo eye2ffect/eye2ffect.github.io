@@ -6,6 +6,12 @@ $(document).ready(function () {
 	render_projects('all');
 });
 
+// Research paper thumbnail (keeps the original typo for compatibility)
+var reseahch = {
+	image: 'assets/images/research.png'
+};
+var research = reseahch;
+
 var projects_data = [
 	{
 		image: 'assets/images/Omuk.png',
@@ -21,7 +27,7 @@ var projects_data = [
 		image: 'assets/images/soket.png',
 		link: 'https://github.com/eye2ffect/Talk/tree/main',
 		title: 'C# 1:1 TCP Chatting Program',
-		demo: 'https://github.com/user-attachments/assets/f20ed9f4-cfb8-4f2d-b915-7fc964291bd2',
+		demo: false,
 		technologies: ['C#', '.NET WinForms', 'System.Net.Sockets', 'Multi-Threading'],
 		 description: 'TCP 소켓 통신과 멀티스레딩 환경에서 UI 동기화를 학습한 개인 프로젝트입니다.',
 		categories: ['Personal project'],
@@ -56,6 +62,18 @@ var projects_data = [
 		description: 'VR 환경에서 화재 상황을 안전하게 체험하고 GPT AI와 상호작용하며 대피 절차를 학습하는 교육 프로젝트입니다.',
 		categories: ['featured', 'Team Project'],
 		icon: 'fa-vr-cardboard'
+	},
+	{
+		image: reseahch.image,
+		link: 'https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE12000767',
+		title: 'Research Paper (DBpia)',
+		demo: false,
+		technologies: ['Research', 'Security', 'Paper'],
+		description: 'DBpia에 등록된 논문 링크입니다.',
+		categories: ['Personal project'],
+		icon: 'fa-file-alt',
+		linkLabel: 'DBpia',
+		linkIconClass: 'fas fa-book'
 	}
 ];
 
@@ -72,6 +90,9 @@ function render_projects(slug) {
 
 	area.fadeOut(150, function () {
 		var html = filtered.map(function (p) {
+			var primaryLinkLabel = p.linkLabel || 'Code';
+			var primaryLinkIconClass = p.linkIconClass || 'fab fa-github';
+
 			var demoBtn = p.demo
 				? '<a href="javascript:void(0)" class="project-link demo-link" onclick="event.stopPropagation(); openVideoModal(\'' + p.title.replace(/'/g, "\\'") + '\', \'' + p.demo + '\')"><i class="fas fa-play"></i> Demo</a>'
 				: '';
@@ -94,7 +115,7 @@ function render_projects(slug) {
 						p.technologies.map(function (t) { return '<span class="project-technology" onclick="event.stopPropagation();">' + t + '</span>'; }).join('') +
 					'</div>' +
 					'<div class="project-links">' +
-						'<a href="' + p.link + '" target="_blank" class="project-link" onclick="event.stopPropagation()"><i class="fab fa-github"></i> Code</a>' +
+						'<a href="' + p.link + '" target="_blank" class="project-link" onclick="event.stopPropagation()"><i class="' + primaryLinkIconClass + '"></i> ' + primaryLinkLabel + '</a>' +
 						demoBtn +
 					'</div>' +
 				'</div>' +
