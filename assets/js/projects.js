@@ -12,6 +12,10 @@ var reseahch = {
 };
 var research = reseahch;
 
+var aws = {
+	image: 'assets/images/aws.png'
+};
+
 var projects_data = [
 	{
 		image: 'assets/images/Omuk.png',
@@ -74,6 +78,18 @@ var projects_data = [
 		icon: 'fa-file-alt',
 		linkLabel: 'DBpia',
 		linkIconClass: 'fas fa-book'
+	},
+	{
+		image: aws.image,
+		link: 'https://drive.google.com/file/d/1o7G_zZXx0gIa_Afo1n12vFBOAK3C8VAT/view?usp=sharing',
+		title: 'AWS EC2 Hosting',
+		demo: false,
+		technologies: ['AWS EC2', 'Ubuntu', 'Apache', 'SSH'],
+		description: 'AWS EC2 인스턴스 구축, 탄력적 IP 할당 및 Apache 웹 서버 호스팅 과정을 문서화한 실무 가이드입니다.',
+		categories: ['Personal project'],
+		icon: 'fa-cloud',
+		linkLabel: 'View PDF',
+		linkIconClass: 'fas fa-file-pdf'
 	}
 ];
 
