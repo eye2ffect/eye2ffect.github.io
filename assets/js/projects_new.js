@@ -8,6 +8,26 @@ $(document).ready(function () {
 
 var projects_data = [
   {
+    image: 'assets/images/Omuk.png',
+    link: 'https://github.com/eye2ffect/OMock',
+    title: 'OMock 오목',
+    demo: false,
+    technologies: ['JavaScript', 'Game Logic', 'HTML/CSS'],
+    description: '개인으로 구현한 오목 프로젝트입니다. 게임 규칙과 승패 판정을 직접 구성해 플레이할 수 있게 만들었습니다.',
+    categories: ['Personal project'],
+    icon: 'fa-chess-board'
+  },
+  {
+    image: 'assets/images/Pill_solution.png',
+    link: 'https://github.com/eye2ffect/PROJECT-pill_solution-Fronet',
+    title: 'Pill Solution',
+    demo: false,
+    technologies: ['Team Project', 'UI', 'Web App'],
+    description: '팀 프로젝트로 진행한 Pill Solution입니다. 약 관리와 알림 흐름을 중심으로 협업해 기능을 구현했습니다.',
+    categories: ['Team Project'],
+    icon: 'fa-pills'
+  },
+  {
     image: 'assets/images/ray.webp',
     link: 'https://github.com/eye2ffect/raytracing-in-one-weekend-cuda',
     title: 'CUDA 기반 레이트레이싱 렌더러',
