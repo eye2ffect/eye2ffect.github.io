@@ -18,6 +18,16 @@ var projects_data = [
     icon: 'fa-chess-board'
   },
   {
+    image: 'assets/images/soket.png',
+    link: 'https://github.com/eye2ffect/Talk/tree/main',
+    title: 'C# 1:1 TCP Chatting Program',
+    demo: 'https://github.com/user-attachments/assets/f20ed9f4-cfb8-4f2d-b915-7fc964291bd2',
+    technologies: ['C#', '.NET WinForms', 'System.Net.Sockets', 'Multi-Threading'],
+     description: 'TCP 소켓 통신과 멀티스레딩 환경에서 UI 동기화를 학습한 개인 프로젝트입니다.',
+    categories: ['Personal project'],
+    icon: 'fa-comments'
+  },
+  {
     image: 'assets/images/Pill_solution.png',
     link: 'https://github.com/eye2ffect/PROJECT-pill_solution-Fronet',
     title: 'Pill Solution',
@@ -46,16 +56,6 @@ var projects_data = [
     description: 'VR 환경에서 화재 상황을 안전하게 체험하고 GPT AI와 상호작용하며 대피 절차를 학습하는 교육 프로젝트입니다.',
     categories: ['featured', 'Team Project'],
     icon: 'fa-vr-cardboard'
-  },
-  {
-    image: 'assets/images/soket.png',
-    link: 'https://github.com/eye2ffect/Talk/tree/main',
-    title: 'C# 1:1 TCP Chatting Program',
-    demo: 'https://github.com/user-attachments/assets/f20ed9f4-cfb8-4f2d-b915-7fc964291bd2',
-    technologies: ['C#', '.NET WinForms', 'System.Net.Sockets', 'Multi-Threading'],
-    description: 'TCP 3-way Handshake와 소켓 통신 기초를 학습하고, 백그라운드 스레드와 Control.Invoke로 UI 동기화를 구현한 개인 프로젝트입니다.',
-    categories: ['Personal project'],
-    icon: 'fa-comments'
   }
 ];
 
