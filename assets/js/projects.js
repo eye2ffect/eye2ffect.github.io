@@ -1,1 +1,107 @@
-$(document).ready(() => {    render_projects('featured');})let render_projects = (slug) => {    let projects_area = $('.projects-wrapper');    $('.white-button').removeClass('white-button-hover');    $(`#${slug}`).addClass('white-button-hover');    let projects_obj = [        {            image: 'assets/images/collage.jpg',            link: 'https://github.com/eye2ffect/3D-Platformer',            title: '3D Platformer Game',            demo: false,            technologies: ['Unity', 'C#', 'Blender'],            description: "Unity 엔진을 사용하여 제작한 3D 플랫포머 게임입니다. 플레이어 컨트롤, 물리 시스템, 레벨 디자인을 구현했습니다.",            categories: ['featured', 'Personal project']        },        {            image: 'assets/images/mobile-landscape.jpg',            link: 'https://github.com/eye2ffect/OpenGL-Engine',            title: 'OpenGL Rendering Engine',            demo: false,            technologies: ['C++', 'OpenGL', 'GLSL'],            description: "C++과 OpenGL을 사용하여 제작한 실시간 렌더링 엔진입니다. 셰이더 프로그래밍과 3D 그래픽스 파이프라인을 구현했습니다.",            categories: ['featured', 'Personal project']        },        {            image: 'assets/images/mentors.jpg',            link: 'https://github.com/eye2ffect/Team-RPG-Project',            title: 'Team RPG Project',            demo: false,            technologies: ['Unity', 'C#', 'SQLite'],            description: "팀원들과 함께 제작한 RPG 게임입니다. 캐릭터 시스템, 인벤토리, 퀘스트 시스템을 담당했습니다.",            categories: ['featured', 'Team Project']        },        {            image: 'assets/images/soot-spirits.png',            link: 'https://github.com/eye2ffect/Shader-Studies',            title: 'Shader Programming Studies',            demo: false,            technologies: ['HLSL', 'Unity', 'Shadergraph'],            description: "다양한 시각 효과를 구현하며 셰이더 프로그래밍을 학습한 프로젝트입니다.",            categories: ['Personal project']        },        {            image: 'assets/images/koalamate.png',            link: 'https://github.com/eye2ffect/AI-Behavior-Tree',            title: 'AI Behavior Tree System',            demo: false,            technologies: ['C++', 'AI', 'Game AI'],            description: "게임 AI를 위한 행동 트리 시스템을 구현한 프로젝트입니다.",            categories: ['Personal project']        }    ];    let projects = projects_obj.filter(project_obj => {        if(slug == 'all') {            return true;        }        return project_obj.categories.includes(slug);    });    // 부드러운 애니메이션을 위한 페이드 아웃    projects_area.fadeOut(200, function() {        let projects_html = projects.map(project_obj => {            return `            <div class="project-card">                <div class="project-image">                    <img src="${project_obj.image}" alt="${project_obj.title}">                </div>                <div class="project-content">                    <div class="project-title">                        <span>${project_obj.title}</span>                        ${project_obj.demo ? `<a href="${project_obj.demo}" target="_blank" class="project-link">Live Demo</a>` : ''}                    </div>                    <p class="paragraph-text-normal">${project_obj.description}</p>                    <div class="project-technologies">                        ${project_obj.technologies.map(tech => `<span class="project-technology">${tech}</span>`).join('')}                    </div>                    <div class="project-links">                        <a href="${project_obj.link}" target="_blank" class="project-link">GitHub</a>                    </div>                </div>            </div>            `;        }).join('');        projects_area.html(projects_html);        // 부드러운 애니메이션을 위한 페이드 인        projects_area.fadeIn(300);    });}let selected = (slug) => {    render_projects(slug);}
+$(document).ready(function () {
+	render_projects('all');
+});
+
+var projects_obj = [
+	{
+		image: 'assets/images/collage.jpg',
+		link: 'https://github.com/eye2ffect/3D-Platformer',
+		title: '3D Platformer Game',
+		demo: false,
+		technologies: ['Unity', 'C#', 'Blender'],
+		description: 'Unity 엔진을 사용하여 제작한 3D 플랫포머 게임입니다. 플레이어 컨트롤, 물리 시스템, 레벨 디자인을 구현했습니다.',
+		categories: ['featured', 'Personal project']
+	},
+	{
+		image: 'assets/images/soket.png',
+		link: 'https://github.com/eye2ffect/Talk/tree/main',
+		title: 'C# 1:1 TCP Chatting Program',
+		demo: false,
+		technologies: ['C#', '.NET WinForms', 'System.Net.Sockets', 'Multi-Threading'],
+		description: 'TCP 소켓 통신과 멀티스레딩 환경에서 UI 동기화를 학습한 개인 프로젝트입니다.',
+		categories: ['Personal project']
+	},
+	{
+		image: 'assets/images/mobile-landscape.jpg',
+		link: 'https://github.com/eye2ffect/OpenGL-Engine',
+		title: 'OpenGL Rendering Engine',
+		demo: false,
+		technologies: ['C++', 'OpenGL', 'GLSL'],
+		description: 'C++과 OpenGL을 사용하여 제작한 실시간 렌더링 엔진입니다. 셰이더 프로그래밍과 3D 그래픽스 파이프라인을 구현했습니다.',
+		categories: ['featured', 'Personal project']
+	},
+	{
+		image: 'assets/images/mentors.jpg',
+		link: 'https://github.com/eye2ffect/Team-RPG-Project',
+		title: 'Team RPG Project',
+		demo: false,
+		technologies: ['Unity', 'C#', 'SQLite'],
+		description: '팀원들과 함께 제작한 RPG 게임입니다. 캐릭터 시스템, 인벤토리, 퀘스트 시스템을 담당했습니다.',
+		categories: ['featured', 'Team Project']
+	},
+	{
+		image: 'assets/images/soot-spirits.png',
+		link: 'https://github.com/eye2ffect/Shader-Studies',
+		title: 'Shader Programming Studies',
+		demo: false,
+		technologies: ['HLSL', 'Unity', 'Shadergraph'],
+		description: '다양한 시각 효과를 구현하며 셰이더 프로그래밍을 학습한 프로젝트입니다.',
+		categories: ['Personal project']
+	},
+	{
+		image: 'assets/images/koalamate.png',
+		link: 'https://github.com/eye2ffect/AI-Behavior-Tree',
+		title: 'AI Behavior Tree System',
+		demo: false,
+		technologies: ['C++', 'AI', 'Game AI'],
+		description: '게임 AI를 위한 행동 트리 시스템을 구현한 프로젝트입니다.',
+		categories: ['Personal project']
+	}
+];
+
+function render_projects(slug) {
+	var projects_area = $('.projects-wrapper');
+
+	$('.white-button').removeClass('white-button-hover');
+	$('#' + slug).addClass('white-button-hover');
+
+	var projects = projects_obj.filter(function (project_obj) {
+		if (slug === 'all') {
+			return true;
+		}
+
+		return project_obj.categories.includes(slug);
+	});
+
+	projects_area.fadeOut(200, function () {
+		var projects_html = projects.map(function (project_obj) {
+			return '<div class="project-card">' +
+				'<div class="project-image">' +
+					'<img src="' + project_obj.image + '" alt="' + project_obj.title + '">' +
+				'</div>' +
+				'<div class="project-content">' +
+					'<div class="project-title">' +
+						'<span>' + project_obj.title + '</span>' +
+						(project_obj.demo ? '<a href="' + project_obj.demo + '" target="_blank" class="project-link">Live Demo</a>' : '') +
+					'</div>' +
+					'<p class="paragraph-text-normal">' + project_obj.description + '</p>' +
+					'<div class="project-technologies">' +
+						project_obj.technologies.map(function (tech) {
+							return '<span class="project-technology">' + tech + '</span>';
+						}).join('') +
+					'</div>' +
+					'<div class="project-links">' +
+						'<a href="' + project_obj.link + '" target="_blank" class="project-link">GitHub</a>' +
+					'</div>' +
+				'</div>' +
+			'</div>';
+		}).join('');
+
+		projects_area.html(projects_html);
+		projects_area.fadeIn(300);
+	});
+}
+
+function selected(slug) {
+	render_projects(slug);
+}
