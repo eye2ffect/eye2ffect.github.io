@@ -22,8 +22,8 @@ var projects_data = [
     link: 'https://github.com/eye2ffect/PROJECT-pill_solution-Fronet',
     title: 'Pill Solution',
     demo: false,
-    technologies: ['Team Project', 'UI', 'Web App'],
-    description: '팀 프로젝트로 진행한 Pill Solution입니다. 약 관리와 알림 흐름을 중심으로 협업해 기능을 구현했습니다.',
+    technologies: ['React', 'Bootstrap'],
+    description: 'React와 Bootstrap으로 만든 팀 프로젝트입니다.',
     categories: ['Team Project'],
     icon: 'fa-pills'
   },
@@ -46,6 +46,16 @@ var projects_data = [
     description: 'VR 환경에서 화재 상황을 안전하게 체험하고 GPT AI와 상호작용하며 대피 절차를 학습하는 교육 프로젝트입니다.',
     categories: ['featured', 'Team Project'],
     icon: 'fa-vr-cardboard'
+  },
+  {
+    image: 'assets/images/soket.png',
+    link: 'https://github.com/eye2ffect/Talk/tree/main',
+    title: 'C# 1:1 TCP Chatting Program',
+    demo: 'https://github.com/user-attachments/assets/f20ed9f4-cfb8-4f2d-b915-7fc964291bd2',
+    technologies: ['C#', '.NET WinForms', 'System.Net.Sockets', 'Multi-Threading'],
+    description: 'TCP 3-way Handshake와 소켓 통신 기초를 학습하고, 백그라운드 스레드와 Control.Invoke로 UI 동기화를 구현한 개인 프로젝트입니다.',
+    categories: ['Personal project'],
+    icon: 'fa-comments'
   }
 ];
 
@@ -109,9 +119,21 @@ function render_projects(slug) {
 
 // Video Modal
 function openVideoModal(title, url) {
+  var body = document.getElementById('video-modal-body');
+  var isMp4 = /\.mp4($|\?)/i.test(url) || url.indexOf('github.com/user-attachments/assets/') !== -1;
+
   document.getElementById('video-modal-title').textContent = title + ' — Demo';
-  document.getElementById('video-modal-body').innerHTML =
-    '<iframe src="' + url + '" allowfullscreen allow="autoplay"></iframe>';
+
+  if (isMp4) {
+    body.innerHTML =
+      '<video controls autoplay style="width:100%; border:0; border-radius:8px;">' +
+      '<source src="' + url + '" type="video/mp4">' +
+      '</video>';
+  } else {
+    body.innerHTML =
+      '<iframe src="' + url + '" allowfullscreen allow="autoplay"></iframe>';
+  }
+
   document.getElementById('video-modal').classList.add('active');
   document.body.style.overflow = 'hidden';
 }
