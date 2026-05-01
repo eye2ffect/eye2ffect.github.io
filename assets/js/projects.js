@@ -81,7 +81,7 @@ var projects_data = [
 	},
 	{
 		image: aws.image,
-		link: 'https://drive.google.com/file/d/1o7G_zZXx0gIa_Afo1n12vFBOAK3C8VAT/view?usp=sharing',
+		link: 'https://drive.google.com/file/d/1CoP6Yy0wh-c0dBn5382NRrotRyKwC2uC/view?usp=sharing',
 		title: 'AWS EC2 Hosting',
 		demo: false,
 		technologies: ['AWS EC2', 'Ubuntu', 'Apache', 'SSH'],
