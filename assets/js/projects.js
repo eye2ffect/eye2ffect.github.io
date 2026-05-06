@@ -61,7 +61,7 @@ var projects_data = [
 		image: 'assets/images/image.png',
 		link: 'https://github.com/eye2ffect/Unity-VR-Fire-Evacuation',
 		title: 'VR·Unity·GPT AI 학교 화재 대피훈련',
-		demo: 'https://www.youtube.com/embed/MZpwtlP9eL4',
+		demo: 'https://youtu.be/f5NpII6tLfI',
 		technologies: ['Unity', 'VR', 'GPT AI'],
 		description: 'VR 환경에서 화재 상황을 안전하게 체험하고 GPT AI와 상호작용하며 대피 절차를 학습하는 교육 프로젝트입니다.',
 		categories: ['featured', 'Team Project'],
@@ -108,9 +108,12 @@ function render_projects(slug) {
 		var html = filtered.map(function (p) {
 			var primaryLinkLabel = p.linkLabel || 'Code';
 			var primaryLinkIconClass = p.linkIconClass || 'fab fa-github';
+			var isYouTubeDemo = typeof p.demo === 'string' && /(?:youtube\.com|youtu\.be)/i.test(p.demo);
 
 			var demoBtn = p.demo
-				? '<a href="javascript:void(0)" class="project-link demo-link" onclick="event.stopPropagation(); openVideoModal(\'' + p.title.replace(/'/g, "\\'") + '\', \'' + p.demo + '\')"><i class="fas fa-play"></i> Demo</a>'
+				? (isYouTubeDemo
+					? '<a href="' + p.demo + '" target="_blank" class="project-link demo-link" onclick="event.stopPropagation()"><i class="fas fa-play"></i> Demo</a>'
+					: '<a href="javascript:void(0)" class="project-link demo-link" onclick="event.stopPropagation(); openVideoModal(\'' + p.title.replace(/'/g, "\\'") + '\', \'' + p.demo + '\')"><i class="fas fa-play"></i> Demo</a>')
 				: '';
 
 			// Image or icon placeholder
@@ -157,9 +160,16 @@ function render_projects(slug) {
 // Video Modal
 function openVideoModal(title, url) {
 	var body = document.getElementById('video-modal-body');
+	var isYouTube = /(?:youtube\.com|youtu\.be)/i.test(url);
+
 	var isMp4 = /\.mp4($|\?)/i.test(url) || url.indexOf('github.com/user-attachments/assets/') !== -1;
 
 	document.getElementById('video-modal-title').textContent = title + ' — Demo';
+
+	if (isYouTube) {
+		window.open(url, '_blank');
+		return;
+	}
 
 	if (isMp4) {
 		body.innerHTML =
@@ -168,7 +178,8 @@ function openVideoModal(title, url) {
 			'</video>';
 	} else {
 		body.innerHTML =
-			'<iframe src="' + url + '" allowfullscreen allow="autoplay"></iframe>';
+			'<div style="padding: 1rem; text-align: center;">이 데모는 새 탭에서 열립니다.</div>';
+		window.open(url, '_blank');
 	}
 
 	document.getElementById('video-modal').classList.add('active');
