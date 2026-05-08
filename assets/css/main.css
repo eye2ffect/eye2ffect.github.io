@@ -215,7 +215,7 @@ body::before {
   display: inline-flex; align-items: center; justify-content: center;
   cursor: pointer;
   transition: all 0.25s var(--ease-out);
-  margin-left: 0.35rem;
+  margin-left: 0.6rem;
   flex: 0 0 auto;
 }
 .theme-toggle:hover {
