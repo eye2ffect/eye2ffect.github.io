@@ -3,61 +3,59 @@
    ================================================================ */
 
 $(document).ready(function () {
-  initTypingEffect();
+  initThemeToggle();
   initSmoothScroll();
   initStickyNav();
   initScrollReveal();
   initAboutPopup();
 });
 
-/* ================================================================
-   Typing Effect — cycles through phrases
-   ================================================================ */
-function initTypingEffect() {
-  var el = document.getElementById('typing-text');
-  if (!el) return;
+function initThemeToggle() {
+  var button = document.querySelector('[data-theme-toggle]');
+  var root = document.documentElement;
+  var themeColorMeta = document.querySelector('meta[name="theme-color"]');
+  if (!button) return;
 
-  var phrases = [
-    'Game Developer',
-    'Graphics Programmer',
-    'Engine Architect',
-    'Creative Coder',
-    'Unity & C++ Developer'
-  ];
-  var phraseIdx = 0;
-  var charIdx = 0;
-  var isDeleting = false;
-  var typeSpeed = 80;
-  var deleteSpeed = 40;
-  var pauseEnd = 2000;
-  var pauseStart = 500;
-
-  function tick() {
-    var current = phrases[phraseIdx];
-
-    if (isDeleting) {
-      charIdx--;
-      el.textContent = current.substring(0, charIdx);
-    } else {
-      charIdx++;
-      el.textContent = current.substring(0, charIdx);
+  function applyTheme(theme) {
+    var isDark = theme === 'dark';
+    root.setAttribute('data-theme', theme);
+    root.style.colorScheme = theme;
+    if (themeColorMeta) {
+      themeColorMeta.setAttribute('content', isDark ? '#06060c' : '#f7f8fc');
     }
 
-    var delay = isDeleting ? deleteSpeed : typeSpeed;
-
-    if (!isDeleting && charIdx === current.length) {
-      delay = pauseEnd;
-      isDeleting = true;
-    } else if (isDeleting && charIdx === 0) {
-      isDeleting = false;
-      phraseIdx = (phraseIdx + 1) % phrases.length;
-      delay = pauseStart;
-    }
-
-    setTimeout(tick, delay);
+    button.setAttribute('aria-pressed', String(isDark));
+    button.setAttribute('aria-label', isDark ? '라이트 모드로 전환' : '다크 모드로 전환');
+    button.innerHTML = isDark
+      ? '<i class="fas fa-sun" aria-hidden="true"></i>'
+      : '<i class="fas fa-moon" aria-hidden="true"></i>';
   }
 
-  setTimeout(tick, 300);
+  function getStoredTheme() {
+    try {
+      return localStorage.getItem('theme');
+    } catch (error) {
+      return null;
+    }
+  }
+
+  function setStoredTheme(theme) {
+    try {
+      localStorage.setItem('theme', theme);
+    } catch (error) {
+      return;
+    }
+  }
+
+  var initialTheme = root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+  var savedTheme = getStoredTheme();
+  applyTheme(savedTheme === 'dark' ? 'dark' : initialTheme);
+
+  button.addEventListener('click', function () {
+    var nextTheme = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    applyTheme(nextTheme);
+    setStoredTheme(nextTheme);
+  });
 }
 
 /* ================================================================
