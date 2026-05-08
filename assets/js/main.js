@@ -11,10 +11,10 @@ $(document).ready(function () {
 });
 
 function initThemeToggle() {
-  var button = document.querySelector('[data-theme-toggle]');
+  var buttons = document.querySelectorAll('[data-theme-toggle]');
   var root = document.documentElement;
   var themeColorMeta = document.querySelector('meta[name="theme-color"]');
-  if (!button) return;
+  if (!buttons.length) return;
 
   function applyTheme(theme) {
     var isDark = theme === 'dark';
@@ -24,11 +24,13 @@ function initThemeToggle() {
       themeColorMeta.setAttribute('content', isDark ? '#06060c' : '#f7f8fc');
     }
 
-    button.setAttribute('aria-pressed', String(isDark));
-    button.setAttribute('aria-label', isDark ? '라이트 모드로 전환' : '다크 모드로 전환');
-    button.innerHTML = isDark
-      ? '<i class="fas fa-sun" aria-hidden="true"></i>'
-      : '<i class="fas fa-moon" aria-hidden="true"></i>';
+    buttons.forEach(function (button) {
+      button.setAttribute('aria-pressed', String(isDark));
+      button.setAttribute('aria-label', isDark ? '라이트 모드로 전환' : '다크 모드로 전환');
+      button.innerHTML = isDark
+        ? '<i class="fas fa-sun" aria-hidden="true"></i>'
+        : '<i class="fas fa-moon" aria-hidden="true"></i>';
+    });
   }
 
   function getStoredTheme() {
@@ -51,10 +53,12 @@ function initThemeToggle() {
   var savedTheme = getStoredTheme();
   applyTheme(savedTheme === 'dark' ? 'dark' : initialTheme);
 
-  button.addEventListener('click', function () {
-    var nextTheme = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-    applyTheme(nextTheme);
-    setStoredTheme(nextTheme);
+  buttons.forEach(function (button) {
+    button.addEventListener('click', function () {
+      var nextTheme = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      applyTheme(nextTheme);
+      setStoredTheme(nextTheme);
+    });
   });
 }
 

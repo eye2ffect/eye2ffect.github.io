@@ -217,6 +217,26 @@ body::before {
   color: var(--cyan);
   background: var(--bg-card-hover);
 }
+
+.theme-toggle-floating {
+  position: fixed;
+  top: var(--space-3);
+  right: var(--space-3);
+  z-index: 1002;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.12);
+}
+
+html[data-theme='dark'] .theme-toggle-floating {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.32);
+}
+
+@media (max-width: 768px) {
+  .theme-toggle-floating {
+    top: 0.75rem;
+    right: 0.75rem;
+    width: 40px;
+    height: 40px;
+  }
 }
 
 /* ================================================================
