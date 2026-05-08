@@ -300,18 +300,34 @@ html[data-theme='dark'] .theme-toggle-floating {
 }
 
 .hero-intro {
-  max-width: 24ch;
+  max-width: 18ch;
   font-family: var(--font-display);
   font-size: clamp(1.2rem, 1.9vw, 1.55rem);
   font-weight: 500;
   letter-spacing: -0.03em;
   color: var(--text-secondary);
-  line-height: 1.55;
+  line-height: 1.35;
   margin-bottom: var(--space-6);
   opacity: 0; animation: heroFadeIn 0.6s var(--ease-out) 0.9s forwards;
 }
 .hero-intro .accent {
   color: var(--primary);
+}
+
+.hero-intro-lead,
+.hero-intro-sub {
+  display: block;
+}
+
+.hero-intro-lead {
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.3rem;
+}
+
+.hero-intro-sub {
+  font-weight: 500;
+  color: var(--text-secondary);
 }
 
 .hero-actions {
