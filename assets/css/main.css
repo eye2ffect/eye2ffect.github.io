@@ -181,7 +181,7 @@ body::before {
 }
 .sticky-nav.visible { transform: translateY(0); opacity: 1; }
 .sticky-nav-inner {
-  max-width: 960px; margin: 0 auto;
+  max-width: 1000px; margin: 0 auto;
   display: flex; align-items: center; justify-content: space-between;
   padding: 0.7rem 1rem;
   gap: 1rem;
@@ -223,12 +223,6 @@ body::before {
   color: var(--primary);
   background: var(--bg-card-hover);
 }
-.theme-toggle-floating {
-  position: fixed;
-  top: 0.7rem;
-  right: max(var(--space-2), calc((100vw - 960px) / 2 + 0.45rem));
-  z-index: 1001;
-}
 
 /* ================================================================
    Hero Section
@@ -253,7 +247,7 @@ body::before {
 }
 
 .hero-inner {
-  max-width: 960px;
+  max-width: var(--max-width);
   margin: 0 auto; width: 100%;
   padding: var(--space-12) 0;
   position: relative; z-index: 2;
@@ -1448,10 +1442,6 @@ body::before {
     font-size: 0.6rem;
     padding: 5px 6px;
     letter-spacing: 0.02em;
-  }
-  .theme-toggle-floating {
-    top: 0.55rem;
-    right: 0.65rem;
   }
   
   /* Other Mobile Fixes */
