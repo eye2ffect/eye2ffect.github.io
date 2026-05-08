@@ -221,8 +221,8 @@ body::before {
 
 .theme-toggle-floating {
   position: fixed;
-  top: var(--space-3);
-  right: var(--space-3);
+  top: 0.7rem;
+  right: max(var(--space-3), calc((100vw - var(--max-width)) / 2 + var(--space-3)));
   z-index: 1002;
   box-shadow: 0 10px 30px rgba(18, 24, 38, 0.12);
 }
@@ -1396,11 +1396,8 @@ html[data-theme='dark'] .theme-toggle-floating {
   }
 
   .hero-intro {
-    white-space: normal;
-    max-width: 100%;
-    display: block;
-    font-size: 1rem;
-    line-height: 1.45;
+    font-size: 0.9rem;
+    line-height: 1.25;
   }
 }
 
