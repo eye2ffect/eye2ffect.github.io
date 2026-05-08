@@ -491,6 +491,107 @@ html[data-theme='dark'] .theme-toggle-floating {
   align-items: start;
 }
 
+.about-section-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(260px, 0.85fr);
+  gap: var(--space-6);
+  align-items: center;
+  margin-bottom: var(--space-5);
+  padding: var(--space-5);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  background: var(--bg-card);
+  box-shadow: var(--panel-shadow);
+}
+
+.about-section-card-reverse {
+  grid-template-columns: minmax(260px, 0.85fr) minmax(0, 1.15fr);
+}
+
+.about-section-copy h3 {
+  margin: 0 0 var(--space-3);
+  font-family: var(--font-display);
+  font-size: var(--text-h3);
+  color: var(--text-primary);
+  line-height: 1.25;
+}
+
+.about-section-copy p,
+.about-section-note p,
+.about-metric-card p {
+  font-family: var(--font-body);
+  color: var(--text-secondary);
+  line-height: 1.9;
+  word-break: keep-all;
+}
+
+.about-section-kicker {
+  margin-bottom: 0.6rem;
+  font-family: var(--font-mono);
+  font-size: var(--text-xxs);
+  color: var(--primary);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.about-section-visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-section-image {
+  width: 100%;
+  max-width: 360px;
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  object-fit: cover;
+  background: var(--bg-surface);
+}
+
+.about-section-note {
+  padding: var(--space-4);
+  background: var(--bg-secondary);
+  border-radius: 18px;
+  border: 1px solid var(--border);
+}
+
+.about-section-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-3);
+}
+
+.about-metric-card {
+  padding: var(--space-4);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: var(--bg-card);
+}
+
+.about-metric-card h3 {
+  margin: 0 0 0.7rem;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  color: var(--text-primary);
+}
+
+.about-metric-card p {
+  margin: 0;
+  font-size: var(--text-small);
+}
+
+@media (max-width: 900px) {
+  .about-section-card,
+  .about-section-card-reverse {
+    grid-template-columns: 1fr;
+  }
+
+  .about-section-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 .about-simple-profile {
   display: flex;
   flex-direction: column;
