@@ -20,16 +20,17 @@ function initThemeToggle() {
     var isDark = theme === 'dark';
     root.setAttribute('data-theme', theme);
     root.style.colorScheme = theme;
+    updateStickyNavOffset();
     if (themeColorMeta) {
-      themeColorMeta.setAttribute('content', isDark ? '#06060c' : '#f7f8fc');
+      themeColorMeta.setAttribute('content', isDark ? '#0d1117' : '#f7f3ec');
     }
 
     buttons.forEach(function (button) {
       button.setAttribute('aria-pressed', String(isDark));
       button.setAttribute('aria-label', isDark ? '라이트 모드로 전환' : '다크 모드로 전환');
       button.innerHTML = isDark
-        ? '<i class="fas fa-sun" aria-hidden="true"></i>'
-        : '<i class="fas fa-moon" aria-hidden="true"></i>';
+        ? '<i class="fas fa-sun" aria-hidden="true"></i><span class="theme-toggle-text">Theme</span>'
+        : '<i class="fas fa-moon" aria-hidden="true"></i><span class="theme-toggle-text">Theme</span>';
     });
   }
 
@@ -60,6 +61,30 @@ function initThemeToggle() {
       setStoredTheme(nextTheme);
     });
   });
+}
+
+function getStickyNavOffset() {
+  var nav = document.getElementById('sticky-nav');
+  if (!nav) return 92;
+
+  var navHeight = nav.getBoundingClientRect().height || nav.offsetHeight || 0;
+  return Math.max(88, Math.round(navHeight + 24));
+}
+
+function updateStickyNavOffset() {
+  document.documentElement.style.setProperty('--sticky-nav-offset', getStickyNavOffset() + 'px');
+}
+
+function scrollToAnchor(hash) {
+  if (!hash || hash.charAt(0) !== '#') return;
+
+  var target = document.querySelector(hash);
+  if (!target) return;
+
+  var offset = getStickyNavOffset();
+  var top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+
+  window.scrollTo({ top: Math.max(top, 0), behavior: 'smooth' });
 }
 
 /* ================================================================
@@ -182,13 +207,18 @@ function initAmbientGlow() {
    Smooth Scroll
    ================================================================ */
 function initSmoothScroll() {
-  $('.sticky-nav-links a[href^="#"]').smoothScroll({ offset: -60 });
-  $('.sticky-nav-brand').smoothScroll();
-  $('.hero-btn').each(function () {
+  updateStickyNavOffset();
+
+  $(window).on('resize', updateStickyNavOffset);
+
+  $('.sticky-nav-links a[href^="#"], .sticky-nav-brand, .hero-btn').each(function () {
     var href = $(this).attr('href');
-    if (href && href.startsWith('#')) {
-      $(this).smoothScroll({ offset: -60 });
-    }
+    if (!href || !href.startsWith('#')) return;
+
+    $(this).on('click', function (event) {
+      event.preventDefault();
+      scrollToAnchor(href);
+    });
   });
 }
 
@@ -196,6 +226,8 @@ function initSmoothScroll() {
    Sticky Navigation — show after hero
    ================================================================ */
 function initStickyNav() {
+  updateStickyNavOffset();
+
   $(window).scroll(function () {
     var hero = $('#hero');
     if (!hero.length) return;
