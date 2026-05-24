@@ -1,7 +1,7 @@
 /* Experience & Education — Timeline v3 */
 .experience-grid {
-  max-width: 760px; margin: 0 auto;
-  display: grid; gap: var(--space-2);
+  max-width: 700px; margin: 0 auto;
+  display: grid; gap: 0.6rem;
   padding: 0;
   position: relative;
 }
@@ -18,15 +18,15 @@
   align-items: flex-start;
   background: var(--bg-card);
   border-radius: var(--card-radius, 16px);
-  padding: var(--space-2) var(--space-3);
-  margin-left: 52px;
+  padding: 0.7rem 0.9rem;
+  margin-left: 46px;
   border: 1px solid var(--border);
   position: relative;
   transition: all 0.4s var(--ease-out);
 }
 .experience-item::before {
   content: ''; position: absolute;
-  left: -34px; top: 20px;
+  left: -30px; top: 18px;
   width: 9px; height: 9px;
   background: var(--bg-primary);
   border: 2px solid var(--cyan);
@@ -46,12 +46,12 @@
 }
 
 .experience-period {
-  flex-shrink: 0; width: 124px;
+  flex-shrink: 0; width: 110px;
   font-family: var(--font-mono); font-weight: 600;
   font-size: var(--text-xxs);
   color: var(--cyan);
   background: rgba(0, 212, 255, 0.05);
-  padding: 5px 10px;
+  padding: 4px 8px;
   border-radius: 6px;
   border: 1px solid rgba(0, 212, 255, 0.1);
   text-align: center;
@@ -60,23 +60,23 @@
 .experience-content { flex: 1; }
 .experience-title {
   font-family: var(--font-display);
-  font-size: var(--text-small); font-weight: 600;
+  font-size: var(--text-xs); font-weight: 600;
   color: var(--text-primary);
   margin-bottom: 2px; line-height: 1.25;
 }
 .experience-company {
-  font-size: var(--text-xs);
+  font-size: var(--text-xxs);
   color: var(--cyan); opacity: 0.8;
   font-weight: 500;
-  margin-bottom: var(--space-1);
+  margin-bottom: 0.3rem;
 }
 .experience-description {
   margin: 0; padding: 0; list-style: none;
 }
 .experience-description li {
   color: var(--text-secondary);
-  font-size: var(--text-xs);
-  line-height: 1.7; margin-bottom: 4px;
+  font-size: var(--text-xxs);
+  line-height: 1.5; margin-bottom: 3px;
   position: relative; padding-left: 20px;
 }
 .experience-description li::before {
@@ -89,12 +89,12 @@
   .experience-grid::before { left: 14px; }
   .experience-item {
     flex-direction: column; gap: 0.65rem;
-    padding: var(--space-2); margin-left: 34px;
+    padding: 0.7rem; margin-left: 32px;
   }
-  .experience-item::before { left: -24px; top: 16px; width: 8px; height: 8px; }
+  .experience-item::before { left: -22px; top: 14px; width: 8px; height: 8px; }
   .experience-period { width: auto; text-align: left; align-self: flex-start; }
 }
 @media screen and (max-width: 480px) {
-  .experience-item { padding: 0.7rem; margin-left: 28px; }
-  .experience-item::before { left: -20px; }
+  .experience-item { padding: 0.65rem; margin-left: 26px; }
+  .experience-item::before { left: -18px; }
 }
