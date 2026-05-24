@@ -7,9 +7,16 @@
 <body>
     {% include nav.html %}
 
-    <div class="dual-section-row">
-        {% include education.html %}
-        {% include awards.html %}
+    <div class="section-wrapper">
+        <section class="section education" id="education-awards">
+            <div class="full-width">
+                <div class="section-heading" data-num="02.">교육/수상실적</div>
+                <div class="dual-section-row">
+                    {% include education.html %}
+                    {% include awards.html %}
+                </div>
+            </div>
+        </section>
     </div>
 
     {% include career.html %}

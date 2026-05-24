@@ -908,16 +908,13 @@ html {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: var(--space-3);
-  padding: var(--section-padding) var(--space-3);
-  border-top: 1px solid var(--border);
-  background: var(--bg-secondary);
+  align-items: start;
 }
-.dual-section-row .section-wrapper {
-  border-top: 0;
-  background: transparent;
+.dual-section-row .dual-column {
+  display: block;
 }
-.dual-section-row .section {
-  padding: 0;
+.dual-section-row .experience-grid {
+  margin: 0;
 }
 
 @media screen and (max-width: 900px) {
