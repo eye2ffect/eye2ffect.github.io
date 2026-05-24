@@ -65,10 +65,10 @@
   margin-bottom: 2px; line-height: 1.25;
 }
 .experience-company {
-  font-size: var(--text-xxs);
+  font-size: var(--text-xs);
   color: var(--cyan); opacity: 0.8;
   font-weight: 500;
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.4rem;
 }
 .experience-description {
   margin: 0; padding: 0; list-style: none;

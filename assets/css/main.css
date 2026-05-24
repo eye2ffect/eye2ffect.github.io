@@ -475,6 +475,10 @@ html {
   background: linear-gradient(90deg, var(--border), transparent);
 }
 
+#education-awards .section-heading {
+  font-size: var(--text-h3);
+}
+
 #career .section-heading {
   font-size: var(--text-h2);
 }
