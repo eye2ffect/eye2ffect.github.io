@@ -508,6 +508,55 @@ html {
 }
 
 /* ================================================================
+   Summary Cards (Education / Awards)
+   ================================================================ */
+.summary-card {
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--bg-card);
+  box-shadow: var(--panel-shadow);
+}
+.summary-card-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-display);
+  font-size: var(--text-small);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.6rem;
+}
+.summary-card-title i {
+  color: var(--primary);
+  font-size: 0.9rem;
+}
+.summary-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.5rem;
+}
+.summary-item {
+  display: grid;
+  gap: 0.15rem;
+  padding: 0.5rem 0.6rem;
+  border-radius: 10px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+}
+.summary-label {
+  font-size: var(--text-small);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+.summary-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+}
+
+/* ================================================================
    About Section
    ================================================================ */
 .about-grid {
