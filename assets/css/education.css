@@ -1,6 +1,6 @@
 /* Experience & Education — Timeline v3 */
 .experience-grid {
-  max-width: 700px; margin: 0 auto;
+  max-width: 900px; margin: 0 auto;
   display: grid; gap: 0.6rem;
   padding: 0;
   position: relative;
@@ -18,15 +18,15 @@
   align-items: flex-start;
   background: var(--bg-card);
   border-radius: var(--card-radius, 16px);
-  padding: 0.7rem 0.9rem;
-  margin-left: 46px;
+  padding: 0.8rem 1rem;
+  margin-left: 36px;
   border: 1px solid var(--border);
   position: relative;
   transition: all 0.4s var(--ease-out);
 }
 .experience-item::before {
   content: ''; position: absolute;
-  left: -30px; top: 18px;
+  left: -26px; top: 18px;
   width: 9px; height: 9px;
   background: var(--bg-primary);
   border: 2px solid var(--cyan);
@@ -89,12 +89,12 @@
   .experience-grid::before { left: 14px; }
   .experience-item {
     flex-direction: column; gap: 0.65rem;
-    padding: 0.7rem; margin-left: 32px;
+    padding: 0.75rem; margin-left: 30px;
   }
-  .experience-item::before { left: -22px; top: 14px; width: 8px; height: 8px; }
+  .experience-item::before { left: -20px; top: 14px; width: 8px; height: 8px; }
   .experience-period { width: auto; text-align: left; align-self: flex-start; }
 }
 @media screen and (max-width: 480px) {
-  .experience-item { padding: 0.65rem; margin-left: 26px; }
-  .experience-item::before { left: -18px; }
+  .experience-item { padding: 0.7rem; margin-left: 24px; }
+  .experience-item::before { left: -16px; }
 }

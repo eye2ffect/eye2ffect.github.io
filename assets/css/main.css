@@ -473,6 +473,10 @@ html {
   background: linear-gradient(90deg, var(--border), transparent);
 }
 
+#career .section-heading {
+  font-size: var(--text-h2);
+}
+
 /* ================================================================
    About Section
    ================================================================ */
