@@ -1,33 +1,33 @@
 /* Experience & Education — Timeline v3 */
 .experience-grid {
-  max-width: 800px; margin: 0 auto;
-  display: grid; gap: var(--space-3);
-  padding: var(--space-2) 0;
+  max-width: 760px; margin: 0 auto;
+  display: grid; gap: var(--space-2);
+  padding: 0;
   position: relative;
 }
 .experience-grid::before {
   content: ''; position: absolute;
-  left: 24px; top: 0; bottom: 0;
+  left: 22px; top: 0; bottom: 0;
   width: 1px;
   background: linear-gradient(180deg, var(--cyan), rgba(0,212,255,0.1), transparent);
   opacity: 0.4;
 }
 
 .experience-item {
-  display: flex; gap: var(--space-3);
+  display: flex; gap: var(--space-2);
   align-items: flex-start;
   background: var(--bg-card);
   border-radius: var(--card-radius, 16px);
-  padding: var(--space-3) var(--space-4);
-  margin-left: 56px;
+  padding: var(--space-2) var(--space-3);
+  margin-left: 52px;
   border: 1px solid var(--border);
   position: relative;
   transition: all 0.4s var(--ease-out);
 }
 .experience-item::before {
   content: ''; position: absolute;
-  left: -36px; top: 24px;
-  width: 10px; height: 10px;
+  left: -34px; top: 20px;
+  width: 9px; height: 9px;
   background: var(--bg-primary);
   border: 2px solid var(--cyan);
   border-radius: 50%;
@@ -36,7 +36,7 @@
   transition: all 0.3s var(--ease-out);
 }
 .experience-item:hover {
-  transform: translateX(6px);
+  transform: translateX(4px);
   border-color: var(--border-hover);
   box-shadow: 0 12px 40px rgba(0,0,0,0.3), 0 0 24px rgba(0,212,255,0.04);
 }
@@ -46,12 +46,12 @@
 }
 
 .experience-period {
-  flex-shrink: 0; width: 140px;
+  flex-shrink: 0; width: 124px;
   font-family: var(--font-mono); font-weight: 600;
-  font-size: var(--text-xs);
+  font-size: var(--text-xxs);
   color: var(--cyan);
   background: rgba(0, 212, 255, 0.05);
-  padding: 6px var(--space-2);
+  padding: 5px 10px;
   border-radius: 6px;
   border: 1px solid rgba(0, 212, 255, 0.1);
   text-align: center;
@@ -60,23 +60,23 @@
 .experience-content { flex: 1; }
 .experience-title {
   font-family: var(--font-display);
-  font-size: var(--text-h3); font-weight: 600;
+  font-size: var(--text-small); font-weight: 600;
   color: var(--text-primary);
-  margin-bottom: 4px; line-height: 1.3;
+  margin-bottom: 2px; line-height: 1.25;
 }
 .experience-company {
-  font-size: var(--text-body);
+  font-size: var(--text-xs);
   color: var(--cyan); opacity: 0.8;
   font-weight: 500;
-  margin-bottom: var(--space-2);
+  margin-bottom: var(--space-1);
 }
 .experience-description {
   margin: 0; padding: 0; list-style: none;
 }
 .experience-description li {
   color: var(--text-secondary);
-  font-size: var(--text-body);
-  line-height: 1.9; margin-bottom: 6px;
+  font-size: var(--text-xs);
+  line-height: 1.7; margin-bottom: 4px;
   position: relative; padding-left: 20px;
 }
 .experience-description li::before {
@@ -88,13 +88,13 @@
 @media screen and (max-width: 768px) {
   .experience-grid::before { left: 14px; }
   .experience-item {
-    flex-direction: column; gap: var(--space-2);
-    padding: var(--space-3); margin-left: 40px;
+    flex-direction: column; gap: 0.65rem;
+    padding: var(--space-2); margin-left: 34px;
   }
-  .experience-item::before { left: -30px; top: 18px; width: 8px; height: 8px; }
+  .experience-item::before { left: -24px; top: 16px; width: 8px; height: 8px; }
   .experience-period { width: auto; text-align: left; align-self: flex-start; }
 }
 @media screen and (max-width: 480px) {
-  .experience-item { padding: var(--space-2); margin-left: 32px; }
-  .experience-item::before { left: -24px; }
+  .experience-item { padding: 0.7rem; margin-left: 28px; }
+  .experience-item::before { left: -20px; }
 }

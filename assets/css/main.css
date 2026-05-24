@@ -55,13 +55,13 @@
   --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
 
   --text-hero: clamp(3rem, 8vw, 5.5rem);
-  --text-h1: clamp(2rem, 4vw, 2.75rem);
-  --text-h2: clamp(1.4rem, 2.8vw, 1.75rem);
-  --text-h3: clamp(1.15rem, 2.2vw, 1.35rem);
-  --text-body: clamp(1rem, 1.5vw, 1.125rem);
-  --text-small: clamp(0.95rem, 1.4vw, 1.0625rem);
-  --text-xs: 0.9375rem;
-  --text-xxs: 0.875rem;
+  --text-h1: clamp(1.8rem, 3.4vw, 2.4rem);
+  --text-h2: clamp(1.2rem, 2.2vw, 1.5rem);
+  --text-h3: clamp(1rem, 1.8vw, 1.2rem);
+  --text-body: clamp(0.92rem, 1.15vw, 1rem);
+  --text-small: clamp(0.85rem, 1vw, 0.95rem);
+  --text-xs: 0.8rem;
+  --text-xxs: 0.75rem;
 
   /* ---- Spacing ---- */
   --space-1: 0.5rem;
@@ -75,7 +75,7 @@
   --space-12: 6rem;
 
   --max-width: 1100px;
-  --section-padding: clamp(4rem, 10vw, 7rem);
+  --section-padding: clamp(3rem, 7vw, 5rem);
   --card-radius: 16px;
 
   /* ---- Motion ---- */
@@ -446,7 +446,7 @@ html {
   font-size: var(--text-h1);
   color: var(--text-primary);
   font-weight: 700; letter-spacing: -0.02em;
-  margin-bottom: var(--space-8);
+  margin-bottom: var(--space-6);
   position: relative;
   display: flex; align-items: center; gap: var(--space-3);
 }
@@ -766,12 +766,12 @@ html {
    ================================================================ */
 .project-technologies {
   display: flex; flex-wrap: wrap; gap: 8px;
-  margin-bottom: var(--space-6); justify-content: center;
+  margin-bottom: var(--space-5); justify-content: center;
 }
 .projects-wrapper {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: var(--space-3);
+  gap: var(--space-2);
 }
 
 .project-card {
@@ -793,7 +793,7 @@ html {
 .project-card:hover::after { opacity: 0; }
 
 .project-image {
-  width: 100%; height: 180px;
+  width: 100%; height: 160px;
   overflow: hidden; position: relative;
   background: var(--bg-secondary);
   display: flex; align-items: center; justify-content: center;
@@ -828,7 +828,7 @@ html {
 }
 
 .project-content {
-  padding: var(--space-3);
+  padding: var(--space-2) var(--space-3);
   position: relative; z-index: 2;
 }
 .project-title {
