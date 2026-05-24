@@ -378,6 +378,8 @@ html {
   background: transparent;
   color: var(--primary);
   border: 1px solid var(--primary);
+  border-radius: 999px;
+  padding: 8px 16px;
 }
 .hero-btn-accent:hover {
   color: var(--bg-primary);
