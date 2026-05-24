@@ -7,7 +7,6 @@ $(document).ready(function () {
   initSmoothScroll();
   initStickyNav();
   initScrollReveal();
-  initAboutPopup();
 });
 
 function initThemeToggle() {
@@ -268,90 +267,4 @@ function initScrollReveal() {
   });
 }
 
-/* ================================================================
-   About Popup
-   ================================================================ */
-function initAboutPopup() {
-  var popup = document.getElementById('about-popup');
-  if (!popup) return;
-
-  var closeBtn = document.getElementById('about-popup-close');
-  var popupBody = popup.querySelector('.about-popup-body');
-
-  // Fallback visibility control to avoid broken rendering when CSS cache is stale.
-  popup.style.display = 'none';
-  popup.setAttribute('aria-hidden', 'true');
-
-  function openAboutPopup() {
-    popup.style.display = 'flex';
-    popup.setAttribute('aria-hidden', 'false');
-    requestAnimationFrame(function () {
-      popup.classList.add('active');
-    });
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeAboutPopup() {
-    popup.classList.remove('active');
-    popup.setAttribute('aria-hidden', 'true');
-    setTimeout(function () {
-      if (!popup.classList.contains('active')) {
-        popup.style.display = 'none';
-      }
-    }, 240);
-    document.body.style.overflow = '';
-  }
-
-  document.querySelectorAll('[data-open-about="true"]').forEach(function (el) {
-    el.addEventListener('click', function (e) {
-      e.preventDefault();
-      openAboutPopup();
-    });
-  });
-
-  if (closeBtn) {
-    closeBtn.addEventListener('click', closeAboutPopup);
-  }
-
-  popup.addEventListener('click', function (e) {
-    if (e.target === popup) closeAboutPopup();
-  });
-
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape' && popup.classList.contains('active')) {
-      closeAboutPopup();
-    }
-  });
-
-  // Drag to scroll for long About content
-  if (popupBody) {
-    var isDragging = false;
-    var startY = 0;
-    var startScrollTop = 0;
-
-    popupBody.addEventListener('mousedown', function (e) {
-      if (e.button !== 0) return;
-      isDragging = true;
-      startY = e.clientY;
-      startScrollTop = popupBody.scrollTop;
-      popupBody.classList.add('dragging');
-    });
-
-    popupBody.addEventListener('mousemove', function (e) {
-      if (!isDragging) return;
-      e.preventDefault();
-      var deltaY = e.clientY - startY;
-      popupBody.scrollTop = startScrollTop - deltaY;
-    });
-
-    function stopDrag() {
-      isDragging = false;
-      popupBody.classList.remove('dragging');
-    }
-
-    popupBody.addEventListener('mouseup', stopDrag);
-    popupBody.addEventListener('mouseleave', stopDrag);
-    document.addEventListener('mouseup', stopDrag);
-  }
-}
 
