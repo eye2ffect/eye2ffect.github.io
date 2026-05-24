@@ -374,6 +374,16 @@ html {
   color: var(--primary);
   background: rgba(63, 141, 255, 0.05);
 }
+.hero-btn-accent {
+  background: transparent;
+  color: var(--primary);
+  border: 1px solid var(--primary);
+}
+.hero-btn-accent:hover {
+  color: var(--bg-primary);
+  background: var(--primary);
+  border-color: var(--primary);
+}
 
 .hero-social {
   position: absolute; bottom: var(--space-6);
