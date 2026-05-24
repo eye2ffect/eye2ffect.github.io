@@ -5,12 +5,122 @@
     {% include head.html %}
 </head>  
 <body>
+    <style>
+        /* About popup container */
+        .about-popup-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 11000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.82);
+            backdrop-filter: blur(10px);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity .25s ease, visibility .25s ease;
+        }
+        .about-popup-overlay.active { opacity: 1; visibility: visible; }
+        .about-popup {
+            width: min(1000px, 95vw);
+            max-height: 94vh;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,.12);
+            border-radius: 16px;
+            background: #181818;
+            color: #e0e0e0;
+        }
+        .about-popup-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid rgba(255,255,255,.12);
+        }
+        .about-popup-title {
+            margin: 0;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #ffffff;
+        }
+        .about-popup-close {
+            background: none;
+            border: none;
+            color: #ffffff;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+
+        .about-popup-body {
+            height: calc(100vh - 200px);
+            max-height: 80vh;
+            overflow-y: auto;
+            overflow-x: hidden;
+            padding: 2rem;
+            scrollbar-gutter: stable;
+            overscroll-behavior: contain;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .about-popup-body::-webkit-scrollbar { width: 8px; }
+        .about-popup-body::-webkit-scrollbar-track { background: rgba(255,255,255,.04); border-radius: 4px; }
+        .about-popup-body::-webkit-scrollbar-thumb {
+            background: rgba(255,255,255,.3);
+            border-radius: 4px;
+        }
+
+        .about-section {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+            padding-bottom: 2rem;
+            margin-bottom: 2rem;
+        }
+        .about-section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        .about-section h3 {
+            font-size: 1.4rem;
+            color: #ffffff;
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
+        .about-section p {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+            word-break: keep-all;
+            color: #cccccc;
+        }
+
+        .about-grid-layout {
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            gap: 2rem;
+            align-items: start;
+            margin-bottom: 1rem;
+        }
+        .about-grid-layout img {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+            object-fit: cover;
+            border: 1px solid rgba(255,255,255,.1);
+        }
+
+        @media (max-width: 768px) {
+            .about-popup-header { padding: 1rem 1.5rem; }
+            .about-popup-body { padding: 1.5rem; }
+            .about-grid-layout { grid-template-columns: 1fr; gap: 1rem; }
+        }
+    </style>
+
     {% include nav.html %}
 
     <div class="section-wrapper">
         <section class="section education" id="education-awards">
             <div class="full-width">
-                <div class="section-heading" data-num="02.">교육/수상실적</div>
+                <div class="section-heading" data-num="01.">Education / Awards</div>
                 <div class="dual-section-row">
                     {% include education.html %}
                     {% include awards.html %}
@@ -33,6 +143,73 @@
                 <button class="video-modal-close" onclick="closeVideoModal()">&times;</button>
             </div>
             <div class="video-modal-body" id="video-modal-body"></div>
+        </div>
+    </div>
+
+    <!-- About Popup -->
+    <div class="about-popup-overlay" id="about-popup">
+        <div class="about-popup" role="dialog" aria-modal="true" aria-labelledby="about-popup-title">
+            <div class="about-popup-header">
+                <h2 id="about-popup-title" class="about-popup-title">자기소개서</h2>
+                <button class="about-popup-close" id="about-popup-close" aria-label="Close About Popup">&times;</button>
+            </div>
+
+            <div class="about-popup-body" tabindex="0">
+                <div class="about-section">
+                    <h3>About Me</h3>
+                    <img src="assets/images/pp.jpg" alt="OH YOU BIN portrait" style="width: min(200px, 100%); border-radius: 10px; margin-bottom: 1rem; border: 1px solid rgba(255,255,255,.1);">
+
+                    <p><strong>저는 개발을 비교적 늦게 시작했습니다.</strong><br>2학년 2학기, 학업과 일을 병행하며 처음 개발을 접했습니다. 고민할 시간이 많지 않았기 때문에 자연스럽게 먼저 시도하고, 문제를 부딪히며 해결하는 방식에 익숙해졌습니다.</p>
+                    <p>보안, 게임, AI 등 여러 분야를 직접 경험하며 어떤 개발을 하고 싶은지 탐색했습니다. 그 과정에서 단순히 기능을 구현하는 것보다, 문제를 정의하고 해결하는 과정이 개발자의 역량을 만든다는 것을 깨달았습니다.</p>
+                    <p>개발을 하다 보면 예상하지 못한 오류나 해결 방법이 바로 보이지 않는 문제가 자주 등장합니다. <strong>저는 그런 순간을 부담이라기보다 성장의 기회로 받아들입니다.</strong></p>
+                    <p>검색으로 바로 해결되지 않는 문제를 하나씩 풀어가고, 같은 상황이 다시 왔을 때 더 나은 방법을 찾는 과정 자체가 개발자로 성장하는 과정이라고 생각합니다.</p>
+                </div>
+
+                <div class="about-section">
+                    <h3>Communication</h3>
+                    <div class="about-grid-layout about-grid-layout-media-stack">
+                        <div>
+                            <p><strong>저는 기술 선택 역시 팀 전체의 상황 속에서 이루어져야 한다고 생각합니다.</strong></p>
+                            <p>MediKnocks 재직 당시 실시간 채팅 기능 구현 과정에서 해외 API인 Sendbird와 국내 솔루션인 톡플러스(현 KLAT) 중 하나를 선택해야 하는 상황이 있었습니다.</p>
+                            <p>Sendbird는 해외 서비스라 기술 지원 경로가 제한적이었고, 톡플러스는 Android와 Swift를 각각 별도로 구현해야 했습니다. 결과적으로 한 명의 개발자가 두 플랫폼을 모두 담당해야 하는 구조였습니다.</p>
+                            <p>앱 개발자와 먼저 1:1로 두 선택지의 장단점을 정리했고, 이후 팀 전체 회의에서 기술 변경이 가져올 작업량과 리스크를 공유했습니다.</p>
+                            <p>논의 끝에 기존 기술 환경을 유지하는 것이 팀 전체의 개발 속도와 안정성에 더 적합하다는 결론에 도달했습니다.</p>
+                            <p>이후 공식 문서를 기반으로 기능을 구현해 앱과 웹에서 모두 채팅 기능이 정상적으로 동작하도록 만들었습니다.</p>
+                            <p>이 경험을 통해 기술 문제를 해결하는 과정에서 코드만큼 중요한 것이 팀 간 소통이라는 것을 배웠습니다.</p>
+                        </div>
+                        <div class="about-media-stack">
+                            <img src="assets/images/communication.jpg" alt="Communication 활동 이미지">
+                            <img src="assets/images/awards.jpg" alt="Awards 활동 이미지">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-section">
+                    <h3>Problem-Solving Ability</h3>
+                    <div class="about-grid-layout">
+                        <div>
+                            <p><strong>정해진 답이 없는 문제일수록 먼저 움직여야 한다고 생각합니다.</strong></p>
+                            <p>MediKnocks에서 처방전 PDF 기능을 구현할 때 가장 먼저 마주한 문제는 기술이 아니라 요구사항이었습니다. 병원마다 처방전 양식이 달랐고, 업계 표준이 존재하지 않았기 때문입니다.</p>
+                            <p>먼저 담당자와 논의해 필요한 항목과 형식을 정리한 뒤 구현을 시작했습니다.</p>
+                            <p>구현 과정에서 가장 어려웠던 부분은 처방전 양식을 실제 문서처럼 정확하게 맞추는 일이었습니다. 자동화 방식으로 구현했을 때는 선이 어긋나거나 칸 정렬이 맞지 않는 문제가 발생했습니다.</p>
+                            <p>결국 레이아웃을 하나씩 직접 조정하며 40회 이상 테스트를 반복했습니다.</p>
+                            <p>팀원들과 피드백을 주고받으며 수정 작업을 진행했고, 실제 처방전과 유사한 형태를 위해 서명 영역에 필기체를 적용하는 방식도 추가했습니다.</p>
+                            <p>최종 결과물은 전체 회의에서 공유되었고, 실제 업무에 활용 가능한 수준으로 완성할 수 있었습니다.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-section">
+                    <h3>Resource Management Ability</h3>
+                    <p><strong>회사 업무와 졸업 작품을 동시에 진행해야 했던 학기에는 시간 관리가 가장 중요한 문제였습니다.</strong></p>
+                    <p>방학 동안 VR 콘텐츠 개발 교육을 받고 부산 벡스코에서 시연 부스를 운영했던 경험을 바탕으로 졸업 작품 주제를 정했습니다.</p>
+                    <p>처음부터 새로 개발하기보다는 3학년 때 만들어두었던 기본 구조를 기반으로 기능을 확장했습니다. VR 기기가 없는 환경이었기 때문에 기능 구조를 먼저 구현하고, 기기가 있는 팀장이 테스트를 진행하는 방식으로 역할을 분담했습니다.</p>
+                    <p>문서와 발표 자료는 팀원이 담당하도록 했고, 필요한 부분은 비대면과 대면을 통해 세 차례에 걸쳐 직접 설명하며 진행했습니다.</p>
+                    <p>주중에는 회사 업무를 수행하고 주말에는 프로젝트를 진행하며 약 한 달 동안 집중적으로 개발을 진행했습니다.</p>
+                    <p>그 결과 AI 음성 안내 기능이 포함된 VR 화재 대피 훈련 시뮬레이션을 기한 내에 완성할 수 있었습니다.</p>
+                    <p>이 경험을 통해 제한된 시간 속에서도 우선순위를 정하고 프로젝트를 완수하는 방법을 배울 수 있었습니다.</p>
+                </div>
+            </div>
         </div>
     </div>
 
