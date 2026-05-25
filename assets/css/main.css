@@ -602,16 +602,16 @@ html {
 .experience-description li,
 .summary-meta,
 .project-content .paragraph-text-normal {
-  font-size: 1rem;
-  line-height: 1.65;
+  font-size: 0.96rem;
+  line-height: 1.6;
 }
 
 /* Career section: increase readability and match education spacing */
 #career .paragraph-text-normal,
 #career .experience-description,
 #career .experience-item p {
-  font-size: 1.08rem;
-  line-height: 1.75;
+  font-size: 1.03rem;
+  line-height: 1.7;
   color: var(--text-body);
 }
 
@@ -628,7 +628,7 @@ html {
 
 /* Projects: larger titles, consistent with other section headings */
 .project-title {
-  font-size: 1.06rem;
+  font-size: 1.02rem;
   line-height: 1.25;
   margin-bottom: 0.25rem;
 }
@@ -658,19 +658,19 @@ html {
   #career .paragraph-text-normal,
   #career .experience-description,
   #career .experience-item p {
-    font-size: 1.04rem;
-    line-height: 1.8;
+    font-size: 1rem;
+    line-height: 1.75;
   }
 
   .summary-label,
   .experience-title,
   .project-title,
   #education-awards .summary-label {
-    font-size: 1.12rem;
+    font-size: 1.06rem;
   }
 
   .project-meta {
-    font-size: 1rem;
+    font-size: 0.96rem;
   }
 }
 
@@ -678,7 +678,7 @@ html {
 .summary-label,
 .experience-title,
 .project-title {
-  font-size: 1.05rem;
+  font-size: 1.02rem;
 }
 
 /* ================================================================
@@ -1051,7 +1051,7 @@ html {
 }
 .project-title {
   font-family: var(--font-display);
-  font-weight: 600; font-size: 1.06rem;
+  font-weight: 600; font-size: 1.02rem;
   color: var(--text-primary);
   margin-bottom: var(--space-1);
   letter-spacing: -0.01em;
@@ -1737,7 +1737,7 @@ html {
   }
   .projects-wrapper { grid-template-columns: 1fr; gap: var(--space-3); }
   .project-content { padding: var(--space-3); }
-  .project-title { font-size: 1.02rem; }
+  .project-title { font-size: 1rem; }
   .stats-row { grid-template-columns: repeat(3, 1fr); gap: var(--space-1); }
   .stat-item { padding: var(--space-2) var(--space-1); }
   .stat-number { font-size: 1.3rem; }
