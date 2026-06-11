@@ -372,7 +372,7 @@ html {
 
 .hero-profile-wrap {
   border-radius: 12px;
-  padding: 8px;
+  padding: 0; /* remove inner padding to avoid extra whitespace when cropping */
   background: var(--profile-bg);
   border: var(--profile-border-width) solid var(--profile-border);
   box-shadow: var(--profile-shadow);
@@ -381,6 +381,7 @@ html {
   will-change: transform;
   width: 100%;
   max-width: 420px;
+  height: 420px; /* fixed container height so image can be cropped to match site ratio */
 }
 
 .hero-profile-wrap:hover {
@@ -391,9 +392,10 @@ html {
 .hero-profile {
   display: block;
   width: 100%;
-  height: auto;
+  height: 100%;
   border-radius: 8px;
-  object-fit: contain;
+  object-fit: cover; /* crop to fill container */
+  object-position: center; /* center the crop */
   filter: var(--profile-filter);
   background: transparent;
 }
@@ -401,7 +403,7 @@ html {
 @media (max-width: 900px) {
   .hero-inner { grid-template-columns: 1fr; }
   .hero-right { order: -1; margin-bottom: var(--space-4); display: flex; justify-content: center; }
-  .hero-profile-wrap { max-width: 360px; }
+  .hero-profile-wrap { max-width: 360px; height: 360px; }
 }
 
 .hero-actions {
