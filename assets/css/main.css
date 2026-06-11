@@ -49,6 +49,14 @@
   --panel-shadow: 0 14px 40px rgba(23, 31, 47, 0.08);
   --noise-opacity: 0.035;
 
+  /* Profile image theme variables */
+  --profile-border: rgba(23, 31, 47, 0.06);
+  --profile-bg: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  --profile-shadow: 0 10px 30px rgba(23,31,47,0.06);
+  --profile-filter: saturate(0.98) contrast(1.01) brightness(1);
+  --profile-border-width: 1px;
+  --profile-glow: rgba(0, 0, 0, 0);
+
   /* ---- Typography ---- */
   --font-display: 'Space Grotesk', system-ui, -apple-system, sans-serif;
   --font-body: 'Pretendard Variable', 'Pretendard', system-ui, sans-serif;
@@ -112,6 +120,14 @@
   --scrollbar-thumb-border: rgba(0, 0, 0, 0.25);
   --panel-shadow: 0 20px 80px rgba(0, 0, 0, 0.45);
   --noise-opacity: 0.25;
+
+  /* Profile image theme variables (dark) */
+  --profile-border: rgba(255, 255, 255, 0.06);
+  --profile-bg: linear-gradient(180deg, rgba(0,0,0,0.18), rgba(255,255,255,0.01));
+  --profile-shadow: 0 10px 30px rgba(0,0,0,0.45);
+  --profile-filter: brightness(0.98) contrast(1.02) saturate(0.95);
+  --profile-border-width: 1px;
+  --profile-glow: rgba(0, 0, 0, 0);
 }
 
 /* ================================================================
@@ -337,6 +353,53 @@ html {
 
 .hero-intro-emphasis .accent {
   color: var(--primary);
+}
+
+/* ================================================================
+   Hero: two-column layout with profile image on the right
+   ================================================================ */
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: var(--space-6);
+  align-items: center;
+}
+
+.hero-left { max-width: 720px; }
+
+.hero-right { display: flex; justify-content: center; }
+
+.hero-profile-wrap {
+  border-radius: 18px;
+  padding: 10px;
+  background: var(--profile-bg);
+  border: var(--profile-border-width) solid var(--profile-border);
+  box-shadow: var(--profile-shadow), 0 10px 30px var(--profile-glow);
+  overflow: hidden;
+  transition: transform 0.25s var(--ease-smooth), border-color 0.25s var(--ease-smooth), box-shadow 0.25s var(--ease-smooth), background-color 0.25s var(--ease-smooth), filter 0.25s var(--ease-smooth);
+  will-change: transform;
+  width: 100%;
+  max-width: 360px;
+}
+
+.hero-profile-wrap:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: var(--profile-shadow), 0 18px 50px var(--profile-glow);
+}
+
+.hero-profile {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+  filter: var(--profile-filter);
+}
+
+@media (max-width: 900px) {
+  .hero-inner { grid-template-columns: 1fr; }
+  .hero-right { order: -1; margin-bottom: var(--space-4); display: flex; justify-content: center; }
+  .hero-profile-wrap { max-width: 320px; }
 }
 
 .hero-actions {
