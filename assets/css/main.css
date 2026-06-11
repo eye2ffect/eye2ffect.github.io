@@ -50,13 +50,13 @@
   --noise-opacity: 0.035;
 
   /* Profile image theme variables */
-  --profile-border: rgba(23, 31, 47, 0.02);
+  --profile-border: rgba(23, 31, 47, 0.08);
   --profile-bg: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
   --profile-shadow: 0 10px 30px rgba(23,31,47,0.06);
   --profile-filter: saturate(0.98) contrast(1.01) brightness(1);
-  --profile-border-width: 0px;
+  --profile-border-width: 1px;
   --profile-glow: rgba(0, 0, 0, 0);
-  --profile-object-position: 4%;
+  --profile-object-position: 2%;
 
   /* ---- Typography ---- */
   --font-display: 'Space Grotesk', system-ui, -apple-system, sans-serif;
@@ -123,13 +123,13 @@
   --noise-opacity: 0.25;
 
   /* Profile image theme variables (dark) */
-  --profile-border: rgba(255, 255, 255, 0.02);
+  --profile-border: rgba(255, 255, 255, 0.10);
   --profile-bg: linear-gradient(180deg, rgba(0,0,0,0.18), rgba(255,255,255,0.01));
   --profile-shadow: 0 10px 30px rgba(0,0,0,0.45);
   --profile-filter: brightness(0.98) contrast(1.02) saturate(0.95);
-  --profile-border-width: 0px;
+  --profile-border-width: 1px;
   --profile-glow: rgba(0, 0, 0, 0);
-  --profile-object-position: 4%;
+  --profile-object-position: 2%;
 }
 
 /* ================================================================
@@ -370,7 +370,7 @@ html {
 
 .hero-left { max-width: 720px; }
 
-.hero-right { display: flex; justify-content: flex-start; }
+.hero-right { display: flex; justify-content: flex-start; margin-left: -0.75rem; }
 
 .hero-profile-wrap {
   border-radius: 12px;
@@ -381,8 +381,8 @@ html {
   overflow: hidden;
   transition: border-color 0.18s var(--ease-smooth), box-shadow 0.18s var(--ease-smooth), background-color 0.18s var(--ease-smooth), filter 0.18s var(--ease-smooth);
   width: 100%;
-  max-width: 340px;
-  height: 380px; /* enlarged container to better balance the hero layout */
+  max-width: 360px;
+  height: 420px; /* enlarged container to better balance the hero layout */
 }
 
 /* Hover effect removed as requested */
@@ -401,7 +401,7 @@ html {
 @media (max-width: 900px) {
   .hero-inner { grid-template-columns: 1fr; }
   .hero-right { order: -1; margin-bottom: var(--space-4); display: flex; justify-content: center; }
-  .hero-profile-wrap { max-width: 300px; height: 340px; }
+  .hero-profile-wrap { max-width: 320px; height: 360px; }
 }
 
 .hero-actions {
