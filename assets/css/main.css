@@ -56,7 +56,7 @@
   --profile-filter: saturate(0.98) contrast(1.01) brightness(1);
   --profile-border-width: 1px;
   --profile-glow: rgba(0, 0, 0, 0);
-  --profile-object-position: 30%;
+  --profile-object-position: 42%;
 
   /* ---- Typography ---- */
   --font-display: 'Space Grotesk', system-ui, -apple-system, sans-serif;
@@ -129,7 +129,7 @@
   --profile-filter: brightness(0.98) contrast(1.02) saturate(0.95);
   --profile-border-width: 1px;
   --profile-glow: rgba(0, 0, 0, 0);
-  --profile-object-position: 30%;
+  --profile-object-position: 42%;
 }
 
 /* ================================================================
