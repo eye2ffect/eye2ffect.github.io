@@ -370,7 +370,7 @@ html {
 
 .hero-left { max-width: 720px; }
 
-.hero-right { display: flex; justify-content: flex-start; margin-left: -1.25rem; }
+.hero-right { display: flex; justify-content: flex-start; margin-left: -1.75rem; }
 
 .hero-profile-wrap {
   border-radius: 12px;
@@ -381,8 +381,8 @@ html {
   overflow: hidden;
   transition: border-color 0.18s var(--ease-smooth), box-shadow 0.18s var(--ease-smooth), background-color 0.18s var(--ease-smooth), filter 0.18s var(--ease-smooth);
   width: 100%;
-  max-width: 380px;
-  height: 440px; /* enlarged container to better balance the hero layout */
+  max-width: 420px;
+  height: 480px; /* enlarged container to better balance the hero layout */
 }
 
 /* Hover effect removed as requested */
@@ -401,7 +401,7 @@ html {
 @media (max-width: 900px) {
   .hero-inner { grid-template-columns: 1fr; }
   .hero-right { order: -1; margin-bottom: var(--space-4); display: flex; justify-content: center; }
-  .hero-profile-wrap { max-width: 340px; height: 380px; }
+  .hero-profile-wrap { max-width: 360px; height: 400px; }
 }
 
 .hero-actions {
