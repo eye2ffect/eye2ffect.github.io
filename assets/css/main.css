@@ -50,13 +50,13 @@
   --noise-opacity: 0.035;
 
   /* Profile image theme variables */
-  --profile-border: rgba(23, 31, 47, 0.06);
+  --profile-border: rgba(23, 31, 47, 0.02);
   --profile-bg: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
   --profile-shadow: 0 10px 30px rgba(23,31,47,0.06);
   --profile-filter: saturate(0.98) contrast(1.01) brightness(1);
-  --profile-border-width: 1px;
+  --profile-border-width: 0px;
   --profile-glow: rgba(0, 0, 0, 0);
-  --profile-object-position: 28%;
+  --profile-object-position: 22%;
 
   /* ---- Typography ---- */
   --font-display: 'Space Grotesk', system-ui, -apple-system, sans-serif;
@@ -123,13 +123,13 @@
   --noise-opacity: 0.25;
 
   /* Profile image theme variables (dark) */
-  --profile-border: rgba(255, 255, 255, 0.06);
+  --profile-border: rgba(255, 255, 255, 0.02);
   --profile-bg: linear-gradient(180deg, rgba(0,0,0,0.18), rgba(255,255,255,0.01));
   --profile-shadow: 0 10px 30px rgba(0,0,0,0.45);
   --profile-filter: brightness(0.98) contrast(1.02) saturate(0.95);
-  --profile-border-width: 1px;
+  --profile-border-width: 0px;
   --profile-glow: rgba(0, 0, 0, 0);
-  --profile-object-position: 28%;
+  --profile-object-position: 22%;
 }
 
 /* ================================================================
@@ -363,7 +363,7 @@ html {
 
 .hero-inner {
   display: grid;
-  grid-template-columns: 1fr 300px;
+  grid-template-columns: 1fr 220px;
   gap: var(--space-6);
   align-items: center;
 }
@@ -381,8 +381,8 @@ html {
   overflow: hidden;
   transition: border-color 0.18s var(--ease-smooth), box-shadow 0.18s var(--ease-smooth), background-color 0.18s var(--ease-smooth), filter 0.18s var(--ease-smooth);
   width: 100%;
-  max-width: 250px;
-  height: 290px; /* reduced container height so profile image is smaller */
+  max-width: 220px;
+  height: 250px; /* reduced container height so profile image is smaller */
 }
 
 /* Hover effect removed as requested */
@@ -401,7 +401,7 @@ html {
 @media (max-width: 900px) {
   .hero-inner { grid-template-columns: 1fr; }
   .hero-right { order: -1; margin-bottom: var(--space-4); display: flex; justify-content: center; }
-  .hero-profile-wrap { max-width: 240px; height: 260px; }
+  .hero-profile-wrap { max-width: 200px; height: 230px; }
 }
 
 .hero-actions {
