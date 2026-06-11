@@ -379,17 +379,13 @@ html {
   border: var(--profile-border-width) solid var(--profile-border);
   box-shadow: var(--profile-shadow);
   overflow: hidden;
-  transition: transform 0.18s var(--ease-smooth), border-color 0.18s var(--ease-smooth), box-shadow 0.18s var(--ease-smooth), background-color 0.18s var(--ease-smooth), filter 0.18s var(--ease-smooth);
-  will-change: transform;
+  transition: border-color 0.18s var(--ease-smooth), box-shadow 0.18s var(--ease-smooth), background-color 0.18s var(--ease-smooth), filter 0.18s var(--ease-smooth);
   width: 100%;
   max-width: 420px;
   height: 420px; /* fixed container height so image can be cropped to match site ratio */
 }
 
-.hero-profile-wrap:hover {
-  transform: translateY(-6px) scale(1.02);
-  box-shadow: var(--profile-shadow), 0 18px 50px var(--profile-glow);
-}
+/* Hover effect removed as requested */
 
 .hero-profile {
   display: block;
