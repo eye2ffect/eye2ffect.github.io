@@ -363,14 +363,14 @@ html {
 
 .hero-inner {
   display: grid;
-  grid-template-columns: 1fr 320px;
+  grid-template-columns: 1fr 150px;
   gap: var(--space-6);
   align-items: center;
 }
 
 .hero-left { max-width: 720px; }
 
-.hero-right { display: flex; justify-content: flex-start; margin-left: -1.75rem; }
+.hero-right { display: flex; justify-content: flex-end; margin-left: 0; }
 
 .hero-profile-wrap {
   border-radius: 12px;
