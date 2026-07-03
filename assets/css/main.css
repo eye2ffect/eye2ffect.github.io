@@ -370,7 +370,7 @@ html {
 
 .hero-left { max-width: 720px; }
 
-.hero-right { display: flex; justify-content: flex-start; margin-left: -2rem; }
+.hero-right { display: flex; justify-content: flex-start; margin-left: -2.75rem; }
 
 .hero-profile-wrap {
   border-radius: 12px;
@@ -395,8 +395,8 @@ html {
   border-radius: 8px;
   object-fit: cover; /* crop to fill container */
   object-position: center var(--profile-object-position); /* crop to show face-to-waist */
-  transform: scale(1.06);
-  transform-origin: center 18%;
+  transform: scale(1.12);
+  transform-origin: center 16%;
   filter: var(--profile-filter);
   background: transparent;
 }
@@ -406,8 +406,8 @@ html {
   .hero-right { order: -1; margin-bottom: var(--space-4); display: flex; justify-content: center; }
   .hero-profile-wrap { max-width: 200px; aspect-ratio: 2 / 3; height: auto; }
   .hero-profile {
-    object-position: center 14%;
-    transform: scale(1.04);
+    object-position: center 12%;
+    transform: scale(1.08);
   }
 }
 
