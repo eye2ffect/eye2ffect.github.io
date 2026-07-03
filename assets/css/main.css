@@ -129,7 +129,7 @@
   --profile-filter: brightness(0.98) contrast(1.02) saturate(0.95);
   --profile-border-width: 1px;
   --profile-glow: rgba(0, 0, 0, 0);
-  --profile-object-position: 2%;
+  --profile-object-position: 8%;
 }
 
 /* ================================================================
@@ -395,6 +395,8 @@ html {
   border-radius: 8px;
   object-fit: cover; /* crop to fill container */
   object-position: center var(--profile-object-position); /* crop to show face-to-waist */
+  transform: scale(1.06);
+  transform-origin: center 18%;
   filter: var(--profile-filter);
   background: transparent;
 }
@@ -403,7 +405,10 @@ html {
   .hero-inner { grid-template-columns: 1fr; }
   .hero-right { order: -1; margin-bottom: var(--space-4); display: flex; justify-content: center; }
   .hero-profile-wrap { max-width: 200px; aspect-ratio: 2 / 3; height: auto; }
-  .hero-profile { object-position: center 16%; }
+  .hero-profile {
+    object-position: center 14%;
+    transform: scale(1.04);
+  }
 }
 
 .hero-actions {
