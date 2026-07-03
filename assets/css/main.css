@@ -395,9 +395,9 @@ html {
   border-radius: 8px;
   object-fit: cover; /* crop to fill container */
   object-position: center var(--profile-object-position); /* crop to show face-to-waist */
-  transform: scale(0.92);
-  transform-origin: center 18%;
-  filter: var(--profile-filter);
+  transform: scale(1.08);
+  transform-origin: center 16%;
+  filter: brightness(1.02) contrast(1.06) saturate(1.02);
   background: transparent;
 }
 
@@ -406,8 +406,8 @@ html {
   .hero-right { order: -1; margin-bottom: var(--space-4); display: flex; justify-content: center; }
   .hero-profile-wrap { max-width: 200px; aspect-ratio: 2 / 3; height: auto; }
   .hero-profile {
-    object-position: center 6%;
-    transform: scale(0.96);
+    object-position: center 8%;
+    transform: scale(1.04);
   }
 }
 
