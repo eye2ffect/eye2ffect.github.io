@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" role="img" aria-labelledby="title desc">
+  <title id="title">C++ GPU rendering illustration</title>
+  <desc id="desc">A C++ code window connected to a GPU chip and a rendered scene.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#f8f5ef"/>
+      <stop offset="1" stop-color="#e8efff"/>
+    </linearGradient>
+    <linearGradient id="beam" x1="0" y1="0" x2="1" y2="0">
+      <stop stop-color="#77a2ff" stop-opacity=".2"/>
+      <stop offset="1" stop-color="#4779ed" stop-opacity=".85"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="600" fill="url(#bg)"/>
+  <circle cx="1000" cy="90" r="180" fill="#d9e5ff" opacity=".55"/>
+  <rect x="95" y="115" width="430" height="350" rx="22" fill="#fffefb" stroke="#d7dfef" stroke-width="3"/>
+  <path d="M95 165h430" stroke="#d7dfef" stroke-width="3"/>
+  <circle cx="128" cy="140" r="7" fill="#f28b82"/>
+  <circle cx="154" cy="140" r="7" fill="#f6c65b"/>
+  <circle cx="180" cy="140" r="7" fill="#71c99b"/>
+  <text x="135" y="222" fill="#6682bd" font-family="monospace" font-size="24">#include &lt;cuda.h&gt;</text>
+  <text x="135" y="270" fill="#293653" font-family="monospace" font-size="25">__global__ void</text>
+  <text x="135" y="308" fill="#4779ed" font-family="monospace" font-size="25">trace_rays(Scene s) {</text>
+  <text x="165" y="350" fill="#4a627f" font-family="monospace" font-size="23">pixel = render(s);</text>
+  <text x="135" y="392" fill="#4779ed" font-family="monospace" font-size="25">}</text>
+  <path d="M550 285h145" stroke="url(#beam)" stroke-width="8" stroke-linecap="round"/>
+  <path d="m675 267 26 18-26 18" fill="none" stroke="#4779ed" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="720" y="188" width="235" height="195" rx="26" fill="#fffefb" stroke="#b9c9ee" stroke-width="4"/>
+  <rect x="770" y="236" width="135" height="100" rx="16" fill="#4779ed"/>
+  <text x="837" y="279" text-anchor="middle" fill="#fff" font-family="monospace" font-weight="700" font-size="22">CUDA</text>
+  <text x="837" y="310" text-anchor="middle" fill="#eaf0ff" font-family="monospace" font-size="16">GPU CORE</text>
+  <path d="M754 170v18m44-18v18m44-18v18m44-18v18m44-18v18M754 383v18m44-18v18m44-18v18m44-18v18m44-18v18M702 231h18m-18 45h18m-18 45h18m235-90h18m-18 45h18m-18 45h18" stroke="#91a9dc" stroke-width="5" stroke-linecap="round"/>
+  <path d="M979 284h66" stroke="#4779ed" stroke-width="7" stroke-linecap="round"/>
+  <circle cx="1080" cy="284" r="63" fill="#fffefb" stroke="#b9c9ee" stroke-width="4"/>
+  <circle cx="1080" cy="284" r="36" fill="#dce7ff"/>
+  <path d="m1024 256 47 28-35 47m100-75-45 28 35 47m-46-101v52" fill="none" stroke="#4779ed" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="600" y="530" text-anchor="middle" fill="#4a5872" font-family="monospace" font-size="22" letter-spacing="5">COMPUTE · RENDER · OPTIMIZE</text>
+</svg>

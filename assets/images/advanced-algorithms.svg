@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" role="img" aria-labelledby="title desc">
+  <title id="title">Advanced algorithm search illustration</title>
+  <desc id="desc">A branching game tree with one highlighted path through candidate moves.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#f8f5ef"/>
+      <stop offset="1" stop-color="#e8efff"/>
+    </linearGradient>
+    <linearGradient id="path" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#8cb0ff"/>
+      <stop offset="1" stop-color="#4779ed"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="600" fill="url(#bg)"/>
+  <circle cx="1030" cy="120" r="205" fill="#d9e5ff" opacity=".55"/>
+  <g fill="none" stroke="#c4d0e7" stroke-width="6" stroke-linecap="round">
+    <path d="M600 130 340 260m260-130 260 130M340 300 210 430m130-130 130 130m130-130 130 130m130-130 130 130"/>
+    <path d="M210 470 150 520m60-50 60 50m130-50-60 50m60-50 60 50m130-50-60 50m60-50 60 50m130-50-60 50m60-50 60 50"/>
+  </g>
+  <path d="M600 130 860 260 730 430 790 520" fill="none" stroke="url(#path)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  <g fill="#fffefb" stroke="#9eafd0" stroke-width="5">
+    <circle cx="600" cy="130" r="38"/>
+    <circle cx="340" cy="280" r="34"/>
+    <circle cx="860" cy="280" r="34"/>
+    <circle cx="210" cy="450" r="29"/>
+    <circle cx="470" cy="450" r="29"/>
+    <circle cx="730" cy="450" r="29"/>
+    <circle cx="990" cy="450" r="29"/>
+  </g>
+  <g fill="#4779ed" stroke="#fffefb" stroke-width="5">
+    <circle cx="600" cy="130" r="38"/>
+    <circle cx="860" cy="280" r="34"/>
+    <circle cx="730" cy="450" r="29"/>
+  </g>
+  <g fill="#fff" font-family="monospace" font-size="19" font-weight="700" text-anchor="middle">
+    <text x="600" y="137">MAX</text>
+    <text x="860" y="287">MIN</text>
+    <text x="730" y="457">MAX</text>
+  </g>
+  <g fill="#4a5872" font-family="monospace" font-size="16" text-anchor="middle">
+    <text x="150" y="566">-3</text>
+    <text x="270" y="566">2</text>
+    <text x="410" y="566">-1</text>
+    <text x="530" y="566">4</text>
+    <text x="670" y="566">1</text>
+    <text x="790" y="566">8</text>
+    <text x="930" y="566">0</text>
+    <text x="1050" y="566">5</text>
+  </g>
+  <text x="600" y="70" text-anchor="middle" fill="#4a5872" font-family="monospace" font-size="21" letter-spacing="5">SEARCH · EVALUATE · CHOOSE</text>
+</svg>

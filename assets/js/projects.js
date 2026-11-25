@@ -18,6 +18,36 @@ var aws = {
 
 var projects_data = [
 	{
+		image: 'assets/images/cpp-project.svg',
+		link: 'https://app.notion.com/p/C-4230c0b210bf80fc9733d65552fc15fd?source=copy_link',
+		title: 'C++ 프로그래밍',
+		demo: false,
+		technologies: ['C++', 'CUDA', 'Ray Tracing'],
+		description: 'C++와 CUDA로 광선의 경로를 계산해 장면을 렌더링하는 프로젝트입니다. GPU 병렬 처리와 컴퓨터 그래픽스 기초를 함께 다룹니다.',
+		categories: ['Personal project'],
+		icon: 'fa-code'
+	},
+	{
+		image: 'assets/images/data-structures-algorithms.svg',
+		link: 'https://app.notion.com/p/4230c0b210bf80118084de843e283cd7?source=copy_link',
+		title: '자료구조 & 알고리즘',
+		demo: false,
+		technologies: ['Data Structures', 'Algorithms', 'Java'],
+		description: '오목 보드의 상태를 표현하고 가능한 수를 탐색해 다음 수를 선택하는 프로젝트입니다. 자료 표현부터 알고리즘 적용까지 담았습니다.',
+		categories: ['Personal project'],
+		icon: 'fa-project-diagram'
+	},
+	{
+		image: 'assets/images/advanced-algorithms.svg',
+		link: 'https://app.notion.com/p/4230c0b210bf80fd992afd1fae3d6d7b?source=copy_link',
+		title: '고급 알고리즘',
+		demo: false,
+		technologies: ['Minimax', 'Game Tree', 'AI'],
+		description: 'Minimax 탐색으로 오목의 여러 수를 비교하고 최선의 수를 선택하는 AI입니다. 게임 트리 탐색을 실제 문제에 적용했습니다.',
+		categories: ['Personal project'],
+		icon: 'fa-project-diagram'
+	},
+	{
 		image: 'assets/images/Omuk.png',
 		link: 'https://github.com/eye2ffect/OMock',
 		title: 'OMock 오목',
