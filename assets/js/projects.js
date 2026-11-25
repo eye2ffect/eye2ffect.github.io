@@ -79,7 +79,7 @@ var projects_data = [
 	},
 	{
 		image: 'assets/images/ray.webp',
-		link: 'https://github.com/eye2ffect/raytracing-in-one-weekend-cuda',
+		link: 'https://github.com/eye2ffect/RayTracing_one_weekend',
 		title: 'CUDA 기반 레이트레이싱 렌더러',
 		demo: false,
 		technologies: ['C++', 'CUDA', 'Ray Tracing'],
